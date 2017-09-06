@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TopPIC Suite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="qkou" >
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 80px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 100px;
+        line-height: 1;
+      }
+      .jumbotron .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="toppic.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="toppic.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="toppic.ico">
+                    <link rel="apple-touch-icon-precomposed" href="toppic.ico">
+                                   <link rel="shortcut icon" href="toppic.ico">
+  </head>
+
+<body style="overflow-y:scroll">
+
+    <div class="container">
+
+      <div class="masthead">
+
+        <h2 class="muted"><font color=#0055DD>TopPIC Suite</font></h2>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="index.html">Summary</a></li>
+                <li><a href="register.html">Downloads</a></li>
+                <li><a href="manual.html">Manual</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span-12" style="font-size:16px">
+          <h3><font color=#0055DD>Summary</font></h3>
+
+          <p>
+          <font color=#0055DD>TopPIC Suite</font>  
+          consists of three software tools for interpretation of top-down mass
+          spectrometry data: TopFD, TopPIC, and TopMG.
+          </p>
+
+          <ul style="list-style-type:circle">
+            <li>
+            <font color=#0055DD>TopFD</font> 
+            (Top-down mass spectral Feature Detection) is a software tool
+            for top-down spectral deconvolution, which groups top-down spectral
+            peaks into isotopomer envelopes and converts isotopomer envelops to
+            monoisotopic neutral masses. In addition, it extracts proteoform features
+            from MS1 spectra. 
+            </li>
+            <li> 
+            <font color=#0055DD>TopPIC</font> 
+            (Top-down mass spectrometry based Proteoform Identification and
+            Characterization) identifies and characterizes proteoforms at the
+            whole proteome level by searching top-down tandem mass spectra
+            against a protein sequence database.  It efficiently identifies
+            proteoforms with unexpected alterations, such as mutations and post-translational
+            modifications (PTMs), accurately estimates statistical significance of
+            identifications, and characterizes reported proteoforms with 
+            unknown mass shifts.  It uses several techniques, such as indexes,
+            spectral alignment, generation function methods, and the
+            modification identification score to increase its speed,
+            sensitivity, and accuracy. 
+            </li>
+            <li>
+            <font color=#0055DD>TopMG</font> 
+            (TOP-Down mass spectrometry based proteoform identification using
+            Mass Graphs) is also a software tool for proteoform identification
+            by searching top-down tandem mass spectra against a protein sequence
+            database. It is capable of identifying ultra-modified
+            proteoforms with variable PTMs and unexpected alterations, such as
+            histone proteoforms and phosphorylated proteoforms. It uses mass
+            graphs, which efficiently represent candidate proteoforms with
+            multiple variable PTMs, to increase the speed and sensitivity in
+            proteoform identification.  
+            </li>
+          </ul>
+
+          <h3><font color=#0055DD>Release notes</font></h3>
+          <h4>Version 1.1.0 (???, 2017)</h4>
+          <ul style="list-style-type:circle">
+            <li>Added TopFD</li>
+            <li>Added TopMG</li>
+            <li>[TopPIC] Added a filteration method based on proteoform-level FDR</li>
+          </ul>
+
+          <h4>Version 1.0.0 (May, 2016)</h4>
+          <ul style="list-style-type:circle">
+            <li>[TopPIC] Added the support for UVPD fragmentation</li>
+            <li>[TopPIC] Added the support for spectral pairs or triplets generated by the alternating fragmentation mode</li>
+            <li>[TopPIC] Optimized the algorithms for protein filtering and spectral alignment</li>
+            <li>[TopPIC] Added the MIScore method for mass shift characterization</li>
+          </ul>
+
+          <h4>Version 0.9.3 (Dec, 2014)</h4>
+          <ul style="list-style-type:circle">
+            <li>[TopPIC] Added table-based <i>E</i>-value estimation</li>
+          </ul>
+
+          <h4>Version 0.9.0 (Dec, 2014)</h4>
+          <ul style="list-style-type:circle">
+            <li>First release</li>
+          </ul>
+
+        </div>
+
+      </div>
+   
+    </div>
+    
+    <script src="assets/js/jquery-1.7.1.min.js"></script>
+
+  </body>
+</html>
