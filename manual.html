@@ -128,7 +128,7 @@
                 <li><a href="index.html">Summary</a></li>
                 <li><a href="register.html">Downloads</a></li>
                 <li><a href="manual.html">Manual</a></li>
-                <li><a href="tutorial.html">Manual</a></li>
+                <li><a href="tutorial.html">Tutorial</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="contact.html">Contact</a></li>
               </ul>
@@ -149,7 +149,7 @@
       <h3><font color=#0066DD>2. TopFD</font></h3>
       <p>
       TopFD (Top-down mass spectral Feature Detection) is a software tool
-      for top-down spectral deconvolution, which groups top-down spectral
+      for top-down spectral deconvolution, which groups top-down mass spectral
       peaks into isotopomer envelopes and converts isotopomer envelops to
       monoisotopic neutral masses. In addition, it extracts proteoform features
       from MS1 spectra. 
@@ -157,74 +157,123 @@
       
 
       <h4><font color=#0066DD>2.1 Input</font></h4>
-      <p>The input of TopFD is the mzXML/mzML file. The raw spectral data from different mass spectrometers
-      can be convert to mzXML/mzML format using <a href="http://proteowizard.sourceforge.net/tools.shtml">msconvert</a>.
-      
-      <p>RAW files generated from Thermo Scientific&#0153; Orbitrap&#0153;  mass spectrometers are used
-      as an example to show how to convert raw files to mzXML files. 
-      A raw data file, e.g., spectra.raw, is first converted into a centroided
-      mzXML file using  
-      <a href="http://proteowizard.sourceforge.net/tools.shtml">msconvert</a> 
-      (msconvert is available only on Microsoft Windows&#0153; systems). 
+      <p>The input of TopFD is an mzML or mzXML top-down mass spectrometry data
+      file. The raw mass spectral data from various mass spectrometers
+      can be converted to mzML or mzXML files using <a href="http://proteowizard.sourceforge.net/tools.shtml">msconvert</a>.
+
+
+      <h4><font color=#0066DD>2.2 Output</font></h4>
+      <p>TopFD outputs an MS1 feature text file and two deconvoluted mass spectral
+      data files (one is for MS1 spectra and the other for MS/MS
+      spectra) in the msalign format, which is similar to the MSF file format. 
       </p>
-      <p><code> msconvert.exe --filter "peakPicking true 1-" --mzXML --zlib
-        spectra.raw</code></p>
-      <p> The argument "peakPicking true 1-" is used to generate a centroided, not
-      profile, mzXML file, which is needed by the spectral deconvolution tool TopFD.</p>
 
+      <h4><font color=#0066DD>2.3 Command line usage</font></h4>
+      <p>To run TopFD, open a console and run the following command.</p>
+      <p><code>topfd [options] spectrum-file-name</code></p>
 
+      <h4>Options</h4>
+      <p><code>-h [ --help ]</code></p>
+      <p>Print this help message.</p>
 
+      <p><code>-c [ --max-charge ] &lt;a positive integer&gt;</code></p>
+      <p>Set the maximum charge state of precursor and fragment ions. The default value is 30.</p>
 
-    <h3><font color=#0099DD>Output</font></h3>
-    <p>TopFD outputs a spectral data file in the msalign format, which is similar to the MGF file format.
-    </p>
+      <p><code>-m [ --max-mass ] &lt;a positive number&gt;</code></p>
+      <p>Set the maximum monoisopotic mass of precursor and fragment ions. The
+      default value is 100,000 Dalton.</p>
+
+      <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
+      <p>Set the error tolerance of m/z values of spectral peaks. The default
+      value is 0.02 thomson.</p>
+
+      <p><code>-s [ --sn-ratio ] &lt;a positive number&gt;</code></p>
+      <p>Set the signal/noise ratio. The default value is 1.</p>
+
+      <p><code>-n [ --missing-level-one ]</code></p>
+      <p>The input spectrum file does not contain MS1 spectra.</p>
 
       
       <h3><font color=#0066DD>3. TopPIC</font></h3>
 
-      <h3><font color=#0066DD>3.1 Input</font></h3>
-      <p>The input of TopPIC Suite consists of a protein database file in the FASTA
-      format and a spectral data file in the msalign format, which is
-      similar to the MGF file format.</p>
-      <h4> Convert raw files to msalign files</h4>
-      <p>RAW files generated from Thermo Scientific&#0153; Orbitrap&#0153;  mass spectrometers are used
-      as an example to show how to convert raw files to msalign files. 
-      A raw data file, e.g., spectra.raw, is first converted into a centroided
-      mzXML file using  
-      <a href="http://proteowizard.sourceforge.net/tools.shtml">msconvert</a> 
-      (msconvert is available only on Microsoft Windows&#0153; systems). 
-      </p>
-      <p><code> msconvert.exe --filter "peakPicking true 1-" --mzXML --zlib
-        spectra.raw</code></p>
-      <p> The argument "peakPicking true 1-" is used to generate a centroided, not
-      profile, mzXML file, which is needed by the spectral deconvolution tool
-      MS-Deconv.</p>
+      <h4><font color=#0066DD>3.1 Input</font></h4>
+      <p>The input of TopPIC consists of a protein database file in the FASTA
+      format and a mass spectral data file in the msalign format. 
 
-      <p> The resulting centroided mzXML file spectra.mzXML is then converted into a 
-      msalign file using <a
-        href="http://bix.ucsd.edu/projects/msdeconv/">MS-Deconv</a>.
+      <h4><font color=#0066DD>3.2 Output</font></h4>
+      <p>TopPIC outputs two tab delimited text files and a collection of html files for identified
+      proteoforms. For example, when the input mass spectral data file is
+      spectrum_msdeconv.msalign, one tab delimited text result file is
+      spectrum_msdeconv.OUTPUT_TABLE containing a list of identified
+      proteoform spectrum-matches, the other tab delimited text result is
+      spectrum_msdeconv.FORM_OUTPUT_TABLE containing a list of identified
+      proteoforms,  and result html files are in the directory 
+      spectrum_msdeconv_html. Open the file spectrum_msdeconv_html/proteins
+      using a web browser, such as Google Chrome or 
+      Firefox (IE is not recommended), to browse all identified
+      proteins, proteoforms and proteoform spectrum-matches.
       </p>
-      <p><code> 
-        java -jar msdeconv.jar spectra.mzXML
-      </code></p>
-      <p>
-      The resulting file spectral_msdeconv.msalign is used as the input
-      spectral data file of TopPIC. 
-      </p>
+      <h4><font color=#0066DD>3.3 Command line usage</font></h4>
+      <p>To run TopPIC, open a console and run the following command.</p>
+      <p><code>toppic [options] database-file-name spectrum-file-name</code></p>
 
+      <h4>Options</h4>
+      <p><code>-h [ --help ]</code></p>
+      <p>Print the help message.</p>
 
-    <h3><font color=#0066DD>Output</font></h3>
-    <p>TopPIC outputs a tab delimited text file and a collection of html files for identified
-    proteoforms. For example, when the input spectral data file is
-    spectral_msdeconv.msalign, the tab delimited text file is
-    spectral_msdeconv.OUTPUT_TABLE and the html files are in the directory 
-    spectral_msdeconv_html. Use a web browser, such as Chrome or Firefox (IE is not recommended), to open the file
-    spectral_msdeconv_html/proteins.html and to browse all identified
-    proteoforms.
-    </p>
-    <p>The results of <a target="_blank" href="ST/proteins.html" ><i>Salmonella typhimurium</i></a> and <a target="_blank" href="EC/proteins.html"><i>Escherichia coli</i></a>
-    data sets are shown as examples.
-    </p>
+      <p><code>-a [ --activation ] &lt;CID|HCD|ETD|UVPD|FILE&gt;</code></p>
+      <p>Fragmentation method of tandem mass spectra. When FILE is used, 
+      fragmentation methods of spectra are given in the input spectral data file. Default value: FILE.</p>
+
+      <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
+      <p>Fixed modifications. Three available options: C57, C58, or the name of a text file containing the information 
+      of fixed modifications (see <a target="_blank" href="example_files/fixed_mods.txt">example file</a>). 
+      When C57 is selected, carbamidomethylation on cysteine is the only fixed modification. 
+      When C58 is selected, carboxymethylation on cysteine is the only fixed modification.</p>
+
+      <p><code>-n [ --n-termimal-form ] &lt;a list of allowed N-terminal forms&gt;</code></p>
+      <p>N-terminal forms of proteins. Four N-terminal forms can be selected: NONE, NME, NME_ACETYLATION, and M_ACETYLATION. 
+      NONE stands for no modifications, NME for N-terminal methionine excision, NME_ACETYLATION for N-terminal acetylation 
+      after the initiator methionine is removed, and M_ACETYLATION for N-terminal methionine acetylation. 
+      When multiple forms are allowed, they are separated by commas. Default value: NONE,NME,NME_ACETYLATION.</p>
+
+      <p><code>-d [ --decoy ]</code></p>
+      <p>Use a shuffled decoy protein database to estimate false discovery rates.
+      When -d is chosen, a shuffled decoy database is automatically
+      generated and appended to the target database before database search, and
+      false discovery rates are estimated using the target-decoy approach.</p>
+
+      <p><code>-e [ --error-tolerance ] &lt;a positive integer&gt;</code></p>
+      <p>Error tolerance for precursor and fragment masses in part-per-million
+      (ppm). Default value: 15. Valid values are 5, 10, and 15 ppm. To use other
+      values, the generating function approach (-g) should be chosen.</p>
+
+      <p><code>-m [ --max-mod ]  &lt;a positive number&gt;</code></p>
+      <p>Maximum absolute value of the mass shift (in Dalton) of an unexpected modification. Default value: 500.</p>
+
+      <p><code>-p [ --num-mod ] &lt;0|1|2&gt;</code></p>
+      <p>Maximum number of unexpected modifications in a proteoform spectrum-match. Default value: 1.</p>
+
+      <p><code>-t [ --cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
+      <p>Cut-off type for filtering proteoform spectrum-matches. Default value: EVALUE.</p>
+
+      <p><code>-v [ --cutoff-value ] &lt;a positive number&gt;</code></p>
+      <p>Cut-off value for filtering proteoform spectrum-matches. Default value: 0.01.</p>
+
+      <p><code>-g [ --generating-function ]</code></p>
+      <p>Use the generating function approach to compute p-values and E-values. It is more accurate than the default lookup table based approach, but it is much slower.</p>
+
+      <p><code>-r [ --num-combined-spectra ] &lt;a positive integer&gt;</code></p>
+      <p>Number of combined spectra. The parameter is set as 2 (or 3) for combining spectral pairs (or triplets) 
+      generated by the alternating fragmentation mode. Default value: 1.</p>
+
+      <p><code>-i [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
+      <p>A text file containing a list of common PTMs for proteoform characterization. The PTMs are used to identify and
+      localize PTMs in reported proteoform spectrum-matches with unknown mass
+      shifts. See <a target="_blank" href="example_files/common_mods.txt" >example file</a>.</p>
+
+      <p><code>-s [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
+      <p>Score threshold (modification identification score) for filtering results of PTM characterization. Default value: 0.45.</p>
         
     <script src="assets/js/jquery-1.7.1.min.js"></script>
 
