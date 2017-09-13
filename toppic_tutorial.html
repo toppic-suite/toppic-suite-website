@@ -1,0 +1,114 @@
+
+
+<h
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TopPIC - Tutorial</title>
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+    </style>
+   </head>
+
+<body style="overflow-y:scroll">
+
+<div class="container">
+
+	<div class="masthead">
+
+        <h1 class="muted"><font color=#0099DD size = "6">TopPIC - Tutorial</font></h1>
+		<p>
+		TopPIC (TOP-down mass spectrometry based Proteoform Identification and Characterization) is a software tool for identification and characterization of proteoforms at the whole proteome level by top-down tandem mass spectra using database search.
+<br> 
+		<p>A computer with a 64-bit Windows 7 operating system is required to run TopPIC.
+<br> 
+
+		</p>
+        
+	</div><!-- /.masthead -->
+
+	<div class="row-fluid" style="font-size:16px">
+		
+    <div class="span-12">
+
+      <h3><font color=#0099DD size="5"><b>How to Download TopPIC:</b></font></h3>
+      <p>
+      <b>Click on the <i><a href = "http://pages.iu.edu/~chandrap/TopPIC-Sample/Software/TopPIC/toppic.exe"><i> here </i></a></i>to download the TopPIC setup file,"toppic-setup-1.0.0.exe" or follow the below steps to download it manually:</b>
+      </p>
+      <p>
+    <ol type = "i">
+	<li>Go to the link  <a href = "http://proteomics.informatics.iupui.edu/software/toppic/windows_cli_manual.html"> TopPIC</a>.</li>
+	<li>From the 'Installation' part, download the setup file 'toppic-setup-1.0.0.exe'</li>
+	<li>After completing the registration (optional), accept the license agreement and click download.</li>
+	<li>This will direct you to the page shown below in the screen shot. Choose the 'Windows Command Line' version.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/1.jpg" alt="No preview available!" height="232" width="500" border="1.5"/></p>
+	<li>Save it in a convenient directory on your system.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/2.jpg" alt="No preview available!" height="250" width="600" border="1.5"/></p>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/3.jpg" alt="No preview available!" height="200" width="600" border="1.5"/></p>
+	<li>To install 'toppic-setup-1.0.0.exe' file, double click on the .exe file and follow the screen shots below.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/4.jpg" alt="No preview available!" height="310" width="600" border="1.5"/></p>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/5.jpg" alt="No preview available!" height="310" width="600" border="1.5"/></p>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/6.jpg" alt="No preview available!" height="340" width="600" border="1.5"/></p>
+	<li>By default, TopPIC software will be installed in the C:\ drive of your system with a 'TopPIC' named folder..</li> 
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/7.jpg" alt="No preview available!" height="390" width="540" border="1.5"/></p>
+	<li>This folder will have the files shown below in the screen shot.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/8.jpg" alt="No preview available!" height="280" width="500" border="1.5"/></p>
+	</ol>
+
+	<h3><font color=#0099DD size="5"><b>How to Use TopPIC:</b></font></h2>
+	<ol type = "i">
+	<li>You can run TopPIC by using the path to the new default folder created in your C:\ drive after installing TopPIC or you can also copy all the seven files (shown in the above screen shot) to your TopPIC folder where you downloaded the 'topic-setup-1.0.0 exe' file, as shown below. The path to the 'topic.exe' file in the command would change accordingly.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/9.jpg" alt="No preview available!" height="250" width="600" border="1.5"/></p>
+	<li>To use TopPIC, you need the following input files:
+	</li>
+	<ol type = "a">
+		<li><p>Fasta file. You can download it directly from <i><a href = "http://pages.iu.edu/~chandrap/TopPIC-Sample/Data/ST.fasta"> here </a></i> , named 'ST.fasta' or follow the below steps to download it manually.</li>
+		<ul type = ".">
+			<li>From the Uniprot Database website <a href = "http://www.uniprot.org/"> Uniprot Database. </a> Enter the organism name in the search box.</li>
+			<li>Select reviewed and in the download option choose FASTA (canonical and isoform).</li>
+			<li>Download the fasta file in the desired directory on your computer.The screen shot below shows the reference fasta file for <i>Salmonella typhimurium </i>.</li>
+			<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/10.jpg" alt="No preview available!" height="316" width="705" border="1.5"/></p>
+			<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/11.jpg" alt="No preview available!" height="200" width="590" border="1.5"/></p>
+		</ul>
+		<li>Msalign file from the MS-Deconv output. Sample msalign file can be downloaded from <a href = "http://pages.iu.edu/~chandrap/TopPIC-Sample/Results/ST_sample_msdeconv.msalign"> link</a> here.</li>
+		<li>Modification files (optional)</li>
+	</ol><br>
+	<li>The final output of TopPIC is OUTPUT table and html file. To generate these, mention the path of msalign file (output of MS-Deconv) and of reference fasta file(from Uniprot Database) as shown below:</li>
+
+	<ol type = "a">
+		<li>For Input, as a test, you can use the downloaded msalign file and reference file(downloaded from sample folder or Uniprot Database)</li>
+		<li>When you run the below command on command prompt, output files(OUTPUT table and html file) will be created in the location where your input msalign file is located.</li>
+	</ol><br>
+	<b>Sample folder toppic-setup-1.0.0.exe location:</b><br><i>C:\TopPIC \toppic.exe</i><br>
+	<b>Sample input msalign file location:</b><br><i> C:\TopPIC-Sample\Results\ST_sample_msdeconv.msalign</i><br>
+	<b>Sample input Fasta file location:</b><br><i> C:\TopPIC-Sample\Data\ST.fasta</i><br>
+	<b>Sample Output file location:</b><br><i>C:\TopPIC-Sample\Results\ST_sample_msdeconv_html<br>C:\TopPIC-Sample\Results\ST_sample_msdeconv.OUTPUT_TABLE</i><br>
+	<b>Sample command:</b><br><i>C:\TopPIC\toppic.exe C:\TopPIC-Sample\Data\ST.fasta C:\TopPIC-Sample\Results\ST_sample_msdeconv.msalign
+</i><br>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/12.jpg" alt="No preview available!" height="19" width="850" border="1.5"/></p>
+	<p>The above command, gives fasta file and msalign file as input. The size of the input msalign file is 6.68 MB and of <i>Salmonella typhimurium</i> reference fasta file is 16.8 KB.The screenshot below shows the output file being processed. </p>
+	<li>The screenshot below shows the output file being processed.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/13.jpg" alt="No preview available!" height="400" width="800" border="1.5"/></p>
+	<li>By default, the resulting output files, html and OUTPUT_TABLE will be saved in the location of msalign files. The time taken to generate the files was 13 minutes. The size of the OUTPUT_TABLE was 380 KB. You can view the html files in a web browser.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/14.jpg" alt="No preview available!" height="230" width="800" border="1.5"/></p>
+	<li>The resultant sample files of TopPIC for <i>Salmonella typhimurium</i> test dataset can also be downloaded directly from here <i><a href = "http://pages.iu.edu/~chandrap/TopPIC-Sample/Results/ST_sample_msdeconv.OUTPUT_TABLE"> Output_Table </a> </i> </li>
+	<li><a href = "http://pages.iu.edu/~chandrap/TopPIC-Sample/Results/ST_sample_msdeconv_html/"> html files </a></li>
+
+	</li>
+	
+	</ol>
+
+	</div>
+	</div>	
+	  
+  </body>
+</html>

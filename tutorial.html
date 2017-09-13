@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TopPIC Suite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="qkou" >
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 80px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 100px;
+        line-height: 1;
+      }
+      .jumbotron .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+      
+      .flex-video {
+		position: relative;
+		padding-top: 25px;
+		padding-bottom: 67.5%;
+		height: 0;
+		margin-bottom: 16px;
+		overflow: hidden;
+	  }
+ 
+	  .flex-video.widescreen { padding-bottom: 57.25%; }
+	  .flex-video.vimeo { padding-top: 0; }
+ 
+	  .flex-video iframe,
+	  .flex-video object,
+	  .flex-video embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	  }
+	  
+	  .code {
+		color: #777;  
+	  }
+	 
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="toppic.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="toppic.ico">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="toppic.ico">
+                    <link rel="apple-touch-icon-precomposed" href="toppic.ico">
+                                   <link rel="shortcut icon" href="toppic.ico">
+  </head>
+
+<body style="overflow-y:scroll">
+
+<div class="container">
+
+  <div class="masthead">
+
+    <h2 class="muted"><font color=#0066DD>TopPIC Suite</font></h2>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li><a href="index.html">Summary</a></li>
+            <li><a href="register.html">Downloads</a></li>
+            <li><a href="manual.html">Manual</a></li>
+            <li><a href="tutorial.html">Tutorial</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /.navbar -->
+  </div><!-- /.masthead -->
+
+  <div class="row-fluid" style="font-size:16px">
+
+    <div class="span-12">
+
+      <h3><font color=#0066DD>1. Overview</font></h3>
+      In this tutorial, we will use TopPIC to analyze a top-down MS/MS data set of <it>Salmonella
+      typhimurium</it>.     
+
+      <h1 class="muted"><font color=#0099DD size = "6">Msconvert - Tutorial</font></h1>
+
+      <p>
+      Msconvert is a software tool in <B>ProteoWizard</B> that converts raw files into various formats.<br><br> 
+      <b>Required Softwares to install MsConvert:</b>
+      <ul>
+        <li>MSVC 2008 SP1 (x86)</li>
+        <li>.NET Framework 3.5 SP1</li>
+        <li>.NET Framework 4.0 (Web Installer)</li>
+      </ul>
+      </p>
+
+
+      <h3><font color=#0099DD size="5"><b>How to Download Msconvert:</b></font></h3>
+      <p>
+      <b>Follow the below steps to download it from the website:</b>
+      </p>
+      <p>
+      <ol type = "i">
+        <li>Create a new folder named 'Proteowizard' in the C:/ drive of your system in order to save all the extracted files of ProteoWizard.</li>
+        <li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
+        <li>Go to 'Download' option.</li>
+        <li>From the Download Type > drop down options, choose 'Windows 64-bit tar.bz2' from End Users list.</li>
+        <li>Agree to the Terms and Conditions.</li>
+        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/1.jpg" alt="No preview available!" height="200" width="1100" border="1.5"/></p>
+        <li>This downloads 'msconvert.exe' along with all other tools of ProteoWizard.</li>
+        <li>Save the zipped folder in 'ProteoWizard folder' created earlier.</li>
+        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/2.jpg" alt="No preview available!" height="400" width="520" border="1.5"/></p>
+        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/3.jpg" alt="No preview available!" height="250" width="550" border="1.5"/></p>
+        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/4.jpg" alt="No preview available!" height="200" width="650" border="1.5"/></p>
+        <li>Extract all the files of the downloaded zipped folder onto your computer.</li> 
+        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/5.jpg" alt="No preview available!" height="350" width="550" border="1.5"/></p>
+      </ol>
+
+  <h3><font color=#0099DD size="5"><b>How to Use Msconvert:</b></font></h2>
+  <ol type = "i">
+    <li><p>You can download a sample RAW file from <a href ="http://pages.iu.edu/~chandrap/TopPIC-Sample/Data/ST.RAW"><i>here</i></a>.</li></p>
+    <ol type = "a">
+      <li>The RAW file 'ST_sample.RAW' for <i>Salmonella typhimurium </i> will be downloaded.</li>
+      <li>Save the file in a convenient location.</li>
+    </ol>
+    <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/6.jpg" alt="No preview available!" height="250" width="750" border="1.5"/></p>
+    <li>To generate the mzXML file from the Input RAW file using msconvert, you can mention the file locations and 'msconvert.exe' location in the command prompt, as shown below.
+    <ol type = "a">
+      <li>For Input,as a test,you can use the downloaded sample RAW file.</li>
+      <li>When you run the below command on command prompt, an output file with .mzXML extension will be created in the location as given in the command prompt for output.</li>
+    </ol><br>
+    <b>Sample folder msconvert.exe location:</b><br><i> C:\ProteoWizard\msconvert.exe</i><br>
+    <b>Sample RAW Input file location:</b><br><i> C:\TopPIC-Sample\Data\ST_sample.raw</i><br>
+    <b>Sample RAW Output file location:</b><br><i> C:\TopPIC-Sample\Results\ST_sample.mzXML</i><br>
+    <b>Sample RAW File Command:</b><br><i>C:\Proteowizard\msconvert.exe --filter "peakPicking true 1-" --mzXML --zlib C:\TopPIC-Sample\Data\ST_sample.RAW -o C:\TopPIC-Sample\Results</i>
+    <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/7.jpg" alt="No preview available!" height="30" width="1440" border="1.5"/></p>
+    <p>In the above command, the argument "peakPicking true 1-" is used to generate a centroid, not profile, mzXML file, which is needed by the spectral deconvolution tool MS-Deconv. The "-o" argument is to generate output file in the location specified. The size of the input raw file is 689 MB.</p>
+    <li>The screenshot below shows the output file being processed.</li>
+    <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/8.jpg" alt="No preview available!" height="250" width="500" border="1.5"/></p>
+    <li>The resulting output mzXML file will be saved in the location provided as shown below. The time taken to generate the file was one minute. The size of the .mzXML file is 142 MB.</li>
+    <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/9.jpg" alt="No preview available!" height="240" width="700" border="1.5"/></p>
+    <li><p>The resultant sample mzXML file "ST_sample.mzXML" for <i> Salmonella typhimurium </i> can also be downloaded directly from <a href ="http://pages.iu.edu/~chandrap/TopPIC-Sample/Results/ST_sample.mzXML"><i>here</i></a>.</li></p>
+  </ol>
+
+        
+    <script src="assets/js/jquery-1.7.1.min.js"></script>
+
+  </body>
+</html>

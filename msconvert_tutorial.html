@@ -1,0 +1,96 @@
+
+
+<h
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Msconvert - Tutorial</title>
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      
+    </style>
+   </head>
+
+<body style="overflow-y:scroll">
+
+<div class="container">
+
+	<div class="masthead">
+
+        <h1 class="muted"><font color=#0099DD size = "6">Msconvert - Tutorial</font></h1>
+		<p>
+		Msconvert is a software tool in <B>ProteoWizard</B> that converts raw files into various formats.<br><br> 
+<b>Required Softwares to install MsConvert:</b>
+<ul>
+        <li>MSVC 2008 SP1 (x86)</a></li>
+        <li>.NET Framework 3.5 SP1</a></li>
+        <li>.NET Framework 4.0 (Web Installer)</a></li>
+      </ul>
+		</p>
+        
+	</div><!-- /.masthead -->
+
+	<div class="row-fluid" style="font-size:16px">
+		
+    <div class="span-12">
+
+      <h3><font color=#0099DD size="5"><b>How to Download Msconvert:</b></font></h3>
+      <p>
+      <b>Follow the below steps to download it from the website:</b>
+      </p>
+      <p>
+    <ol type = "i">
+	<li>Create a new folder named 'Proteowizard' in the C:/ drive of your system in order to save all the extracted files of ProteoWizard.</li>
+	<li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
+	<li>Go to 'Download' option.</li>
+	<li>From the Download Type > drop down options, choose 'Windows 64-bit tar.bz2' from End Users list.</li>
+	<li>Agree to the Terms and Conditions.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/1.jpg" alt="No preview available!" height="200" width="1100" border="1.5"/></p>
+	<li>This downloads 'msconvert.exe' along with all other tools of ProteoWizard.</li>
+	<li>Save the zipped folder in 'ProteoWizard folder' created earlier.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/2.jpg" alt="No preview available!" height="400" width="520" border="1.5"/></p>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/3.jpg" alt="No preview available!" height="250" width="550" border="1.5"/></p>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/4.jpg" alt="No preview available!" height="200" width="650" border="1.5"/></p>
+	<li>Extract all the files of the downloaded zipped folder onto your computer.</li> 
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/5.jpg" alt="No preview available!" height="350" width="550" border="1.5"/></p>
+	</ol>
+
+	<h3><font color=#0099DD size="5"><b>How to Use Msconvert:</b></font></h2>
+	<ol type = "i">
+	<li><p>You can download a sample RAW file from <a href ="http://pages.iu.edu/~chandrap/TopPIC-Sample/Data/ST.RAW"><i>here</i></a>.</li></p>
+	<ol type = "a">
+		<li>The RAW file 'ST_sample.RAW' for <i>Salmonella typhimurium </i> will be downloaded.</li>
+		<li>Save the file in a convenient location.</li>
+	</ol>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/6.jpg" alt="No preview available!" height="250" width="750" border="1.5"/></p>
+	<li>To generate the mzXML file from the Input RAW file using msconvert, you can mention the file locations and 'msconvert.exe' location in the command prompt, as shown below.
+	<ol type = "a">
+		<li>For Input,as a test,you can use the downloaded sample RAW file.</li>
+		<li>When you run the below command on command prompt, an output file with .mzXML extension will be created in the location as given in the command prompt for output.</li>
+	</ol><br>
+	<b>Sample folder msconvert.exe location:</b><br><i> C:\ProteoWizard\msconvert.exe</i><br>
+	<b>Sample RAW Input file location:</b><br><i> C:\TopPIC-Sample\Data\ST_sample.raw</i><br>
+	<b>Sample RAW Output file location:</b><br><i> C:\TopPIC-Sample\Results\ST_sample.mzXML</i><br>
+	<b>Sample RAW File Command:</b><br><i>C:\Proteowizard\msconvert.exe --filter "peakPicking true 1-" --mzXML --zlib C:\TopPIC-Sample\Data\ST_sample.RAW -o C:\TopPIC-Sample\Results</i>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/7.jpg" alt="No preview available!" height="30" width="1440" border="1.5"/></p>
+	<p>In the above command, the argument "peakPicking true 1-" is used to generate a centroid, not profile, mzXML file, which is needed by the spectral deconvolution tool MS-Deconv. The "-o" argument is to generate output file in the location specified. The size of the input raw file is 689 MB.</p>
+	<li>The screenshot below shows the output file being processed.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/8.jpg" alt="No preview available!" height="250" width="500" border="1.5"/></p>
+	<li>The resulting output mzXML file will be saved in the location provided as shown below. The time taken to generate the file was one minute. The size of the .mzXML file is 142 MB.</li>
+	<p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/9.jpg" alt="No preview available!" height="240" width="700" border="1.5"/></p>
+	<li><p>The resultant sample mzXML file "ST_sample.mzXML" for <i> Salmonella typhimurium </i> can also be downloaded directly from <a href ="http://pages.iu.edu/~chandrap/TopPIC-Sample/Results/ST_sample.mzXML"><i>here</i></a>.</li></p>
+	</ol>
+
+	</div>
+	</div>	
+	  
+  </body>
+</html>
