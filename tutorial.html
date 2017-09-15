@@ -142,42 +142,122 @@
     <div class="span-12">
 
       <h3><font color=#0066DD>1. Overview</font></h3>
-      In this tutorial, we will use TopPIC to analyze a top-down MS/MS data set of <it>Salmonella
-      typhimurium</it>.     
+      In this tutorial, we use TopPIC to analyze a top-down MS/MS data set
+      of <i>Escherichia coli</i> on a computer with a Windows operating system.     
 
-      <h1 class="muted"><font color=#0099DD size = "6">Msconvert - Tutorial</font></h1>
+      <h3><font color=#0066DD>2. Folders</font></h3>
+      <p>Create the folders below for saving software packages and data sets
+      used in this tutorial. 
+      </p>
+      <ol>
+        <li>Create a new folder named 'tutorial' on the C: drive of your system. 
+        <li>Create a new subfolder named 'pw' in the folder C:\tutorial\ for saving
+        the software package Proteowizard. 
+        <li>Create a new subfolder named 'toppic' in the folder C:\tutorial\ for saving
+        the software TopPIC suite. 
+        <li>Create a new subfolder named 'data' in the folder C:\tutorial\ for saving
+        data files. 
+      </ol>
+      The resulting folder structure is shown in the screenshot below.
+      <p><img src="./images/folder/1.jpg"
+      height="200" width="1100" border="1.5"/></p>
 
+
+      <h3><font color=#0066DD>3. Date set</font></h3>
+
+      <h4><font color=#0066DD>3.1 Top-down MS/MS date set</font></h3>
       <p>
-      Msconvert is a software tool in <B>ProteoWizard</B> that converts raw files into various formats.<br><br> 
-      <b>Required Softwares to install MsConvert:</b>
+      The top-down MS/MS data set was generated from protein extract of
+      <i>Escherichia coli</i> K-12 MG1655. The protein extract was analyzed by
+      an RPLC system coupled with an LTQ Orbitrap Velos mass spectrometry. MS1
+      and MS/MS spectra were collected at a 60000 resolution with the
+      alternating fragmentation mode. The data set contains 2027
+      collision-induced dissociation and 2027 electron-transfer
+      dissociation top-down MS/MS spectra (see ref. [1]). 
+      </p>
+      <p>Click <a href="./data_files/tmp.raw">here</a> to download the data set
+      and save it in the folder C:\tutorial\data\.</p>
+
+      <h4><font color=#0066DD>3.2 Protein sequence database</font></h3>
+      <p>The <i>Escherichia coli</i> K-12 MG1655 <a
+        href="http://www.uniprot.org/uniprot/?query=proteome:UP000000625">proteome database</a> was downloaded
+      from UniProt on September 14, 2017. It contains 4309 protein sequences. 
+      </p>
+
+
+      <p>Click <a href="./data_files/uniprot_ecoli.fasta">here</a> to download
+      the protein database and save it in the folder C:\tutorial\data\.</p>
+
+      <p>The folder C:\tutorial\data\ is shown in the screenshot below.</p>
+      <p><img src="./images/folder/2.jpg"
+      height="200" width="1100" border="1.5"/></p>
+
+      <h3><font color=#0066DD>4. Software tools</font></h3>
+
+      <h4><font color=#0066DD>4.1 Msconvert</font></h4>
+      <p>
+      Msconvert is a software tool in <B>ProteoWizard</B> that converts raw files into various formats. 
+
+      <h4><font color=#0066DD>4.1.1 Required software packages to install ProteoWizard</font></h4>
       <ul>
         <li>MSVC 2008 SP1 (x86)</li>
         <li>.NET Framework 3.5 SP1</li>
         <li>.NET Framework 4.0 (Web Installer)</li>
       </ul>
-      </p>
 
-
-      <h3><font color=#0099DD size="5"><b>How to Download Msconvert:</b></font></h3>
+      <h4><font color=#0066DD>4.1.2 Download ProteoWizard</font></h4>
       <p>
-      <b>Follow the below steps to download it from the website:</b>
+      Follow the steps to below download ProteoWizard:
       </p>
       <p>
-      <ol type = "i">
-        <li>Create a new folder named 'Proteowizard' in the C:/ drive of your system in order to save all the extracted files of ProteoWizard.</li>
+      <ol>
         <li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
-        <li>Go to 'Download' option.</li>
-        <li>From the Download Type > drop down options, choose 'Windows 64-bit tar.bz2' from End Users list.</li>
-        <li>Agree to the Terms and Conditions.</li>
-        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/1.jpg" alt="No preview available!" height="200" width="1100" border="1.5"/></p>
-        <li>This downloads 'msconvert.exe' along with all other tools of ProteoWizard.</li>
-        <li>Save the zipped folder in 'ProteoWizard folder' created earlier.</li>
-        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/2.jpg" alt="No preview available!" height="400" width="520" border="1.5"/></p>
-        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/3.jpg" alt="No preview available!" height="250" width="550" border="1.5"/></p>
-        <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/4.jpg" alt="No preview available!" height="200" width="650" border="1.5"/></p>
-        <li>Extract all the files of the downloaded zipped folder onto your computer.</li> 
+        <li>Choose the download type 'Windows 64-bit tar.bz2' for end users.</li>
+        <p><img src="./images/msconvert/1.jpg" height="200" width="1100" border="1.5"/></p>
+        <li>Click the button "I agree to the licensing terms, download
+        ProteoWizard" to download ProteoWizard and save the bz2 file in the folder
+        C:\tutorial\pw\.</li>
+        <p><img src="./images/msconvert/2.jpg" height="400" width="520"
+        style="border: #00008B 3px solid;"/></p>
+        <p><img src="./images/msconvert/3.jpg" height="250" width="550"
+        style="border: #00008B 3px solid;"/></p>
+        <p><img src="./images/msconvert/4.jpg" height="200" width="650"
+        style="border: #00008B 3px solid;"/></p>
+        <li>Extract all the files of the downloaded bz2 file to the folder
+        c:\tutorial\pw\.</li> 
         <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/5.jpg" alt="No preview available!" height="350" width="550" border="1.5"/></p>
       </ol>
+
+      <h4><font color=#0066DD>4.2 TopPIC suite</font></h4>
+
+      <h4><font color=#0066DD>4.2.1 Download TopPIC suite</font></h3>
+      <p>
+      <ol>
+        <li>Go to the <a href = "./register.html">link</a> to download
+      webpage of TopPIC.</li>
+        <li>Choose the download type "Windows 64-bit zip file."</li>
+        <li>Fill out the registration form.</li>
+        <li>This will direct you to the page shown below in the screen shot. Choose the 'Windows Command Line' version.</li>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/1.jpg" alt="No preview available!" height="232" width="500" border="1.5"/></p>
+        <li>Save it in a convenient directory on your system.</li>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/2.jpg" alt="No preview available!" height="250" width="600" border="1.5"/></p>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/3.jpg" alt="No preview available!" height="200" width="600" border="1.5"/></p>
+        <li>To install 'toppic-setup-1.0.0.exe' file, double click on the .exe file and follow the screen shots below.</li>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/4.jpg" alt="No preview available!" height="310" width="600" border="1.5"/></p>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/5.jpg" alt="No preview available!" height="310" width="600" border="1.5"/></p>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/6.jpg" alt="No preview available!" height="340" width="600" border="1.5"/></p>
+        <li>By default, TopPIC software will be installed in the C:\ drive of your system with a 'TopPIC' named folder..</li> 
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/7.jpg" alt="No preview available!" height="390" width="540" border="1.5"/></p>
+        <li>This folder will have the files shown below in the screen shot.</li>
+        <p><img src="http://pages.iu.edu/~chandrap/TopPIC_images/8.jpg" alt="No preview available!" height="280" width="500" border="1.5"/></p>
+      </ol>
+
+      <h3><font color=#0066DD>6. Reference</font></h3>
+      
+
+
+      
+
 
   <h3><font color=#0099DD size="5"><b>How to Use Msconvert:</b></font></h2>
   <ol type = "i">
@@ -206,7 +286,7 @@
   </ol>
 
         
-    <script src="assets/js/jquery-1.7.1.min.js"></script>
+  <script src="assets/js/jquery-1.7.1.min.js"></script>
 
   </body>
 </html>
