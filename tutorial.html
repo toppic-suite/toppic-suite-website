@@ -347,6 +347,24 @@
       </p>
       
       <h4><font color=#0066DD>5.3 Mass spectral identification by database search</font></h4>
+      <p>We use <b>TopPIC</b> to search MS/MS spectra in the file
+      ecoli_ms2.msalign against the protein database uniprot_ecoli.fasta to
+      identify proteoform spectrum-matches. 
+      </p>
+      <h4><font color=#0066DD>5.3.1 File locations</font></h4>
+      <ol>
+        <li>Executable file: <pre>C:\tutorial\toppic\toppic.exe</pre></li>
+        <li>Input MS/MS msalign file: <pre>C:\tutorial\result\ecoli_ms2.msalign</pre></li>
+        <li>Input feature file: <pre>C:\tutorial\result\ecoli.msft</pre></li>
+      </ol>
+      <h4><font color=#0066DD>5.3.2 Command</font></h4>
+      In the Command Prompt, input the following two commands:
+      <pre>cd c:\tutorial</pre>
+      <pre>.\toppic\toppic .\result\ecoli_ms2.msalign .\data\uniprot_ecoli.fasta -f .\result\ecoli.msft -d -t FDR -t FDR</pre>
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+
+      <h4><font color=#0066DD>5.3.3 Output files</font></h4>
 
       <h3><font color=#0066DD>6. Reference</font></h3>
       <p id="reference">
