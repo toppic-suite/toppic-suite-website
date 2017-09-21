@@ -178,7 +178,8 @@
       and MS/MS spectra were collected at a 60,000 resolution with the
       alternating fragmentation mode. The data set contains 2,027
       collision-induced dissociation and 2,027 electron-transfer
-      dissociation top-down MS/MS spectra (see ref. [1]). 
+      dissociation top-down MS/MS spectra (see <a href="#reference">reference
+        [1]</a>). 
       </p>
       <p>Click <a href="./data_files/tmp.raw">here</a> to download the data set
       and save it in the folder C:\tutorial\data\.</p>
@@ -206,11 +207,18 @@
       Msconvert is a software tool in <B>ProteoWizard</B> that converts raw files into various formats. 
 
       <h4><font color=#0066DD>4.1.1 Required software packages to install ProteoWizard</font></h4>
-      <ul>
-        <li>MSVC 2008 SP1 (x86)</li>
-        <li>.NET Framework 3.5 SP1</li>
-        <li>.NET Framework 4.0 (Web Installer)</li>
-      </ul>
+      You must install the following three software packages to use ProteoWizard
+      <ol>
+        <li>
+        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=5582">Microsoft
+          Visual C++ 2008 SP1 (x86) Redistributable Package</a></li>
+        <li>
+        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=22">
+          Microsoft .NET Framework 3.5 SP1</a></li>
+        <li>
+        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851">
+          Microsoft .NET Framework 4.0</a></li>
+      </ol>
 
       <h4><font color=#0066DD>4.1.2 Download ProteoWizard</font></h4>
       <p>
@@ -220,17 +228,21 @@
       <ol>
         <li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
         <li>Choose the download type 'Windows 64-bit tar.bz2' for end users.</li>
+        <!--
         <br>
         <p><img src="./images/msconvert/msconvert_1.jpg" height="200" width="1100" 
         style="border: #00008B 1px solid;"/>
         </p>
+        -->
         <li>Click the button "I agree to the licensing terms, download
         ProteoWizard" to download ProteoWizard and save the bz2 file in the folder
         C:\tutorial\pw\.</li>
+        <!--
         <br>
         <p><img src="./images/msconvert/msconvert_2.jpg" height="200" width="1100" 
         style="border: #00008B 1px solid;"/>
         </p>
+        -->
         <li>Extract all the files of the downloaded bz2 file to the folder
         C:\tutorial\pw\.</li> 
         <br>
@@ -247,21 +259,22 @@
       <ol>
         <li>Go to the <a href = "./register.html">link</a> to download
       webpage of TopPIC.</li>
-        <li>Choose the download type "Windows 64-bit zip file." Fill out the
-        registration form. Click "I agree to the license agreement and download"
+        <li>Choose the download type "Windows 64-bit zip file," fill out the
+        registration form, and click "I agree to the license agreement and download"
         to download TopPIC suite.</li>
-        <br>
+        <!--
         <br>
         <p><img src="./images/toppic/toppic_1.jpg" height="200" width="1100" 
         style="border: #00008B 1px solid;"/>
         </p>
-
+        -->
         <li>Save it to the folder C:\tutorial\toppic\.</li>
+        <!--
         <br>
         <p><img src="./images/tmp.jpg" height="200" width="1100" 
         style="border: #00008B 1px solid;"/>
         </p>
-
+        -->
         <li>Extract all the files of the downloaded zip file to the folder
         C:\tutorial\toppic\.</li> 
         <br>
@@ -270,31 +283,79 @@
         </p>
       </ol>
 
-      <h3><font color=#0066DD>4 Data analysis</font></h3>
-      <h4><font color=#0066DD>4.1 File format conversion</font></h4>
+      <h3><font color=#0066DD>5 Data analysis</font></h3>
+      <h4><font color=#0066DD>5.1 File format conversion</font></h4>
 
       <p>We use <b>msconvert</b> to convert the raw file ecoli.raw to an mzML
       file ecoli.mzML.</p>
+      <h4><font color=#0066DD>5.1.1 File locations</font></h4>
+      <ol>
+        <li>Executable file: <pre>C:\tutorial\pw\msconvert.exe</pre></li>
+        <li>Input raw file: <pre>C:\tutorial\data\ecoli.raw</pre></li>
+      </ol>
+
+      <h4><font color=#0066DD>5.1.2 Command</font></h4>
+      <ol>
+        <li>Launch the Command Prompt </li>
+
+        <li>Input the following command: <br> 
+        <pre class="code">c:\tutorial\pw\msconvert.exe --filter "peakPicking true 1" c:\tutorial\data\ecoli.raw -o c:\tutorial\result</pre>
+        </li>
+      </ol>
+      <p>In the above command, the argument --filter "peakPicking true 1-" is used to
+      generate a centroid, not profile, mzML data file, which is needed by the
+      spectral deconvolution tool TopFD. The -o argument specifies the
+      location of the output file. 
+      </p>
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+
+      <h4><font color=#0066DD>5.1.3 Output file</font></h4>
+      The resulting output mzML file is <pre>C:\tutorial\result\ecoli.mzML</pre>
+      The size of the file is ??? MB, which can be downloaded <a
+      href="">here</a>.  The running time of the command is about one minute.   
+
+      <h4><font color=#0066DD>5.2 Mass spectral deconvolution</font></h4>
+
+      <p>We use <b>TopFD</b> to do mass spectral deconvolution, generating
+      three files containing deconvoluted mass spectra and MS1 features from
+      the mzML file ecoli.mzML.</p>
+      <h4><font color=#0066DD>5.2.1 File locations</font></h4>
+      <ol>
+        <li>Executable file: <pre>C:\tutorial\toppic\topfd.exe</pre></li>
+        <li>Input mzML file: <pre>C:\tutorial\result\ecoli.mzML</pre></li>
+      </ol>
+      <h4><font color=#0066DD>5.2.2 Command</font></h4>
+      In the Command Prompt, input the following command:
+      <pre>c:\tutorial\toppic\topfd c:\tutorial\result\ecoli.mzML</pre>
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+
+      <h4><font color=#0066DD>5.2.3 Output file</font></h4>
+      TopFD reports three text files. 
+      <ol>
+        <li>Msalign file containing deconvoluted MS1 spectra:
+        <pre>C:\tutorial\result\ecoli_ms1.msalign</pre></li>
+        <li>Msalign file containing deconvoluted MS/MS spectra:
+        <pre>C:\tutorial\result\ecoli_ms2.msalign</pre></li>
+        <li>Text file containing MS1 features of MS/MS spectra:
+        <pre>C:\tutorial\result\ecoli.msft</pre></li>
+      </ol>
+      <p>
+      The three output files can be downloaded <a href="">here</a>. The running time
+      of the command is about ??? minutes. 
+      </p>
       
-      To generate the mzXML file from the Input RAW file using msconvert, you can mention the file locations and 'msconvert.exe' location in the command prompt, as shown below.
-      <ol type = "a">
-        <li>For Input,as a test,you can use the downloaded sample RAW file.</li>
-        <li>When you run the below command on command prompt, an output file with .mzXML extension will be created in the location as given in the command prompt for output.</li>
-      </ol><br>
-      <b>Sample folder msconvert.exe location:</b><br><i> C:\ProteoWizard\msconvert.exe</i><br>
-      <b>Sample RAW Input file location:</b><br><i> C:\TopPIC-Sample\Data\ST_sample.raw</i><br>
-      <b>Sample RAW Output file location:</b><br><i> C:\TopPIC-Sample\Results\ST_sample.mzXML</i><br>
-      <b>Sample RAW File Command:</b><br><i>C:\Proteowizard\msconvert.exe --filter "peakPicking true 1-" --mzXML --zlib C:\TopPIC-Sample\Data\ST_sample.RAW -o C:\TopPIC-Sample\Results</i>
-      <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/7.jpg" alt="No preview available!" height="30" width="1440" border="1.5"/></p>
-      <p>In the above command, the argument "peakPicking true 1-" is used to generate a centroid, not profile, mzXML file, which is needed by the spectral deconvolution tool MS-Deconv. The "-o" argument is to generate output file in the location specified. The size of the input raw file is 689 MB.</p>
-      <li>The screenshot below shows the output file being processed.</li>
-      <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/8.jpg" alt="No preview available!" height="250" width="500" border="1.5"/></p>
-      <li>The resulting output mzXML file will be saved in the location provided as shown below. The time taken to generate the file was one minute. The size of the .mzXML file is 142 MB.</li>
-      <p><img src="http://pages.iu.edu/~chandrap/Msconvert_images/9.jpg" alt="No preview available!" height="240" width="700" border="1.5"/></p>
-      <li><p>The resultant sample mzXML file "ST_sample.mzXML" for <i> Salmonella typhimurium </i> can also be downloaded directly from <a href ="http://pages.iu.edu/~chandrap/TopPIC-Sample/Results/ST_sample.mzXML"><i>here</i></a>.</li></p>
-    </ol>
+      <h4><font color=#0066DD>5.3 Mass spectral identification by database search</font></h4>
 
       <h3><font color=#0066DD>6. Reference</font></h3>
+      <p id="reference">
+      1. Qiang Kou, Likun Xun, and Xiaowen Liu.
+      <b>TopPIC: a software tool for top-down mass spectrometry-based proteoform identification and characterization.</b>
+      Bioinformatics, 32:3495-3497, 2016. 
+      <a target="_blank"
+        href="http://www.ncbi.nlm.nih.gov/pubmed/27423895">Pubmed</a>.
+      <p>
       
   <script src="assets/js/jquery-1.7.1.min.js"></script>
 
