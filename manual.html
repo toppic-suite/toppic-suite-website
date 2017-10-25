@@ -144,7 +144,7 @@
       <h3><font color=#0066DD>1. Overview</font></h3>
       To run TopPIC suite, a computer with at least 4 GB memory and a 64-bit
       Linux or Windows operating system is required.  Software tools in TopPIC
-      suite provide a command line interface for both Linux and Windows users.   
+      suite provide a command line interface and a graphical user interface for both Linux and Windows users.   
 
       <h3><font color=#0066DD>2. TopFD</font></h3>
       <p>
@@ -163,9 +163,9 @@
 
 
       <h4><font color=#0066DD>2.2 Output</font></h4>
-      <p>TopFD outputs an MS1 feature text file and two deconvoluted mass spectral
+      <p>TopFD outputs an MS1 feature text file with a file extension "feature" and two deconvoluted mass spectral
       data files (one is for MS1 spectra and the other for MS/MS
-      spectra) in the msalign format, which is similar to the MSF file format. 
+      spectra) in the msalign format with a file extension "msalign", which is similar to the MGF file format. 
       </p>
 
       <h4><font color=#0066DD>2.3 Command line usage</font></h4>
@@ -185,7 +185,7 @@
 
       <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance of m/z values of spectral peaks. The default
-      value is 0.02 thomson.</p>
+      value is 0.02 m/z.</p>
 
       <p><code>-s [ --sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio. The default value is 1.</p>
@@ -198,7 +198,11 @@
 
       <h4><font color=#0066DD>3.1 Input</font></h4>
       <p>The input of TopPIC consists of a protein database file in the FASTA
-      format and a mass spectral data file in the msalign format. 
+      format and a mass spectral data file in the msalign format. In addition,
+      a fixed modification file can be used to specify fixed PTMs, 
+      an MS1 feature file can be provided for proteoform identification and
+      quantification, and a modification file can be given for the charaterization
+      of mass shifts. 
 
       <h4><font color=#0066DD>3.2 Output</font></h4>
       <p>TopPIC outputs two tab delimited text files and a collection of html files for identified
@@ -207,11 +211,12 @@
       spectrum_msdeconv.OUTPUT_TABLE containing a list of identified
       proteoform spectrum-matches, the other tab delimited text result is
       spectrum_msdeconv.FORM_OUTPUT_TABLE containing a list of identified
-      proteoforms,  and result html files are in the directory 
-      spectrum_msdeconv_html. Open the file spectrum_msdeconv_html/proteins
+      proteoforms,  and the resulting html files are in the two directories 
+      <b>To do</b>. 
+      spectrum_msdeconv_html. The user can open the file spectrum_msdeconv_html/proteins
       using a web browser, such as Google Chrome or 
       Firefox (IE is not recommended), to browse all identified
-      proteins, proteoforms and proteoform spectrum-matches.
+      proteins, proteoforms, and proteoform spectrum-matches.
       </p>
       <h4><font color=#0066DD>3.3 Command line usage</font></h4>
       <p>To run TopPIC, open a console and run the following command.</p>
