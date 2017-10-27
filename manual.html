@@ -128,7 +128,7 @@
                 <li><a href="index.html">Summary</a></li>
                 <li><a href="register.html">Downloads</a></li>
                 <li><a href="manual.html">Manual</a></li>
-                <li><a href="tutorial.html">Tutorial</a></li>
+                <!-- <li><a href="tutorial.html">Tutorial</a></li> -->
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="contact.html">Contact</a></li>
               </ul>
@@ -143,8 +143,8 @@
 
       <h3><font color=#0066DD>1. Overview</font></h3>
       To run TopPIC suite, a computer with at least 4 GB memory and a 64-bit
-      Linux or Windows operating system is required.  Software tools in TopPIC
-      suite provide a command line interface and a graphical user interface for both Linux and Windows users.   
+      Linux or Windows operating system is required.  TopFD and TopPIC
+      provide a command line interface and a graphical user interface (GUI) for both Linux and Windows users.   
 
       <h3><font color=#0066DD>2. TopFD</font></h3>
       <p>
@@ -158,7 +158,7 @@
 
       <h4><font color=#0066DD>2.1 Input</font></h4>
       <p>The input of TopFD is an mzML or mzXML top-down mass spectrometry data
-      file. The raw mass spectral data from various mass spectrometers
+      file. Raw mass spectral data generated from various mass spectrometers
       can be converted to mzML or mzXML files using <a href="http://proteowizard.sourceforge.net/tools.shtml">msconvert</a>.
 
 
@@ -190,8 +190,47 @@
       <p><code>-s [ --sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio. The default value is 1.</p>
 
+      <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
+      <p>Set the precursor isolation window size. The default value is 3.0 m/z.</p>
+
       <p><code>-n [ --missing-level-one ]</code></p>
       <p>The input spectrum file does not contain MS1 spectra.</p>
+
+      <h4>Examples</h4>
+      <p>
+      Deconvolute a centroided data file spectra.mzML and output three files:
+      spectra_ms1.msalign, spectra_ms2.msalign, and spectra.feature.
+
+      <p><code> topfd spectra.mzML </code></p>
+
+      <p>
+      Deconvolute a centroided data file spectra.mzML that does not contain MS1
+      spectra. 
+
+      <p><code> topfd -n spectra.mzML </code></p>
+
+      <p>
+      Deconvolute a centroided data file spectra.mzML with a precursor isolation
+      size 2 m/z.  
+
+      <p><code> topfd -w 2 spectra.mzML </code></p>
+
+      <p>
+      Deconvolute a centroided data file spectra.mzML by setting the maximum
+      charge state as 50, the maximum mass as 300,000 Dalton, and the
+      signal/noise ratio as 2.   
+
+      <p><code> topfd -c 50 -m 300000 -s 2 spectra.mzML </code></p>
+      <p>
+
+      <h4><font color=#0066DD>2.4 Graphical user interface</font></h4>
+      <p>
+      To run the GUI of TopFD, double-click the downloaded executive file
+      topfd_gui.exe. To deconvolute a spectrum data file,
+      use the button "File" to select the data file, change parameters
+      if needed, and click the button "Start" to start deconvolution. After
+      TopFD completed the deconvolution of the file, click the button "Output
+      folder" to find output files.
 
       
       <h3><font color=#0066DD>3. TopPIC</font></h3>
@@ -199,18 +238,17 @@
       <h4><font color=#0066DD>3.1 Input</font></h4>
       <p>The input of TopPIC consists of a protein database file in the FASTA
       format and a mass spectral data file in the msalign format. In addition,
-      a fixed modification file can be used to specify fixed PTMs, 
-      an MS1 feature file can be provided for proteoform identification and
-      quantification, and a modification file can be given for the charaterization
-      of mass shifts. 
+      the user can provide a fixed modification file to specify fixed PTMs, a
+      feature file for proteoform identification and quantification, and/or a
+      modification file for the characterization of mass shifts. 
 
       <h4><font color=#0066DD>3.2 Output</font></h4>
       <p>TopPIC outputs two tab delimited text files and a collection of html files for identified
       proteoforms. For example, when the input mass spectral data file is
-      spectrum_msdeconv.msalign, one tab delimited text result file is
-      spectrum_msdeconv.OUTPUT_TABLE containing a list of identified
+      spectra_ms2.msalign, one tab delimited text result file is
+      spectra_ms2.OUTPUT_TABLE containing a list of identified
       proteoform spectrum-matches, the other tab delimited text result is
-      spectrum_msdeconv.FORM_OUTPUT_TABLE containing a list of identified
+      spectra_ms2.FORM_OUTPUT_TABLE containing a list of identified
       proteoforms,  and the resulting html files are in the two directories 
       <b>To do</b>. 
       spectrum_msdeconv_html. The user can open the file spectrum_msdeconv_html/proteins
