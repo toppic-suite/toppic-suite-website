@@ -229,23 +229,35 @@
       topfd_gui.exe. To deconvolute a spectrum data file,
       use the button "File" to select the data file, change parameters
       if needed, and click the button "Start" to start deconvolution. After
-      TopFD completed the deconvolution of the file, click the button "Output
+      TopFD completes the deconvolution of the file, click the button "Output
       folder" to find output files.
 
       
       <h3><font color=#0066DD>3. TopPIC</font></h3>
 
       <h4><font color=#0066DD>3.1 Input</font></h4>
-      <p>The input of TopPIC consists of a protein database file in the FASTA
-      format and a mass spectral data file in the msalign format. In addition,
-      the user can provide a fixed modification file to specify fixed PTMs, a
-      feature file for proteoform identification and quantification, and/or a
-      modification file for the characterization of mass shifts. 
+      <ul>
+        <li>A protein database file in the FASTA format</li>
+        <li>A mass spectrum data file in the msalign format</li>
+        <li>A text file to specify fixed PTMs (optional)</li>
+        <li>A text file containing MS1 feature information (optional)</li>
+        <li>A text file to specify PTMs for the characterization of mass shifts
+        (optional)</li>
+      </ul>
 
       <h4><font color=#0066DD>3.2 Output</font></h4>
       <p>TopPIC outputs two tab delimited text files and a collection of html files for identified
-      proteoforms. For example, when the input mass spectral data file is
-      spectra_ms2.msalign, one tab delimited text result file is
+      proteoforms. For example, when the input mass spectrum data file is
+      spectra_ms2.msalign, the output files include: 
+      <ul>
+        <li>A protein database file in the FASTA format</li>
+        <li>A mass spectrum data file in the msalign format</li>
+        <li>A text file to specify fixed PTMs (optional)</li>
+        <li>A text file containing MS1 feature information (optional)</li>
+        <li>A text file to specify PTMs for the characterization of mass shifts
+        (optional)</li>
+      
+      one tab delimited text result file is
       spectra_ms2.OUTPUT_TABLE containing a list of identified
       proteoform spectrum-matches, the other tab delimited text result is
       spectra_ms2.FORM_OUTPUT_TABLE containing a list of identified
