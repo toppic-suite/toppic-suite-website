@@ -25,13 +25,13 @@ fwrite($reg_file,date('Y-m-d'));
 fwrite($reg_file,"\n");
 fclose($reg_file);
 
-$file_name = 'toppic_windows.zip';
+$file_name = 'release_files/toppic_windows_1.1.0.zip';
 $download_type=$_REQUEST["downloadtype"];
 echo 'result';
 echo $download_type;
 
 if ($download_type=="linux") {
-	$file_name = "toppic_linux.zip";
+	$file_name = "release_files/toppic_linux_1.1.0.zip";
 }
 
 if (file_exists($file_name)) {
