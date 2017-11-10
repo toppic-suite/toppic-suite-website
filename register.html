@@ -8,93 +8,11 @@
 <meta name="author" content="xwliu" >
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
-
-<style type="text/css">
-      body {
-        padding-top: 20px;
-        padding-bottom: 60px;
-      }
-
-      /* Custom container */
-      .container {
-        margin: 0 auto;
-        max-width: 1000px;
-      }
-      .container > hr {
-        margin: 60px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 80px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 100px;
-        line-height: 1;
-      }
-      .jumbotron .lead {
-        font-size: 24px;
-        line-height: 1.25;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-
-
-      /* Customize the navbar links to be fill the entire space of the .navbar */
-      .navbar .navbar-inner {
-        padding: 0;
-      }
-      .navbar .nav {
-        margin: 0;
-        display: table;
-        width: 100%;
-      }
-      .navbar .nav li {
-        display: table-cell;
-        width: 1%;
-        float: none;
-      }
-      .navbar .nav li a {
-        font-weight: bold;
-        text-align: center;
-        border-left: 1px solid rgba(255,255,255,.75);
-        border-right: 1px solid rgba(0,0,0,.1);
-      }
-      .navbar .nav li:first-child a {
-        border-left: 0;
-        border-radius: 3px 0 0 3px;
-      }
-      .navbar .nav li:last-child a {
-        border-right: 0;
-        border-radius: 0 3px 3px 0;
-      }
-
-</style>
-
-<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="toppic.ico">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="toppic.ico">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="toppic.ico">
-                <link rel="apple-touch-icon-precomposed" href="toppic.ico">
-                               <link rel="shortcut icon" href="toppic.ico">
 </head>
+
 <body style="overflow-y:scroll">
-
 <div class="container">
-
 	<div class="masthead">
-
         <h2 class="muted"><font color=#0066DD>TopPIC Suite</font></h2>
         <div class="navbar">
           <div class="navbar-inner">
@@ -115,111 +33,127 @@
 	<div class="row-fluid">
 		<div class="span12" style="font-size:16px;">
 
-  <form id="registration-form" class="form-horizontal" action="saveinfo.php"
-    style="font-size:14px" onsubmit="return validateForm()">
     <h4> 1. Read the license agreement </h4>
-    <div style="height:200px;border:1px solid #ccc;font:14px;overflow:auto;">
-      <p>
-      Copyright (c) 2014-2017, The Trustees of Indiana University.
-      All rights reserved.
-      </p>
 
-      <p>
-      Redistribution and use in source and binary forms, with or without modification,
-      are permitted provided that the following conditions are met:
-      </p>
-      <p>
-      1. Redistributions of source code must retain the above copyright notice, 
-      this list of conditions and the following disclaimer.
-      </p>
-      <p>
-      2. Redistributions in binary form must reproduce the above copyright notice, 
-      this list of conditions and the following disclaimer in the documentation 
-      and/or other materials provided with the distribution.
-      </p>
-
-      <p>
-      Indiana University provides no reassurances that the source code
-      provided does not infringe the patent or any other intellectual
-      property rights of any other entity. Indiana University disclaims any
-      liability to any recipient for claims brought by any other entity
-      based on infringement of intellectual property rights or otherwise.
-      </p>
-
-      <p>
-      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-      AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
-      THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-      ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS 
-      BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
-      OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
-      OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
-      OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-      WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-      ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
-      THE POSSIBILITY OF SUCH DAMAGE.
-      </p>
-
+    <div class="tab">
+      <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'toppic')">TopPIC license</button>
+      <button class="tablinks" onclick="openTab(event, 'htslib')">HTSlib license</button>
     </div>
 
-    <h4> 2. Choose download type: </h4>
-    <div class="form-control-group" style="margin-top: 15px;margin-bottom: 15px;">
-      <label class="control-label"
-        style="font-size:14px;text-align:left;width:190px;">Type:</label>
-      <div>
-        <select name="downloadtype" style="width:310px;display:block;border:1px
-          solid #ccc">
-          <option value="windows" selected="selected">&nbsp;Windows 64-bit zip file</option> 
-          <option value="linux">&nbsp; Linux 64 bit zip file</option>
-        </select>
+    <div id="toppic" class="tabcontent">
+      <div style="height:260px;border:1px solid #ccc;font:14px;overflow:auto;">
+        <p>
+        Copyright (c) 2014 - 2017, The Trustees of Indiana University.
+        </p>
+
+        <p>
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        <p>
+
+        <p> http://www.apache.org/licenses/LICENSE-2.0
+        </p>
+
+        <p> Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+        License for the specific language governing permissions and limitations
+        under the License.
+        </p>
       </div>
     </div>
 
-    <h4> 3. Fill out the form: </h4>
-    <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
-      <label class="control-label"
-        style="font-size:14px;text-align:left;width:190px;">First name:</label>
-      <div class="controls"><input type="text" style="width:290px;" name="first"
-        id="first"></div>
-    </div>
+    <div id="htslib" class="tabcontent">
+      <div style="height:260px;border:1px solid #ccc;font:14px;overflow:auto;">
+        <p>
+        Copyright (C) 2012-2014 Genome Research Ltd.
+        </p>
 
-    <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
-      <label class="control-label"
-        style="font-size:14px;text-align:left;width:190px;">Last name:</label>
-      <div class="controls"><input type="text" style="width:290px;" name="last" id="last"></div>
-    </div>
+        <p>
+        Permission is hereby granted, free of charge, to any person obtaining a
+        copy of this software and associated documentation files (the
+        "Software"), to deal in the Software without restriction, including
+        without limitation the rights to use, copy, modify, merge, publish,
+        distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so, subject to
+        the following conditions:
+        </p>
 
-    <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
-      <label class="control-label"
-        style="font-size:14px;text-align:left;width:190px;">Organization:</label>
-      <div class="controls"><input type="text" style="width:290px;" name="org" id="org">
+        <p>
+        The above copyright notice and this permission notice shall be included
+        in all copies or substantial portions of the Software.
+        </p>
+
+        <p>
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+        OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+        IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+        CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+        TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+        SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        </p>
       </div>
     </div>
 
-    <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
-      <label class="control-label"
-        style="font-size:14px;text-align:left;width:190px;">Email:</label>
-      <div class="controls"><input type="text" style="width:290px;" name="email" id="email"></div>
-    </div>
+    <form id="registration-form" class="form-horizontal" action="saveinfo.php"
+      style="font-size:14px" onsubmit="return validateForm()">
+      <h4> 2. Choose download type: </h4>
+      <div class="form-control-group" style="margin-top: 15px;margin-bottom: 15px;">
+        <label class="control-label"
+          style="font-size:14px;text-align:left;width:190px;">Type:</label>
+        <div>
+          <select name="downloadtype" style="width:310px;display:block;border:1px
+            solid #ccc">
+            <option value="windows" selected="selected">&nbsp;Windows 64-bit zip file</option> 
+            <option value="linux">&nbsp; Linux 64 bit zip file</option>
+          </select>
+        </div>
+      </div>
 
-    <h4> 4. Click the button below to accept the agreement and download
-      TopPIC suite </h4>
-    <div class="form-control-group" style="margin-top: 15px;margin-bottom:
-      15px;" align="left">
+      <h4> 3. Fill out the form: </h4>
+      <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
+        <label class="control-label"
+          style="font-size:14px;text-align:left;width:190px;">First name:</label>
+        <div class="controls"><input type="text" style="width:290px;" name="first"
+          id="first"></div>
+      </div>
+
+      <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
+        <label class="control-label"
+          style="font-size:14px;text-align:left;width:190px;">Last name:</label>
+        <div class="controls"><input type="text" style="width:290px;" name="last" id="last"></div>
+      </div>
+
+      <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
+        <label class="control-label"
+          style="font-size:14px;text-align:left;width:190px;">Organization:</label>
+        <div class="controls"><input type="text" style="width:290px;" name="org" id="org">
+        </div>
+      </div>
+
+      <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
+        <label class="control-label"
+          style="font-size:14px;text-align:left;width:190px;">Email:</label>
+        <div class="controls"><input type="text" style="width:290px;" name="email" id="email"></div>
+      </div>
+
+      <h4> 4. Click the button below to accept the agreement and download
+        TopPIC suite </h4>
+      <div class="form-control-group" style="margin-top: 15px;margin-bottom:
+        15px;" align="left">
         <button type="submit" class="btn btn-success btn-large" align="left"
           style="font-size:14px;">I accept the license agreement and download
           TopPIC suite</button>
-    </div>
+      </div>
 
-
-  </form>
-
-</div>
+    </form>
 
   </div>
    
 </div> 
-<div style="display:none"><iframe id="subfrm" name="subinfo"></iframe> </div>
+
 <script>
 function validateForm() {
   var x = document.forms["registration-form"]["first"].value;
@@ -243,15 +177,35 @@ function validateForm() {
     return false;
   }
 } 
+
+function openTab(evt, tabName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class
+  //"active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className =
+      tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the
+  //button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+
 </script>
 <script src="assets/js/jquery-1.7.1.min.js"></script> 
 <script src="assets/js/jquery.validate.js"></script> 
-<script src="script.js"></script> 
-<script>
-	addEventListener('load', prettyPrint, false);
-	$(document).ready(function(){
-		$('pre').addClass('prettyprint linenums');
-	});
-</script> 
 </body>
 </html>
