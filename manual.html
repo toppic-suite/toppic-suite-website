@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>TopPIC Suite</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="xwliu" >
+<head>
+<meta charset="utf-8">
+<title>TopPIC Suite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="xwliu" >
 
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-  </head>
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
 
 <body style="overflow-y:scroll">
 
 <div class="container">
+  <div class="masthead">
+    <h2 class="muted"><font color=#0066DD>TopPIC Suite</font></h2>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li><a href="index.html">Summary</a></li>
+            <li><a href="register.html">Downloads</a></li>
+            <li><a href="manual.html">Manual</a></li>
+            <!-- <li><a href="tutorial.html">Tutorial</a></li> -->
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /.navbar -->
+  </div><!-- /.masthead -->
 
-	<div class="masthead">
-
-        <h2 class="muted"><font color=#0066DD>TopPIC Suite</font></h2>
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
-                <li><a href="index.html">Summary</a></li>
-                <li><a href="register.html">Downloads</a></li>
-                <li><a href="manual.html">Manual</a></li>
-                <!-- <li><a href="tutorial.html">Tutorial</a></li> -->
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </div><!-- /.navbar -->
-	</div><!-- /.masthead -->
-
-	<div class="row-fluid" style="font-size:16px">
-		
+  <div class="row-fluid" style="font-size:16px">
     <div class="span-12">
-
       <h3>1. Overview</h3>
       To run TopPIC suite, a computer with at least 4 GB memory and a 64-bit
       Linux or Windows operating system is required.  TopFD and TopPIC
@@ -53,7 +49,7 @@
       monoisotopic neutral masses. In addition, it extracts proteoform features
       from MS1 spectra. 
       </p>
-      
+
 
       <h4>2.1 Input</h4>
       <p>The input of TopFD is an mzML or mzXML top-down mass spectrometry data
@@ -140,7 +136,7 @@
       TopFD completes the deconvolution of the file, click the button "Output
       folder" to find output files.
 
-      
+
       <h3>3. TopPIC</h3>
 
       <h4>3.1 Input</h4>
@@ -169,7 +165,7 @@
         annotation of identified proteoform spectrum-matches using the 
         proteoform level E-value or FDR cutoff.</li>
       </ul>
-      
+
       To browse identified
       proteins, proteoforms, and proteoform spectrum-matches, please 
       use a web browser to open the file spectrum_ms2_prsm_cutoff_html/proteins.html 
@@ -192,10 +188,10 @@
       <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
       <p>Set the fixed modifications. Three available options: C57, C58, or the name of
       a text file containing the information of fixed modifications (see <a
-      target="_blank" href="example_files/fixed_mods.txt">example file</a>).
-    When C57 is selected, carbamidomethylation on cysteine is the only fixed
-    modification.  When C58 is selected, carboxymethylation on cysteine is the
-    only fixed modification.</p>
+        target="_blank" href="example_files/fixed_mods.txt">example file</a>).
+      When C57 is selected, carbamidomethylation on cysteine is the only fixed
+      modification.  When C58 is selected, carboxymethylation on cysteine is the
+      only fixed modification.</p>
 
       <p><code>-n [ --n-terminal-form ] &lt;a list of allowed N-terminal forms&gt;</code></p>
       <p>Set the N-terminal forms of proteins. Four N-terminal forms can be selected:
@@ -290,14 +286,14 @@
       spectra.feature.  In an identified proteoform, at most 2 mass shifts are
       allowed and the maximum allowed mass shift value is 10,000 Dalton. </p>
       <p><code> toppic -p 2 -m 10000 -x spectra.feature proteins.fasta
-      spectra_ms2.msalign </code></p>
+        spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
       spectra.feature.  The error tolerance for precursor and fragment masses is
       5 ppm. </p> 
       <p><code> toppic -e 5 -x spectra.feature proteins.fasta
-      spectra_ms2.msalign </code></p>
+        spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
@@ -305,14 +301,14 @@
       3 ppm. When the error tolerance is 3 ppm, the generating function approach
       must be used for computing p-values and E-values.</p>
       <p><code> toppic -e 3 -g -x spectra.feature proteins.fasta
-      spectra_ms2.msalign </code></p>
+        spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
       spectra.feature. In an identified proteoform, at most 2 mass shifts are
       allowed and the maximum allowed mass shift value is 10,000 Dalton.
       <p><code> toppic -p 2 -m 10000 -x spectra.feature proteins.fasta
-      spectra_ms2.msalign </code></p>
+        spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
@@ -321,7 +317,7 @@
       spectrum-matches by a 5% spectrum level FDR, and filter identified
       proteoforms by a 5% proteoform level FDR. 
       <p><code> toppic -d -t FDR -v 0.05 -T FDR -V 0.05 -x spectra.feature proteins.fasta
-      spectra_ms2.msalign </code></p>
+        spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign with
       alternating CID, HCD, and ETD spectra against a protein database file
@@ -351,7 +347,10 @@
       needed. Third click the button "Start" to start database search.  After
       TopPIC completes the database search, click the button "Output folder" to
       find output files.
-    <script src="assets/js/jquery-1.7.1.min.js"></script>
+    </div>
+  </div>
+</div>
+<script src="assets/js/jquery-1.7.1.min.js"></script>
 
-  </body>
+</body>
 </html>
