@@ -44,7 +44,7 @@
       In this tutorial, we use TopPIC to analyze a top-down MS/MS data set
       of <i>Escherichia coli</i> on a computer with a Windows operating system.     
 
-      <h3><font color=#0066DD>2. Folders</font></h3>
+      <h3>2. Folders</font></h3>
       <p>Create the folders below for saving software packages and data sets
       used in this tutorial. 
       </p>
@@ -68,9 +68,9 @@
       </p>
 
 
-      <h3><font color=#0066DD>3. Date set</font></h3>
+      <h3>3. Date set</font></h3>
 
-      <h4><font color=#0066DD>3.1 Top-down MS/MS date set</font></h3>
+      <h4>3.1 Top-down MS/MS date set</font></h3>
       <p>
       A top-down MS/MS data set of <i>Salmonella typhimurium</i> is used in the
       tutorial. The protein extract of <i>S. typhimurium</i> were reduced with
@@ -159,8 +159,9 @@
         <li>Go to the <a href = "./register.html">link</a> to download
       webpage of TopPIC.</li>
         <li>Choose the download type "Windows 64-bit zip file," fill out the
-        registration form, and click "I agree to the license agreement and download"
-        to download TopPIC suite.</li>
+        registration form, and click "I accept license agreement and download
+        TopPIC suite"
+        to download it.</li>
         <!--
         <br>
         <p><img src="./images/toppic/toppic_1.jpg" height="200" width="1100" 
@@ -182,6 +183,96 @@
         </p>
       </ol>
 
+      <h3><font color=#0066DD>5 Data analysis using GUI</font></h3>
+      <h4><font color=#0066DD>5.1 File format conversion</font></h4>
+
+      <p>We use <b>MsconvertGui</b> to convert the raw file st.raw to a
+      file st.mzML.</p>
+      <ol>
+        <li> Double click the executive file MsconvertGui.exe in the folder
+        C:\tutorial\pwiz</li>
+        <li> Add the file c:\tutorial\data\st.raw as an input file</li>
+        <li> Add the filter <b>(Important)</b> </li>
+        <li> Click to the button </li>
+      </ol>
+      <p>
+      The panel of MsConvertGui is shown below. 
+      </p>
+
+      <p>
+      In the above file format conversion, the peak picking filter is used to
+      generate a centroided, not profile, mzML data file, which is needed by the
+      spectral deconvolution tool TopFD. 
+      </p>
+
+      <p>
+      The resulting output mzML file is <pre>C:\toppic_tutorial\result\st.mzML</pre>
+      The size of the file is 213 MB, which can be downloaded <a
+      href="data_files/st.mzML">here</a>.  The running time of the command is about one minute.   
+      </p>
+
+      <h4><font color=#0066DD>5.2 Mass spectral deconvolution</font></h4>
+
+      <p>We use <b>TopFD</b> to do mass spectral deconvolution, generating
+      three files containing deconvoluted mass spectra and MS1 features from
+      the file st.mzML.</p>
+      <ol>
+        <li> Double click the executive file topfd_gui.exe in the folder
+        C:\tutorial\toppic</li>
+        <li> Add the file c:\toppic_tutorial\data\st.mzML as an input file</li>
+        <li> Click to the button 'Start'</li>
+      </ol>
+      <p>
+      The panel of toppic_gui is shown below. 
+      </p>
+
+
+      TopFD reports three text files. 
+      <ol>
+        <li>Msalign file containing deconvoluted MS1 spectra:
+        <pre>C:\tutorial\data\st_ms1.msalign</pre></li>
+        <li>Msalign file containing deconvoluted MS/MS spectra:
+        <pre>C:\tutorial\data\st_ms2.msalign</pre></li>
+        <li>Text file containing MS1 features of MS/MS spectra:
+        <pre>C:\tutorial\data\st.feature</pre></li>
+      </ol>
+      <p>
+      The three output files can be downloaded <a href="">here</a>. The running time
+      of the command is about ??? minutes. 
+      </p>
+      <ol>
+        <li> Double click the executive file toppic_gui.exe in the folder
+        C:\tutorial\toppic</li>
+        <li> Select the file c:\toppic_tutorial\data\uniprot-st.fasta as the protein
+        database file</li>
+        <li> Select the file c:\toppic_tutorial\data\st_ms2.msalign as the
+        mass spectrum data file. </li>
+        <li> Select the file c:\toppic_tutorial\data\st.feature as the
+        feature file. </li>
+        <li> Choose 'C57' for fixed modification </li>
+        <li> Choose 'decoy' </li>
+        <li> Select spectrum level cutoff type as 'FDR' </li>
+        <li> Select proteoform level cutoff type as 'FDR' </li>
+        <li> Click to the button 'Start'</li>
+      </ol>
+
+      <p> In the analysis, 
+      
+      <h4><font color=#0066DD>5.3 Mass spectral identification by database search</font></h4>
+      <p>We use <b>TopPIC</b> to search MS/MS spectra in the file
+      st_ms2.msalign against the protein database uniprot-st.fasta to
+      identify proteoform spectrum-matches. 
+      </p>
+
+
+      <pre>cd c:\tutorial</pre>
+      <pre>.\toppic\toppic .\result\ecoli_ms2.msalign .\data\uniprot_ecoli.fasta -f .\result\ecoli.msft -d -t FDR -t FDR</pre>
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+
+      <h4><font color=#0066DD>5.3.3 Output files</font></h4>
+
+      <!--
       <h3><font color=#0066DD>5 Data analysis</font></h3>
       <h4><font color=#0066DD>5.1 File format conversion</font></h4>
 
@@ -198,10 +289,10 @@
         <li>Launch the Command Prompt </li>
 
         <li>Input the following command: <br> 
-        <pre class="code">c:\tutorial\pw\msconvert.exe --filter "peakPicking true 1" c:\tutorial\data\ecoli.raw -o c:\tutorial\result</pre>
+        <pre class="code">c:\tutorial\pw\msconvert.exe filter "peakPicking true 1" c:\tutorial\data\ecoli.raw -o c:\tutorial\result</pre>
         </li>
       </ol>
-      <p>In the above command, the argument --filter "peakPicking true 1-" is used to
+      <p>In the above command, the argument filter "peakPicking true 1-" is used to
       generate a centroid, not profile, mzML data file, which is needed by the
       spectral deconvolution tool TopFD. The -o argument specifies the
       location of the output file. 
@@ -264,6 +355,7 @@
       <p><img src="" height="250" width="500" border="1.5"/></p>
 
       <h4><font color=#0066DD>5.3.3 Output files</font></h4>
+      -->
 
       <h3><font color=#0066DD>6. Reference</font></h3>
       <p id="reference">
