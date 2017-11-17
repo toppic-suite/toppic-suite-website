@@ -284,23 +284,21 @@
       files for identified proteoforms. 
       <ul>
         <li>A tab delimited text file containing a list
-        of identified PrSMs with a 1% spectrum level FDR
-        cutoff:
+        of identified PrSMs with a 1% spectrum level FDR:
         <pre>C:\toppic_tutorial\data\st_ms2.OUTPUT_TABLE</pre> 
         </li>
         <li> A tab delimited text file containing a list
-        of identified PrSMs with a 1% proteoform level FDR
-        cutoff:
+        of identified PrSMs with a 1% proteoform level FDR:
         <pre>C:\toppic_tutorial\data\st_ms2.FORM_OUTPUT_TABLE</pre> 
         </li> A folder containing html files for the
         annotation of identified PrSMs with a 1% spectrum
-        level FDR cutoff: 
+        level FDR: 
         <pre>C:\toppic_tutorial\data\st_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
         annotation of identified PrSMs with a 1%
-        proteoform level FDR cutoff: 
+        proteoform level FDR: 
         <pre>C:\toppic_tutorial\data\st_ms2_proteoform_cutoff_html</pre> 
         </li>
       </ul>
@@ -309,14 +307,24 @@
       <p> In the analysis, C57 is selected as the fixed modification because
       proteins were reduced with dithiothreitol and alkylated with
       iodoacetamide before the MS experiment. When proteins are not reduced, C0
-      should be selected. In addition, a shuffled decoy database is concatenated
+      should be selected. A shuffled decoy database is concatenated
       to the target database to estimate spectrum level and proteoform level
       FDRs. All identified PrSMs are first filtered by a
-      1% spectrum-level FDR and the resulting list of PrSMs are reported in the
-      file st_ms2.OUTPUT_TABLE. The proteoforms corresponding to the PrSMs in
-      st_ms2.OUTPUT_TABLE are further filtered using a 1% proteoform level and
+      1% spectrum level FDR and the resulting list of PrSMs are reported in the
+      file st_ms2.OUTPUT_TABLE. The proteoforms corresponding to the PrSMs 
+      are further filtered using a 1% proteoform level FDR and
       the resulting proteoforms are reported in the file
-      st_ms2.FORM_OUTPUT_TABLE.
+      st_ms2.FORM_OUTPUT_TABLE. Excel can be used to open these two files. 
+      To browse the annotations in the two folders st_ms2_prsm_cutoff_html and
+      st_ms2_proteoform_cutoff_html, use a web browser (Google Chrome is
+      recommended) to open the file proteins.html.
+      </p>
+
+      <p>
+      The output files can be downloaded
+      <a href="filedownload.php?filename=./data_files/st-result.zip">here</a>.  
+      The running time of TopPIC is about 5 minutes. 
+      </p>
       
 
       <!--
