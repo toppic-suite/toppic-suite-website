@@ -189,7 +189,7 @@
       <p>We use <b>MSConvertGUI</b> to convert the raw file st.raw to an mzML
       file.</p>
       <ol>
-        <li> Double click the executive file MSConvertGUI.exe in the folder
+        <li> Double click the executable file MSConvertGUI.exe in the folder
         C:\toppic_tutorial\pwiz</li>
         <li> Add the file c:\toppic_tutorial\data\st.raw as an input file</li>
         <li> Add the filter "peakPeaking vendor msLevel=1-" <b><font
@@ -223,7 +223,7 @@
       three files containing deconvoluted mass spectra and MS1 features from
       the file st.mzML.</p>
       <ol>
-        <li> Double click the executive file topfd_gui.exe in the folder
+        <li> Double click the executable file topfd_gui.exe in the folder
         C:\toppic_tutorial\toppic</li>
         <li> Add the file c:\toppic_tutorial\data\st.mzML as an input file</li>
         <li> Click to the button "Start"</li>
@@ -257,15 +257,15 @@
       identify proteoform spectrum-matches. 
       </p>
       <ol>
-        <li> Double click the executive file toppic_gui.exe in the folder
+        <li> Double click the executable file toppic_gui.exe in the folder
         C:\toppic_tutorial\toppic</li>
-        <li> Select the file c:\toppic_tutorial\data\uniprot-st.fasta as the protein
+        <li> Select the file C:\toppic_tutorial\data\uniprot-st.fasta as the protein
         database file</li>
-        <li> Select the file c:\toppic_tutorial\data\st_ms2.msalign as the
+        <li> Select the file C:\toppic_tutorial\data\st_ms2.msalign as the
         mass spectrum data file. </li>
         <li> Check the checkbox "MS1 feature file" and select the file
         c:\toppic_tutorial\data\st.feature as the feature file. </li>
-        <li> Select "C57" for fixed modification </li>
+        <li> Select "C57" as fixed modification </li>
         <li> Check the checkbox "Decoy database" </li>
         <li> Select "FDR" for spectrum level cutoff type </li>
         <li> Select "FDR" for proteoform level cutoff type</li>
@@ -275,35 +275,37 @@
       The screenshot of toppic_gui is shown below. 
       </p>
 
-      <p><img src="./images/topfd_2.png" height="400" width="600" 
+      <p><img src="./images/toppic_2.png" height="400" width="600" 
       style="border: #00008B 1px solid;"/>
       </p>
 
-      TopFD reports three text files. 
-      <ol>
-        <li>A msalign file containing deconvoluted MS1 spectra:
-        <pre>C:\toppic_tutorial\data\st_ms1.msalign</pre></li>
-        <li>A msalign file containing deconvoluted MS/MS spectra:
-        <pre>C:\toppic_tutorial\data\st_ms2.msalign</pre></li>
-        <li>A text file containing MS1 features of MS/MS spectra:
-        <pre>C:\toppic_tutorial\data\st.feature</pre></li>
-      </ol>
-      <p>
-      The three output files can be downloaded
-      <a href="filedownload.php?filename=./data_files/st-msalign.zip">here</a>.  
-      The running time of TopFD is about 6 minutes. 
-      </p>
-
       <p> In the analysis, 
+
+      <p>TopPIC reports two tab delimited text files and a collection of html
+      files for identified proteoforms. 
+      <ul>
+        <li>A tab delimited text file containing a list
+        of identified proteoform spectrum-matches with a 1% spectrum level FDR
+        cutoff:
+        <pre>C:\toppic_tutorial\data\st_ms2.OUTPUT_TABLE</pre> 
+        </li>
+        <li> A tab delimited text file containing a list
+        of identified proteoform spectrum-matches with a 1% proteoform level FDR
+        cutoff:
+        <pre>C:\toppic_tutorial\data\st_ms2.FORM_OUTPUT_TABLE</pre> 
+        </li> A folder containing html files for the
+        annotation of identified proteoform spectrum-matches with a 1% spectrum
+        level FDR cutoff: 
+        <pre>C:\toppic_tutorial\data\st_ms2_prsm_cutoff_html</pre> 
+        </li>
+        <li>
+        A folder containing html files for the
+        annotation of identified proteoform spectrum-matches with a 1%
+        proteoform level FDR cutoff: 
+        <pre>C:\toppic_tutorial\data\st_ms2_proteoform_cutoff_html</pre> 
+        </li>
+      </ul>
       
-
-
-      <pre>cd c:\tutorial</pre>
-      <pre>.\toppic\toppic .\result\ecoli_ms2.msalign .\data\uniprot_ecoli.fasta -f .\result\ecoli.msft -d -t FDR -t FDR</pre>
-      <p>The screenshot below shows the console output of the above command.</li>
-      <p><img src="" height="250" width="500" border="1.5"/></p>
-
-      <h4><font color=#0066DD>5.3.3 Output files</font></h4>
 
       <!--
       <h3><font color=#0066DD>5 Data analysis</font></h3>
