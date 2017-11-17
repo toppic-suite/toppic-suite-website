@@ -190,11 +190,11 @@
       file.</p>
       <ol>
         <li> Double click the executable file MSConvertGUI.exe in the folder
-        C:\toppic_tutorial\pwiz</li>
-        <li> Add the file c:\toppic_tutorial\data\st.raw as an input file</li>
+        C:\toppic_tutorial\pwiz.</li>
+        <li> Add the file c:\toppic_tutorial\data\st.raw as an input file.</li>
         <li> Add the filter "peakPeaking vendor msLevel=1-" <b><font
-            color=#FF0000">(important)</font></b> </li>
-        <li> Click to the button "Start" to perform file format converstion</li>
+            color=#FF0000">(important)</font></b>.</li>
+        <li> Click to the button "Start" to perform file format converstion.</li>
       </ol>
       <p>
       The screenshot of MSConvertGUI is shown below. 
@@ -224,9 +224,9 @@
       the file st.mzML.</p>
       <ol>
         <li> Double click the executable file topfd_gui.exe in the folder
-        C:\toppic_tutorial\toppic</li>
-        <li> Add the file c:\toppic_tutorial\data\st.mzML as an input file</li>
-        <li> Click to the button "Start"</li>
+        C:\toppic_tutorial\toppic.</li>
+        <li> Add the file c:\toppic_tutorial\data\st.mzML as an input file.</li>
+        <li> Click to the button "Start" to deconvolute the file.</li>
       </ol>
       <p>
       The screenshot of topfd_gui is shown below. 
@@ -254,21 +254,21 @@
       <h4>5.3 Mass spectral identification by database search</h4>
       <p>We use <b>toppic_gui</b> to search MS/MS spectra in the file
       st_ms2.msalign against the protein database uniprot-st.fasta to
-      identify proteoform spectrum-matches. 
+      identify proteoform spectrum-matches (PrSMs). 
       </p>
       <ol>
         <li> Double click the executable file toppic_gui.exe in the folder
-        C:\toppic_tutorial\toppic</li>
+        C:\toppic_tutorial\toppic.</li>
         <li> Select the file C:\toppic_tutorial\data\uniprot-st.fasta as the protein
-        database file</li>
+        database file.</li>
         <li> Select the file C:\toppic_tutorial\data\st_ms2.msalign as the
         mass spectrum data file. </li>
         <li> Check the checkbox "MS1 feature file" and select the file
         c:\toppic_tutorial\data\st.feature as the feature file. </li>
-        <li> Select "C57" as fixed modification </li>
-        <li> Check the checkbox "Decoy database" </li>
-        <li> Select "FDR" for spectrum level cutoff type </li>
-        <li> Select "FDR" for proteoform level cutoff type</li>
+        <li> Select "C57" as the fixed modification. </li>
+        <li> Check the checkbox "Decoy database." </li>
+        <li> Select "FDR" for spectrum level cutoff type. </li>
+        <li> Select "FDR" for proteoform level cutoff type. </li>
         <li> Click to the button "Start"</li>
       </ol>
       <p>
@@ -279,32 +279,44 @@
       style="border: #00008B 1px solid;"/>
       </p>
 
-      <p> In the analysis, 
 
       <p>TopPIC reports two tab delimited text files and a collection of html
       files for identified proteoforms. 
       <ul>
         <li>A tab delimited text file containing a list
-        of identified proteoform spectrum-matches with a 1% spectrum level FDR
+        of identified PrSMs with a 1% spectrum level FDR
         cutoff:
         <pre>C:\toppic_tutorial\data\st_ms2.OUTPUT_TABLE</pre> 
         </li>
         <li> A tab delimited text file containing a list
-        of identified proteoform spectrum-matches with a 1% proteoform level FDR
+        of identified PrSMs with a 1% proteoform level FDR
         cutoff:
         <pre>C:\toppic_tutorial\data\st_ms2.FORM_OUTPUT_TABLE</pre> 
         </li> A folder containing html files for the
-        annotation of identified proteoform spectrum-matches with a 1% spectrum
+        annotation of identified PrSMs with a 1% spectrum
         level FDR cutoff: 
         <pre>C:\toppic_tutorial\data\st_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
-        annotation of identified proteoform spectrum-matches with a 1%
+        annotation of identified PrSMs with a 1%
         proteoform level FDR cutoff: 
         <pre>C:\toppic_tutorial\data\st_ms2_proteoform_cutoff_html</pre> 
         </li>
       </ul>
+      </p>
+
+      <p> In the analysis, C57 is selected as the fixed modification because
+      proteins were reduced with dithiothreitol and alkylated with
+      iodoacetamide before the MS experiment. When proteins are not reduced, C0
+      should be selected. In addition, a shuffled decoy database is concatenated
+      to the target database to estimate spectrum level and proteoform level
+      FDRs. All identified PrSMs are first filtered by a
+      1% spectrum-level FDR and the resulting list of PrSMs are reported in the
+      file st_ms2.OUTPUT_TABLE. The proteoforms corresponding to the PrSMs in
+      st_ms2.OUTPUT_TABLE are further filtered using a 1% proteoform level and
+      the resulting proteoforms are reported in the file
+      st_ms2.FORM_OUTPUT_TABLE.
       
 
       <!--
