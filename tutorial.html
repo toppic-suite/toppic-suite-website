@@ -178,30 +178,33 @@
         <li>Extract all the files of the downloaded zip file to the folder
         C:\toppic_tutorial\toppic\.</li> 
         <br>
-        <p><img src="./images/toppic_1.png" height="200" width="1100" 
+        <p><img src="./images/toppic_1.png" height="200" width="600" 
         style="border: #00008B 1px solid;"/>
         </p>
       </ol>
 
-      <h3><font color=#0066DD>5 Data analysis using GUI</font></h3>
-      <h4><font color=#0066DD>5.1 File format conversion</font></h4>
+      <h3>5 Data analysis using GUI</h3>
+      <h4>5.1 File format conversion</h4>
 
-      <p>We use <b>MsconvertGui</b> to convert the raw file st.raw to a
-      file st.mzML.</p>
+      <p>We use <b>MSConvertGUI</b> to convert the raw file st.raw to an mzML
+      file.</p>
       <ol>
-        <li> Double click the executive file MsconvertGui.exe in the folder
-        C:\tutorial\pwiz</li>
-        <li> Add the file c:\tutorial\data\st.raw as an input file</li>
-        <li> Add the filter <b>(Important)</b> </li>
-        <li> Click to the button </li>
+        <li> Double click the executive file MSConvertGUI.exe in the folder
+        C:\toppic_tutorial\pwiz</li>
+        <li> Add the file c:\toppic_tutorial\data\st.raw as an input file</li>
+        <li> Add the filter "peakPeaking vendor msLevel=1-" <b>(Important)</b> </li>
+        <li> Click to the button "Start" to perform file format converstion</li>
       </ol>
       <p>
-      The panel of MsConvertGui is shown below. 
+      A screenshot of MSConvertGUI is shown below. 
+      </p>
+      <p><img src="./images/toppic_1.png" height="200" width="600" 
+      style="border: #00008B 1px solid;"/>
       </p>
 
       <p>
-      In the above file format conversion, the peak picking filter is used to
-      generate a centroided, not profile, mzML data file, which is needed by the
+      In the above file format conversion, the peak picking filter (step 3) is used to
+      generate a centroided, not profile, mzML data file, which is required by the
       spectral deconvolution tool TopFD. 
       </p>
 
