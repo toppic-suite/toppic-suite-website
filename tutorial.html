@@ -45,16 +45,16 @@
       on a computer with a Windows operating system.     
 
       <h3>2. Folders</h3>
-      <p>Create the folders below for saving software packages and data sets
+      <p>Create the folders below for software packages and data sets
       used in this tutorial. 
       </p>
       <ol>
         <li>Create a new folder named 'toppic_tutorial' on the C: drive of your system. 
-        <li>Create a new subfolder named 'pwid' in the folder C:\toppic_tutorial\ for saving
+        <li>Create a new subfolder named 'pwid' in the folder C:\toppic_tutorial\ for 
         the software package ProteoWizard. 
-        <li>Create a new subfolder named 'toppic' in the folder C:\toppic_tutorial\ for saving
+        <li>Create a new subfolder named 'toppic' in the folder C:\toppic_tutorial\ for 
         the software TopPIC suite. 
-        <li>Create a new subfolder named 'data' in the folder C:\toppic_tutorial\ for saving
+        <li>Create a new subfolder named 'data' in the folder C:\toppic_tutorial\ for 
         data files. 
         <!--
         <li>Create a new subfolder named 'results' in the folder C:\toppic_tutorial\ for saving
@@ -72,7 +72,7 @@
 
       <h4>3.1 Top-down MS/MS date set</h4>
       <p>
-      A top-down MS/MS data set of <i>Salmonella typhimurium</i> is used in the
+      A top-down MS/MS data set of <i>S. typhimurium</i> is used in the
       tutorial. The protein extract of <i>S. typhimurium</i> were reduced with
       dithiothreitol and alkylated with iodoacetamide.  The protein mixture was
       separated with an HPLC system coupled to an LTQ-Orbitrap mass spectrometer (Thermo
@@ -87,8 +87,9 @@
       and save it in the folder C:\toppic_tutorial\data\.</p>
 
       <h4>3.2 Protein sequence database</h4>
-      <p>The <i>Salmonella typhimurium</i> <a
-        href="http://www.uniprot.org/uniprot/?query=proteome:UP000001014%20reviewed:yes">proteome database</a> was downloaded from UniProt on November 17, 2017. It
+      <p>The <i>S. typhimurium</i> <a
+        href="http://www.uniprot.org/uniprot/?query=proteome:UP000001014%20reviewed:yes">proteome
+        database</a> was downloaded from the UniProt database on November 17, 2017. It
       contains 1,795 protein sequences. 
       </p>
 
@@ -106,7 +107,8 @@
 
       <h4>4.1 Msconvert</h4>
       <p>
-      Msconvert is a software tool in <B>ProteoWizard</B> that converts raw files into various formats. 
+      Msconvert is a software tool in <B>ProteoWizard</B> that converts raw
+      files into various spectrum file formats. 
 
       <h4>4.1.1 Required software packages to install ProteoWizard</font></h4>
       You must install the following three software packages to use ProteoWizard
@@ -130,21 +132,9 @@
       <ol>
         <li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
         <li>Choose the download type 'Windows 64-bit tar.bz2' for end users.</li>
-        <!--
-        <br>
-        <p><img src="./images/msconvert/msconvert_1.jpg" height="200" width="1100" 
-        style="border: #00008B 1px solid;"/>
-        </p>
-        -->
         <li>Click the button "I agree to the licensing terms, download
         ProteoWizard" to download ProteoWizard and save the bz2 file in the folder
         C:\toppic_tutorial\pwid\.</li>
-        <!--
-        <br>
-        <p><img src="./images/msconvert/msconvert_2.jpg" height="200" width="1100" 
-        style="border: #00008B 1px solid;"/>
-        </p>
-        -->
         <li>Extract all the files of the downloaded bz2 file to the folder
         C:\toppic_tutorial\pwiz\.</li> 
         <br>
@@ -165,19 +155,7 @@
         registration form, and click "I accept license agreement and download
         TopPIC suite"
         to download it.</li>
-        <!--
-        <br>
-        <p><img src="./images/toppic/toppic_1.jpg" height="200" width="1100" 
-        style="border: #00008B 1px solid;"/>
-        </p>
-        -->
         <li>Save it to the folder C:\toppic_tutorial\toppic\.</li>
-        <!--
-        <br>
-        <p><img src="./images/tmp.jpg" height="200" width="1100" 
-        style="border: #00008B 1px solid;"/>
-        </p>
-        -->
         <li>Extract all the files of the downloaded zip file to the folder
         C:\toppic_tutorial\toppic\.</li> 
         <br>
@@ -197,7 +175,7 @@
         <li> Add the file c:\toppic_tutorial\data\st.raw as an input file.</li>
         <li> Add the filter "peakPeaking vendor msLevel=1-" <b><font
             color=#FF0000">(important)</font></b>.</li>
-        <li> Click to the button "Start" to perform file format converstion.</li>
+        <li> Click to the button "Start" to perform file format conversion.</li>
       </ol>
       <p>
       The screenshot of MSConvertGUI is shown below. 
@@ -214,17 +192,15 @@
 
       <p>
       The resulting output mzML file is
-      <pre>C:\toppic_tutorial\result\st.mzML</pre> The size of the file is 43
+      <pre>C:\toppic_tutorial\result\st.mzML</pre> The size of the file is about 43
       MB, which can be downloaded <a
       href="filedownload.php?filename=./data_files/st.mzML">here</a>.  The
-    running time of the command is less than one minute.   
+    running time for the file format conversion is less than one minute.   
       </p>
 
       <h4>5.2 Mass spectral deconvolution</h4>
 
-      <p>We use <b>TopFD</b> to do mass spectral deconvolution, generating
-      three files containing deconvoluted mass spectra and MS1 features from
-      the file st.mzML.</p>
+      <p>We use <b>topfd_gui</b> for top-down mass spectral deconvolution.</p>
       <ol>
         <li> Double click the executable file topfd_gui.exe in the folder
         C:\toppic_tutorial\toppic.</li>
@@ -245,7 +221,7 @@
         <pre>C:\toppic_tutorial\data\st_ms1.msalign</pre></li>
         <li>A msalign file containing deconvoluted MS/MS spectra:
         <pre>C:\toppic_tutorial\data\st_ms2.msalign</pre></li>
-        <li>A text file containing MS1 features of MS/MS spectra:
+        <li>A text file containing LC/MS features of MS/MS spectra:
         <pre>C:\toppic_tutorial\data\st.feature</pre></li>
       </ol>
       <p>
@@ -262,16 +238,16 @@
       <ol>
         <li> Double click the executable file toppic_gui.exe in the folder
         C:\toppic_tutorial\toppic.</li>
-        <li> Select the file C:\toppic_tutorial\data\uniprot-st.fasta as the protein
+        <li> Select C:\toppic_tutorial\data\uniprot-st.fasta as the protein
         database file.</li>
-        <li> Select the file C:\toppic_tutorial\data\st_ms2.msalign as the
+        <li> Select C:\toppic_tutorial\data\st_ms2.msalign as the
         mass spectrum data file. </li>
-        <li> Check the checkbox "MS1 feature file" and select the file
-        c:\toppic_tutorial\data\st.feature as the feature file. </li>
+        <li> Check the checkbox "MS1 feature file" and select 
+        C:\toppic_tutorial\data\st.feature as the feature file. </li>
         <li> Select "C57" as the fixed modification. </li>
         <li> Check the checkbox "Decoy database." </li>
-        <li> Select "FDR" for spectrum level cutoff type. </li>
-        <li> Select "FDR" for proteoform level cutoff type. </li>
+        <li> Select "FDR" as the spectrum level cutoff type. </li>
+        <li> Select "FDR" as the proteoform level cutoff type. </li>
         <li> Click to the button "Start"</li>
       </ol>
       <p>
@@ -286,12 +262,11 @@
       <p>TopPIC reports two tab delimited text files and a collection of html
       files for identified proteoforms. 
       <ul>
-        <li>A tab delimited text file containing a list
-        of identified PrSMs with a 1% spectrum level FDR:
+        <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
         <pre>C:\toppic_tutorial\data\st_ms2.OUTPUT_TABLE</pre> 
         </li>
-        <li> A tab delimited text file containing a list
-        of identified PrSMs with a 1% proteoform level FDR:
+        <li> A tab delimited text file containing identified proteoforms and
+        their best PrSMs with a 1% proteoform level FDR:
         <pre>C:\toppic_tutorial\data\st_ms2.FORM_OUTPUT_TABLE</pre> 
         </li> A folder containing html files for the
         annotation of identified PrSMs with a 1% spectrum
@@ -313,11 +288,11 @@
       should be selected. A shuffled decoy database is concatenated
       to the target database to estimate spectrum level and proteoform level
       FDRs. All identified PrSMs are first filtered by a
-      1% spectrum level FDR and the resulting list of PrSMs are reported in the
+      1% spectrum level FDR and the resulting PrSMs are reported in the
       file st_ms2.OUTPUT_TABLE. The proteoforms corresponding to the PrSMs 
       are further filtered using a 1% proteoform level FDR and
-      the resulting proteoforms are reported in the file
-      st_ms2.FORM_OUTPUT_TABLE. Excel can be used to open these two files. 
+      the resulting proteoforms and their corresponding best PrSMs are reported in the file
+      st_ms2.FORM_OUTPUT_TABLE. Microsoft Excel can be used to open these two files. 
       To browse the annotations in the two folders st_ms2_prsm_cutoff_html and
       st_ms2_proteoform_cutoff_html, use a web browser (Google Chrome is
       recommended) to open the file proteins.html.
@@ -415,15 +390,6 @@
       <h4><font color=#0066DD>5.3.3 Output files</font></h4>
       -->
 
-      <h3><font color=#0066DD>6. Reference</font></h3>
-      <p id="reference">
-      1. Qiang Kou, Likun Xun, and Xiaowen Liu.
-      <b>TopPIC: a software tool for top-down mass spectrometry-based proteoform identification and characterization.</b>
-      Bioinformatics, 32:3495-3497, 2016. 
-      <a target="_blank"
-        href="http://www.ncbi.nlm.nih.gov/pubmed/27423895">Pubmed</a>.
-      <p>
-      
   <script src="assets/js/jquery-1.7.1.min.js"></script>
 
   </body>

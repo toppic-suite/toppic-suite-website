@@ -58,7 +58,7 @@
 
 
       <h4>2.2 Output</h4>
-      <p>TopFD outputs an MS1 feature text file with a file extension "feature" and two deconvoluted mass spectral
+      <p>TopFD outputs an LC/MS feature text file with a file extension "feature" and two deconvoluted mass spectral
       data files (one is for MS1 spectra and the other for MS/MS
       spectra) in the msalign format with a file extension "msalign", which is similar to the MGF file format. 
       For example, when the input file name is spectra.mzML, the output files
@@ -131,7 +131,7 @@
       <p>
       To run the GUI of TopFD, double-click the downloaded executive file
       topfd_gui.exe. To deconvolute a spectrum data file,
-      use the button "File" to select the data file, change parameters
+      use the button "File" to select a data file, change parameters
       if needed, and click the button "Start" to start deconvolution. After
       TopFD completes the deconvolution of the file, click the button "Output
       folder" to find output files.
@@ -144,7 +144,7 @@
         <li>A protein database file in the FASTA format</li>
         <li>A mass spectrum data file in the msalign format</li>
         <li>A text file to specify fixed PTMs (optional)</li>
-        <li>A text file containing MS1 feature information (optional)</li>
+        <li>A text file containing LC/MS feature information (optional)</li>
         <li>A text file to specify PTMs for the characterization of mass shifts
         (optional)</li>
       </ul>
@@ -154,20 +154,21 @@
       proteoforms. For example, when the input mass spectrum data file is
       spectra_ms2.msalign, the output includes: 
       <ul>
-        <li><b>spectra_ms2.OUTPUT_TABLE</b>: a tab delimited text file containing a list
-        of identified proteoform spectrum-matches at the spectrum level.</li>
-        <li><b>spectra_ms2.FORM_OUTPUT_TABLE</b>: a tab delimited text file containing a list
-        of identified proteoform spectrum-matches at the proteoform level.</li>
+        <li><b>spectra_ms2.OUTPUT_TABLE</b>: a tab delimited text file containing 
+        identified proteoform spectrum-matches (PrSMs) with a spectrum level E-value or
+        FDR cutoff.</li>
+        <li><b>spectra_ms2.FORM_OUTPUT_TABLE</b>: a tab delimited text file containing 
+        identified proteoforms with a proteoform level E-value or FDR cutoff.</li>
         <li><b>spectra_ms2_prsm_cutoff_html</b>: a folder containing html files for the
-        annotation of identified proteoform spectrum-matches using the 
+        annotation of identified PrSMs using the 
         spectrum level E-value or FDR cutoff.</li>
         <li><b>spectra_ms2_proteoform_cutoff_html</b>: a folder containing html files for the
-        annotation of identified proteoform spectrum-matches using the 
+        annotation of PrSMs corresponding to identified proteoforms using the 
         proteoform level E-value or FDR cutoff.</li>
       </ul>
 
       To browse identified
-      proteins, proteoforms, and proteoform spectrum-matches, please 
+      proteins, proteoforms, and PrSMs,  
       use a web browser to open the file spectrum_ms2_prsm_cutoff_html/proteins.html 
       or spectrum_ms_proteoform_cutoff_html/proteins.html.
       Google Chrome or Firefox is recommended (IE is not recommended).
@@ -181,12 +182,13 @@
       <p>Print the help message.</p>
 
       <p><code>-a [ --activation ] &lt;CID|HCD|ETD|UVPD|FILE&gt;</code></p>
-      <p>Set the fragmentation method(s) of tandem mass spectra. When FILE is used, 
+      <p>Set the fragmentation method(s) of MS/MS spectra. When "FILE" is
+      selected, 
       fragmentation methods of spectra are given in the input spectrum data
       file. Default value: FILE.</p>
 
       <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
-      <p>Set the fixed modifications. Three available options: C57, C58, or the name of
+      <p>Set fixed modifications. Three available options: C57, C58, or the name of
       a text file containing the information of fixed modifications (see <a
         target="_blank" href="example_files/fixed_mods.txt">example file</a>).
       When C57 is selected, carbamidomethylation on cysteine is the only fixed
@@ -194,7 +196,7 @@
       only fixed modification.</p>
 
       <p><code>-n [ --n-terminal-form ] &lt;a list of allowed N-terminal forms&gt;</code></p>
-      <p>Set the N-terminal forms of proteins. Four N-terminal forms can be selected:
+      <p>Set N-terminal forms of proteins. Four N-terminal forms can be selected:
       NONE, NME, NME_ACETYLATION, and M_ACETYLATION.  NONE stands for no
       modifications, NME for N-terminal methionine excision, NME_ACETYLATION for
       N-terminal acetylation after the initiator methionine is removed, and
@@ -203,14 +205,16 @@
       NONE,M_ACETYLATION,NME,NME_ACETYLATION.</p>
 
       <p><code>-d [ --decoy ]</code></p>
-      <p>Use a shuffled decoy protein database to estimate false discovery rates.
+      <p>Use a shuffled decoy protein database to estimate spectrum and
+      proteoform level FDRs.
       When -d is chosen, a shuffled decoy database is automatically
       generated and appended to the target database before database search, and
-      false discovery rates are estimated using the target-decoy approach.</p>
+      FDR rates are estimated using the target-decoy approach.</p>
 
       <p><code>-e [ --error-tolerance ] &lt;a positive integer&gt;</code></p>
       <p>Set the error tolerance for precursor and fragment masses in part-per-million
-      (ppm). Default value: 15. Valid values are 5, 10, and 15 ppm. To use other
+      (ppm). Default value: 15. When the default lookup table approach is used
+      for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm. To use other
       values, the generating function approach (-g) should be chosen.</p>
 
       <p><code>-m [ --max-shift ]  &lt;a positive number&gt;</code></p>
@@ -218,19 +222,21 @@
       Default value: 500 Da.</p>
 
       <p><code>-p [ --num-shift ] &lt;0|1|2&gt;</code></p>
-      <p>Set the maximum number of unexpected mass shifts in a proteoform spectrum-match. Default value: 1.</p>
+      <p>Set the maximum number of unexpected mass shifts in a PrSM. Default value: 1.</p>
 
       <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
-      <p>Set the spectrum level cutoff type for filtering proteoform spectrum-matches. Default value: EVALUE.</p>
+      <p>Set the spectrum level cutoff type for filtering PrSMs. Default value: EVALUE.</p>
 
       <p><code>-v [ --spectrum-cutoff-value ] &lt;a positive number&gt;</code></p>
-      <p>Set the spectrum level cutoff value for filtering proteoform spectrum-matches. Default value: 0.01.</p>
+      <p>Set the spectrum level cutoff value for filtering PrSMs. Default value: 0.01.</p>
 
       <p><code>-T [ --proteoform-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
-      <p>Set the proteoform level cutoff type for filtering proteoform spectrum-matches. Default value: EVALUE.</p>
+      <p>Set the proteoform level cutoff type for filtering proteoforms and
+      PrSMs. Default value: EVALUE.</p>
 
       <p><code>-V [ --proteoform-cutoff-value ] &lt;a positive number&gt;</code></p>
-      <p>Set the proteoform level cutoff value for filtering proteoform spectrum-matches. Default value: 0.01.</p>
+      <p>Set the proteoform level cutoff value for filtering proteoforms and
+      PrSMs. Default value: 0.01.</p>
 
       <p><code>-g [ --generating-function ]</code></p>
       <p>Use the generating function approach to compute p-values and E-values.
@@ -243,19 +249,18 @@
 
       <p><code>-i [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
       <p>Specify a text file containing a list of common PTMs for proteoform characterization. The PTMs are used to identify and
-      localize PTMs in reported proteoform spectrum-matches with unknown mass
+      localize PTMs in reported PrSMs with unknown mass
       shifts. See <a target="_blank" href="example_files/common_mods.txt" >example file</a>.</p>
 
       <p><code>-s [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
-      <p>Set the score threshold (modification identification score) for filtering results of PTM characterization. Default value: 0.45.</p>
+      <p>Set the score threshold (MIScore) for filtering results of PTM characterization. Default value: 0.45.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
       <p>Set the number of threads used in the computation. Default value: 1.</p>
 
       <p><code>-x [ --use-topfd-feature ] &lt;a TopFD feature file with its
         path&gt;</code></p> <p>Specify a TopFD feature file for obtaining
-      proteoform identifications by grouping identified proteoform
-      spectrum-matches.</p>
+      proteoform identifications by grouping identified PrSMs.</p>
 
       <p><code>-l [ --skip-list ] &lt;a text file with its path&gt;</code></p>  
       <p>Specify a text file containing a list of spectrum scans that have been
@@ -344,8 +349,8 @@
 
       <h4>3.4 Graphical user interface</h4>
       <p> To run the GUI of TopPIC, double-click the downloaded executive file
-      toppic_gui.exe. First, use the "File" buttons to select the protein
-      database file, the spectrum data file. Second, set the parameters if
+      toppic_gui.exe. First, use the "File" buttons to select a protein
+      database file and a spectrum data file. Second, set parameters if
       needed. Third click the button "Start" to start database search.  After
       TopPIC completes the database search, click the button "Output folder" to
       find output files.
