@@ -41,8 +41,9 @@
 
       <h3>1. Overview</h3>
       In this tutorial, we use TopPIC suite to analyze a top-down MS/MS data set
-      of <i>Salmonella typhimurium</i> 
-      on a computer with a Windows operating system.     
+      of <i>Salmonella typhimurium</i> on a computer with a Windows operating
+      system. <b>Annotated proteoform spectrum-matches (PrSMs) identified from the data set can be browsed 
+        <a href="data_files/st_ms2_prsm_cutoff_html/proteins.html">here</a></b>.
 
       <h3>2. Folders</h3>
       <p>Create the folders below for software packages and data sets
@@ -233,7 +234,7 @@
       <h4>5.3 Mass spectral identification by database search</h4>
       <p>We use <b>toppic_gui</b> to search MS/MS spectra in the file
       st_ms2.msalign against the protein database uniprot-st.fasta to
-      identify proteoform spectrum-matches (PrSMs). 
+      identify PrSMs. 
       </p>
       <ol>
         <li> Double click the executable file toppic_gui.exe in the folder
@@ -306,92 +307,146 @@
       </p>
       
 
-      <!--
-      <h3><font color=#0066DD>5 Data analysis</font></h3>
-      <h4><font color=#0066DD>5.1 File format conversion</font></h4>
+      <h3>6 Data analysis using the command line interface</h3>
+      <h4>6.1 File format conversion</h4>
 
       <p>We use <b>msconvert</b> to convert the raw file ecoli.raw to an mzML
-      file ecoli.mzML.</p>
-      <h4><font color=#0066DD>5.1.1 File locations</font></h4>
+      file.</p>
+      <h4>File locations</h4>
       <ol>
-        <li>Executable file: <pre>C:\tutorial\pw\msconvert.exe</pre></li>
-        <li>Input raw file: <pre>C:\tutorial\data\ecoli.raw</pre></li>
+        <li>Executable file: <pre>C:\toppic_tutorial\pwid\msconvert.exe</pre></li>
+        <li>Input raw file: <pre>C:\toppic_tutorial\data\st.raw</pre></li>
       </ol>
 
-      <h4><font color=#0066DD>5.1.2 Command</font></h4>
+      <h4>Command</h4>
       <ol>
-        <li>Launch the Command Prompt </li>
-
-        <li>Input the following command: <br> 
-        <pre class="code">c:\tutorial\pw\msconvert.exe filter "peakPicking true 1" c:\tutorial\data\ecoli.raw -o c:\tutorial\result</pre>
-        </li>
+        <pre class="code">cd c:\toppic_tutorial\data</pre>
+        <pre class="code">..\pwid\msconvert.exe filter "peakPicking true 1-" st.raw</pre>
       </ol>
       <p>In the above command, the argument filter "peakPicking true 1-" is used to
-      generate a centroid, not profile, mzML data file, which is needed by the
-      spectral deconvolution tool TopFD. The -o argument specifies the
-      location of the output file. 
+      generate a centroided, not profile, mzML data file, which is needed by the
+      spectral deconvolution tool TopFD. 
       </p>
+      <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
-
-      <h4><font color=#0066DD>5.1.3 Output file</font></h4>
-      The resulting output mzML file is <pre>C:\tutorial\result\ecoli.mzML</pre>
-      The size of the file is 213 MB, which can be downloaded <a
-      href="">here</a>.  The running time of the command is about one minute.   
-
-      <h4><font color=#0066DD>5.2 Mass spectral deconvolution</font></h4>
-
-      <p>We use <b>TopFD</b> to do mass spectral deconvolution, generating
-      three files containing deconvoluted mass spectra and MS1 features from
-      the mzML file ecoli.mzML.</p>
-      <h4><font color=#0066DD>5.2.1 File locations</font></h4>
-      <ol>
-        <li>Executable file: <pre>C:\tutorial\toppic\topfd.exe</pre></li>
-        <li>Input mzML file: <pre>C:\tutorial\result\ecoli.mzML</pre></li>
-      </ol>
-      <h4><font color=#0066DD>5.2.2 Command</font></h4>
-      In the Command Prompt, input the following command:
-      <pre>c:\tutorial\toppic\topfd c:\tutorial\result\ecoli.mzML</pre>
-      <p>The screenshot below shows the console output of the above command.</li>
-      <p><img src="" height="250" width="500" border="1.5"/></p>
-
-      <h4><font color=#0066DD>5.2.3 Output files</font></h4>
-      TopFD reports three text files. 
-      <ol>
-        <li>Msalign file containing deconvoluted MS1 spectra:
-        <pre>C:\tutorial\result\ecoli_ms1.msalign</pre></li>
-        <li>Msalign file containing deconvoluted MS/MS spectra:
-        <pre>C:\tutorial\result\ecoli_ms2.msalign</pre></li>
-        <li>Text file containing MS1 features of MS/MS spectra:
-        <pre>C:\tutorial\result\ecoli.msft</pre></li>
-      </ol>
-      <p>
-      The three output files can be downloaded <a href="">here</a>. The running time
-      of the command is about ??? minutes. 
-      </p>
-      
-      <h4><font color=#0066DD>5.3 Mass spectral identification by database search</font></h4>
-      <p>We use <b>TopPIC</b> to search MS/MS spectra in the file
-      ecoli_ms2.msalign against the protein database uniprot_ecoli.fasta to
-      identify proteoform spectrum-matches. 
-      </p>
-      <h4><font color=#0066DD>5.3.1 File locations</font></h4>
-      <ol>
-        <li>Executable file: <pre>C:\tutorial\toppic\toppic.exe</pre></li>
-        <li>Input MS/MS msalign file: <pre>C:\tutorial\result\ecoli_ms2.msalign</pre></li>
-        <li>Input feature file: <pre>C:\tutorial\result\ecoli.msft</pre></li>
-      </ol>
-      <h4><font color=#0066DD>5.3.2 Commands</font></h4>
-      In the Command Prompt, input the following two commands:
-      <pre>cd c:\tutorial</pre>
-      <pre>.\toppic\toppic .\result\ecoli_ms2.msalign .\data\uniprot_ecoli.fasta -f .\result\ecoli.msft -d -t FDR -t FDR</pre>
-      <p>The screenshot below shows the console output of the above command.</li>
-      <p><img src="" height="250" width="500" border="1.5"/></p>
-
-      <h4><font color=#0066DD>5.3.3 Output files</font></h4>
       -->
 
-  <script src="assets/js/jquery-1.7.1.min.js"></script>
+      <h4>Output file</h4>
+      <p>
+      The resulting output mzML file is
+      <pre>C:\toppic_tutorial\result\st.mzML</pre> The size of the file is about 43
+      MB, which can be downloaded <a
+      href="filedownload.php?filename=./data_files/st.mzML">here</a>.  The
+    running time for the file format conversion is less than one minute.   
+      </p>
 
-  </body>
+
+      <h4>6.2 Mass spectral deconvolution</h4>
+
+      <p>We use <b>TopFD</b> for top-down mass spectral deconvolution.</p>
+
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\topfd.exe</pre></li>
+        <li>Input mzML file: <pre>C:\toppic_tutorial\data\st.mzML</pre></li>
+      </ol>
+      <h4>Command</h4>
+      <pre class="code">cd c:\toppic_tutorial\data</pre>
+      <pre class="code">..\toppic\topfd st.mzML</pre>
+      <!--
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+      -->
+
+      <h4>Output files</h4>
+      TopFD reports three text files. 
+      <ol>
+        <li>A msalign file containing deconvoluted MS1 spectra:
+        <pre>C:\toppic_tutorial\data\st_ms1.msalign</pre></li>
+        <li>A msalign file containing deconvoluted MS/MS spectra:
+        <pre>C:\toppic_tutorial\data\st_ms2.msalign</pre></li>
+        <li>A text file containing LC/MS features of MS/MS spectra:
+        <pre>C:\toppic_tutorial\data\st.feature</pre></li>
+      </ol>
+      <p>
+      The three output files can be downloaded
+      <a href="filedownload.php?filename=./data_files/st-msalign.zip">here</a>.  
+      The running time of TopFD is about 6 minutes. 
+      </p>
+
+      <h4>6.3 Mass spectral identification by database search</font></h4>
+      <p>We use <b>TopPIC</b> to search MS/MS spectra in the file st_ms2.msalign
+      against the protein database uniprot-st.fasta to identify PrSMs.  The
+      feature file st.feature is used to map identified PrSMs to proteoforms.  
+      </p>
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
+        <li>Input protein database file:
+        <pre>C:\toppic_tutorial\data\unprot-st.fasta</pre></li>
+        <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\data\st_ms2.msalign</pre></li>
+        <li>Input feature file: <pre>C:\toppic_tutorial\data\st.feature</pre></li>
+      </ol>
+      <h4>Commands</h4>
+      <pre class="code">cd c:\toppic_tutorial\data</pre>
+      <pre class="code">..\toppic\toppic -f C57 -d -t FDR -T FDR -x st.feature uniprot-st.fasta st_ms2.msalign</pre>
+      <!--
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+      -->
+      <h4>Output files</h4>
+      <p>TopPIC reports two tab delimited text files and a collection of html
+      files for identified proteoforms. 
+      <ul>
+        <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
+        <pre>C:\toppic_tutorial\data\st_ms2.OUTPUT_TABLE</pre> 
+        </li>
+        <li> A tab delimited text file containing identified proteoforms and
+        their best PrSMs with a 1% proteoform level FDR:
+        <pre>C:\toppic_tutorial\data\st_ms2.FORM_OUTPUT_TABLE</pre> 
+        </li> A folder containing html files for the
+        annotation of identified PrSMs with a 1% spectrum
+        level FDR: 
+        <pre>C:\toppic_tutorial\data\st_ms2_prsm_cutoff_html</pre> 
+        </li>
+        <li>
+        A folder containing html files for the
+        annotation of identified PrSMs with a 1%
+        proteoform level FDR: 
+        <pre>C:\toppic_tutorial\data\st_ms2_proteoform_cutoff_html</pre> 
+        </li>
+      </ul>
+      </p>
+
+      <p> In the analysis, C57 (-f C57) is selected as the fixed modification because
+      proteins were reduced with dithiothreitol and alkylated with
+      iodoacetamide before the MS experiment. When proteins are not reduced, C0
+      should be selected. A shuffled decoy database (-d) is concatenated
+      to the target database to estimate spectrum level and proteoform level
+      FDRs. All identified PrSMs are first filtered by a
+      1% spectrum level FDR (-t FDR) and the resulting PrSMs are reported in the
+      file st_ms2.OUTPUT_TABLE. The proteoforms corresponding to the PrSMs 
+      are further filtered using a 1% proteoform level FDR (-T FDR) and
+      the resulting proteoforms and their corresponding best PrSMs are reported in the file
+      st_ms2.FORM_OUTPUT_TABLE. The feature file st.feature is used to map
+      identified PrSMs to proteoforms (-x st.feature). Microsoft Excel can be used to open these two files. 
+      To browse the annotations in the two folders st_ms2_prsm_cutoff_html and
+      st_ms2_proteoform_cutoff_html, use a web browser (Google Chrome is
+      recommended) to open the file proteins.html.
+      </p>
+
+      <p>
+      The output files can be downloaded
+      <!-- <a href="filedownload.php?filename=./data_files/st-result.zip">here</a>.-->  
+      <a href="./data_files/st-results.zip">here</a>.  
+      The running time of TopPIC is about 5 minutes. 
+      </p>
+    </div>
+
+  </div>
+</div>
+<script src="assets/js/jquery-1.7.1.min.js"></script>
+
+</body>
 </html>
