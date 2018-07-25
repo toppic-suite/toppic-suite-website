@@ -50,12 +50,12 @@
       used in this tutorial. 
       </p>
       <ol>
-        <li>Create a new folder named 'toppic_tutorial' on the C: drive of your system. 
-        <li>Create a new subfolder named 'pwid' in the folder <code>C:\toppic_tutorial\</code> for 
+        <li>Create a new folder named <code>toppic_tutorial</code> on the <code>C:</code> drive of your system. 
+        <li>Create a new subfolder named <code>pwid</code> in the folder <code>C:\toppic_tutorial\</code> for 
         the software package ProteoWizard. 
-        <li>Create a new subfolder named 'toppic' in the folder <code>C:\toppic_tutorial\</code> for 
+        <li>Create a new subfolder named <code>toppic</code> in the folder <code>C:\toppic_tutorial\</code> for 
         the software TopPIC suite. 
-        <li>Create a new subfolder named 'data' in the folder <code>C:\toppic_tutorial\</code> for 
+        <li>Create a new subfolder named <code>data</code> in the folder <code>C:\toppic_tutorial\</code> for 
         data files. 
         <!--
         <li>Create a new subfolder named 'results' in the folder C:\toppic_tutorial\ for saving
@@ -211,7 +211,7 @@
         <li> Click to the button "Start" to deconvolute the file.</li>
       </ol>
       <p>
-      The screenshot of topfd_gui is shown below. 
+      The screenshot of <code>topfd_gui</code> is shown below. 
       </p>
 
       <p><img src="./images/topfd_1.png" height="400" width="600" 
@@ -310,16 +310,90 @@
       <a href="./data_files/MCF7_500ng_1-toppic_results.zip">here</a>.  
       <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
-      
+      <h4>5.4 Mass spectral identification using TopMG</h4>
+      <p>
+      In TopPIC, all modifications in proteoforms are handled as unknown mass shifts.
+      However, in some situations, we are particularly interested in some PTMs, like oxidation
+      or methylation. These unknown mass shifts can provide a hint on the real modification. 
+      For example, a 80 Da mass shift can be a phosphorylation.
+      </p>
+
+      <p>TopMG is capable of identifying proteoforms with multiple variable PTMs.
+      And we use <code>topmg_gui</code> to further identify PrSMs from MS/MS spectra in the file
+      <code>MCF7_500ng_1_ms2.msalign</code>.
+      </p>
+      <p>
+      We need two more files as the input of TopMG:
+      First, a list of variable PTMs. An example can be found <a href="./data_files/mass_graph_mods.txt">here</a>.
+      Second, a list of scans to skip. This file is optional and used to speed up TopMG analysis.
+      An example can be found <a href="./data_files/skip_list.txt">here</a>.
+      </p>
+
+      <ol>
+        <li> Double click the executable file <code>topmg_gui.exe</code> in the folder
+        <code>C:\toppic_tutorial\toppic</code>.</li>
+        <li> Select <code>C:\toppic_tutorial\data\uniprot-human.fasta</code> as the protein
+        database file.</li>
+        <li> Select <code>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</code> as the
+        mass spectrum data file. </li>
+        <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Check the checkbox <code>Decoy database</code>. </li>
+        <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
+        <li> Select <code>FDR</code> as the proteoform level cutoff type. </li>
+        <li> Select <code>mass_graph_mods.txt</code> as the modification file. </li>
+        <li> Select <code>skip_list.txt</code> as the skip list. </li>
+        <li> Click to the button "Start"</li>
+      </ol>
+      <p>
+      The screenshot of <code>toppic_gui</code> is shown below. 
+      </p>
+
+      <p><img src="./images/topmg_1.png" height="400" width="600" style="border: #00008B 1px solid;"/>
+      </p>
+
+      <p><img src="./images/topmg_2.png" height="400" width="600" style="border: #00008B 1px solid;"/>
+      </p>
+
+      <p><img src="./images/topmg_3.png" height="400" width="600" style="border: #00008B 1px solid;"/>
+      </p>
+
+      <p>TopMG reports two tab delimited text files and a collection of html
+      files for identified proteoforms. 
+      <ul>
+        <li>A tab delimited text file containing identified PrSMs with a 5% spectrum level FDR:
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.OUTPUT_TABLE</pre> 
+        </li>
+        <li> A tab delimited text file containing identified proteoforms and
+        their best PrSMs with a 5% proteoform level FDR:
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</pre> 
+        </li> A folder containing html files for the
+        annotation of identified PrSMs with a 5% spectrum
+        level FDR: 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_prsm_cutoff_html</pre> 
+        </li>
+        <li>
+        A folder containing html files for the
+        annotation of identified PrSMs with a 5%
+        proteoform level FDR: 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_proteoform_cutoff_html</pre> 
+        </li>
+      </ul>
+      </p>
+
+      <p>
+      The output files can be downloaded
+      <!-- <a href="filedownload.php?filename=./data_files/st-result.zip">here</a>.-->  
+      <a href="./data_files/MCF7_500ng_1-topmg_results.zip">here</a>.  
+      <!-- The running time of TopPIC is about 5 minutes. -->
+      </p>
 
       <h3>6 Data analysis using the command line interface</h3>
 
       <p>Use MSConvertGUI to convert the raw
-      file st.raw to an mzML file st.mzML (See 5.1 File format conversion). 
-      The size of the file st.mzML is about 43 MB, which can be downloaded <a
-      href="filedownload.php?filename=./data_files/st.mzML">here</a>.  
+      file <code>MCF7_500ng_1.raw</code> to an mzML file <code>MCF7_500ng_1.mzML</code> (See 5.1 File format conversion). 
+      The size of the file MCF7_500ng_1.mzML is about 109 MB, which can be downloaded <a
+      href="filedownload.php?filename=./data_files/MCF7_500ng_1.mzML">here</a>.  
       </p>
-
 
       <h4>6.1 Mass spectral deconvolution</h4>
 
@@ -328,11 +402,11 @@
       <h4>File locations</h4>
       <ol>
         <li>Executable file: <pre>C:\toppic_tutorial\toppic\topfd.exe</pre></li>
-        <li>Input mzML file: <pre>C:\toppic_tutorial\data\st.mzML</pre></li>
+        <li>Input mzML file: <pre>C:\toppic_tutorial\data\MCF7_500ng_1.mzML</pre></li>
       </ol>
       <h4>Command</h4>
       <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\topfd st.mzML</pre>
+      <pre class="code">..\toppic\topfd MCF7_500ng_1.mzML</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
@@ -342,16 +416,16 @@
       TopFD reports three text files. 
       <ol>
         <li>A msalign file containing deconvoluted MS1 spectra:
-        <pre>C:\toppic_tutorial\data\st_ms1.msalign</pre></li>
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms1.msalign</pre></li>
         <li>A msalign file containing deconvoluted MS/MS spectra:
-        <pre>C:\toppic_tutorial\data\st_ms2.msalign</pre></li>
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</pre></li>
         <li>A text file containing LC/MS features of MS/MS spectra:
-        <pre>C:\toppic_tutorial\data\st.feature</pre></li>
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1.feature</pre></li>
       </ol>
       <p>
       The three output files can be downloaded
-      <a href="filedownload.php?filename=./data_files/st-msalign-cmd.zip">here</a>.  
-      The running time of TopFD is about 6 minutes. 
+      <a href="filedownload.php?filename=./data_files/MCF7_500ng_1-msalign.zip">here</a>.  
+      <!-- The running time of TopFD is about 6 minutes. -->
       </p>
 
       <h4>6.2 Mass spectral identification by database search</font></h4>
