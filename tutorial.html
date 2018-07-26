@@ -443,7 +443,7 @@
       </ol>
       <h4>Commands</h4>
       <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\toppic -f C57 -d -t FDR -T FDR uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
+      <pre class="code">..\toppic\toppic -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
@@ -452,20 +452,20 @@
       <p>TopPIC reports two tab delimited text files and a collection of html
       files for identified proteoforms. 
       <ul>
-        <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
+        <li>A tab delimited text file containing identified PrSMs with a 5% spectrum level FDR:
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.OUTPUT_TABLE</pre> 
         </li>
         <li> A tab delimited text file containing identified proteoforms and
-        their best PrSMs with a 1% proteoform level FDR:
+        their best PrSMs with a 5% proteoform level FDR:
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</pre> 
         </li> A folder containing html files for the
-        annotation of identified PrSMs with a 1% spectrum
+        annotation of identified PrSMs with a 5% spectrum
         level FDR: 
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
-        annotation of identified PrSMs with a 1%
+        annotation of identified PrSMs with a 5%
         proteoform level FDR: 
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_proteoform_cutoff_html</pre> 
         </li>
@@ -478,9 +478,9 @@
       should be selected. A shuffled decoy database (<code>-d</code>) is concatenated
       to the target database to estimate spectrum level and proteoform level
       FDRs. All identified PrSMs are first filtered by a
-      1% spectrum level FDR (<code>-t FDR</code>) and the resulting PrSMs are reported in the
+      5% spectrum level FDR (<code>-t FDR</code>) and the resulting PrSMs are reported in the
       file <code>MCF7_500ng_1_ms2.OUTPUT_TABLE</code>. The proteoforms corresponding to the PrSMs 
-      are further filtered using a 1% proteoform level FDR (<code>-T FDR</code>) and
+      are further filtered using a 5% proteoform level FDR (<code>-T FDR</code>) and
       the resulting proteoforms and their corresponding best PrSMs are reported in the file
       <code>MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</code>. Microsoft Excel can be used to open these two files. 
       To browse the annotations in the two folders <code>MCF7_500ng_1_ms2_prsm_cutoff_html</code> and
@@ -525,7 +525,7 @@
       </ol>
       <h4>Commands</h4>
       <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\topmg -f C57 -d -t FDR -T FDR -l skip_list.txt -i mass_graph_mods.txt uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
+      <pre class="code">..\toppic\topmg -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 -l skip_list.txt -i mass_graph_mods.txt uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
