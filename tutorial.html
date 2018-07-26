@@ -428,22 +428,22 @@
       <!-- The running time of TopFD is about 6 minutes. -->
       </p>
 
-      <h4>6.2 Mass spectral identification by database search</font></h4>
-      <p>We use <b>TopPIC</b> to search MS/MS spectra in the file st_ms2.msalign
-      against the protein database uniprot-st.fasta to identify PrSMs.  The
-      feature file st.feature is used to map identified PrSMs to proteoforms.  
+      <h4>6.2 Mass spectral identification using TopPIC</font></h4>
+
+      <p>We use <b>TopPIC</b> to search MS/MS spectra in the file <code>MCF7_500ng_1_ms2.msalign</code>
+      against the protein database <code>uniprot-human.fasta</code> to identify PrSMs. The
+      feature file <code>MCF7_500ng_1.feature</code> is used to map identified PrSMs to proteoforms.  
       </p>
       <h4>File locations</h4>
       <ol>
         <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
         <li>Input protein database file:
-        <pre>C:\toppic_tutorial\data\unprot-st.fasta</pre></li>
-        <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\data\st_ms2.msalign</pre></li>
-        <li>Input feature file: <pre>C:\toppic_tutorial\data\st.feature</pre></li>
+        <pre>C:\toppic_tutorial\data\unprot-human.fasta</pre></li>
+        <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</pre></li>
       </ol>
       <h4>Commands</h4>
       <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\toppic -f C57 -d -t FDR -T FDR -x st.feature uniprot-st.fasta st_ms2.msalign</pre>
+      <pre class="code">..\toppic\toppic -f C57 -d -t FDR -T FDR uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
@@ -453,48 +453,107 @@
       files for identified proteoforms. 
       <ul>
         <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
-        <pre>C:\toppic_tutorial\data\st_ms2.OUTPUT_TABLE</pre> 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.OUTPUT_TABLE</pre> 
         </li>
         <li> A tab delimited text file containing identified proteoforms and
         their best PrSMs with a 1% proteoform level FDR:
-        <pre>C:\toppic_tutorial\data\st_ms2.FORM_OUTPUT_TABLE</pre> 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</pre> 
         </li> A folder containing html files for the
         annotation of identified PrSMs with a 1% spectrum
         level FDR: 
-        <pre>C:\toppic_tutorial\data\st_ms2_prsm_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
         annotation of identified PrSMs with a 1%
         proteoform level FDR: 
-        <pre>C:\toppic_tutorial\data\st_ms2_proteoform_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_proteoform_cutoff_html</pre> 
         </li>
       </ul>
       </p>
 
-      <p> In the analysis, C57 (-f C57) is selected as the fixed modification because
+      <p> In the analysis, C57 (<code>-f C57</code>) is selected as the fixed modification because
       proteins were reduced with dithiothreitol and alkylated with
       iodoacetamide before the MS experiment. When proteins are not reduced, C0
-      should be selected. A shuffled decoy database (-d) is concatenated
+      should be selected. A shuffled decoy database (<code>-d</code>) is concatenated
       to the target database to estimate spectrum level and proteoform level
       FDRs. All identified PrSMs are first filtered by a
-      1% spectrum level FDR (-t FDR) and the resulting PrSMs are reported in the
-      file st_ms2.OUTPUT_TABLE. The proteoforms corresponding to the PrSMs 
-      are further filtered using a 1% proteoform level FDR (-T FDR) and
+      1% spectrum level FDR (<code>-t FDR</code>) and the resulting PrSMs are reported in the
+      file <code>MCF7_500ng_1_ms2.OUTPUT_TABLE</code>. The proteoforms corresponding to the PrSMs 
+      are further filtered using a 1% proteoform level FDR (<code>-T FDR</code>) and
       the resulting proteoforms and their corresponding best PrSMs are reported in the file
-      st_ms2.FORM_OUTPUT_TABLE. The feature file st.feature is used to map
-      identified PrSMs to proteoforms (-x st.feature). Microsoft Excel can be used to open these two files. 
-      To browse the annotations in the two folders st_ms2_prsm_cutoff_html and
-      st_ms2_proteoform_cutoff_html, use a web browser (Google Chrome is
+      <code>MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</code>. Microsoft Excel can be used to open these two files. 
+      To browse the annotations in the two folders <code>MCF7_500ng_1_ms2_prsm_cutoff_html</code> and
+      <code>MCF7_500ng_1_ms2_proteoform_cutoff_html</code>, use a web browser (Google Chrome is
       recommended) to open the file proteins.html.
       </p>
 
       <p>
       The output files can be downloaded
       <!-- <a href="filedownload.php?filename=./data_files/st-result.zip">here</a>.-->  
-      <a href="./data_files/st-results-cmd.zip">here</a>.  
-      The running time of TopPIC is about 5 minutes. 
+      <a href="./data_files/MCF7_500ng_1-toppic-results.zip">here</a>.  
+      <!--The running time of TopPIC is about 5 minutes. -->
       </p>
+
+      <h4>6.3 Mass spectral identification using TopMG</font></h4>
+      <p>
+      In TopPIC, all modifications in proteoforms are handled as unknown mass shifts.
+      However, in some situations, we are particularly interested in some PTMs, like oxidation
+      or methylation. These unknown mass shifts can provide a hint on the real modification. 
+      For example, a 80 Da mass shift can be a phosphorylation.
+      </p>
+
+      <p>TopMG is capable of identifying proteoforms with multiple variable PTMs.
+      And we use <code>topmg</code> to further identify PrSMs from MS/MS spectra in the file
+      <code>MCF7_500ng_1_ms2.msalign</code>.
+      </p>
+      <p>
+      We need two more files as the input of TopMG:
+      First, a list of variable PTMs. An example can be found <a href="./data_files/mass_graph_mods.txt">here</a>.
+      Second, a list of scans to skip. This file is optional and used to speed up TopMG analysis.
+      An example can be found <a href="./data_files/skip_list.txt">here</a>.
+      </p>
+
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\topmg.exe</pre></li>
+        <li>Input protein database file:
+        <pre>C:\toppic_tutorial\data\unprot-human.fasta</pre></li>
+        <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</pre></li>
+        <li>SKip list: <pre>C:\toppic_tutorial\data\skip_list.txt</pre></li>
+        <li>Variable PTM list: <pre>C:\toppic_tutorial\data\mass_graph_mods.txt</pre></li>
+      </ol>
+      <h4>Commands</h4>
+      <pre class="code">cd c:\toppic_tutorial\data</pre>
+      <pre class="code">..\toppic\topmg -f C57 -d -t FDR -T FDR -l skip_list.txt -i mass_graph_mods.txt uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
+      <!--
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+      -->
+      <h4>Output files</h4>
+      <p>TopMG reports two tab delimited text files and a collection of html
+      files for identified proteoforms. 
+      <ul>
+        <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.OUTPUT_TABLE</pre> 
+        </li>
+        <li> A tab delimited text file containing identified proteoforms and
+        their best PrSMs with a 1% proteoform level FDR:
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</pre> 
+        </li> A folder containing html files for the
+        annotation of identified PrSMs with a 1% spectrum
+        level FDR: 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_prsm_cutoff_html</pre> 
+        </li>
+        <li>
+        A folder containing html files for the
+        annotation of identified PrSMs with a 1%
+        proteoform level FDR: 
+        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_proteoform_cutoff_html</pre> 
+        </li>
+      </ul>
+      </p>
+
     </div>
 
   </div>
