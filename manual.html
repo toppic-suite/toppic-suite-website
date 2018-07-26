@@ -37,9 +37,10 @@
     <div class="span-12">
       <h3>1 Overview</h3>
       To run TopPIC suite, a computer with at least 4 GB memory and a 64-bit
-      Linux or Windows operating system is required.  TopFD, TopPIC and TopMG
+      Linux or Windows operating system is required. TopFD, TopPIC and TopMG
       provide a command line interface for both Linux and Windows users as well
-      as a graphical user interface (GUI) for Windows users.   
+      as a graphical user interface (GUI) for Windows users. Please see our <a href="tutorial.html">tutorial</a>
+      for more details on GUI.
 
       <h3>2 TopFD</h3>
       <p>
@@ -58,10 +59,10 @@
 
 
       <h4>2.2 Output</h4>
-      <p>TopFD outputs an LC/MS feature text file with a file extension "feature" and two deconvoluted mass spectral
+      <p>TopFD outputs an LC/MS feature text file with a file extension "<b>feature</b>" and two deconvoluted mass spectral
       data files (one is for MS1 spectra and the other for MS/MS
-      spectra) in the msalign format with a file extension "msalign", which is similar to the MGF file format. 
-      For example, when the input file name is spectra.mzML, the output files
+      spectra) in the msalign format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
+      For example, when the input file name is <b>spectra.mzML</b>, the output files
       include: 
       <ul>
         <li><b>spectra.feature</b>: a feature file containing MS/MS scan ids and their
@@ -129,7 +130,7 @@
 
       <p><code> topfd -c 50 -m 30000 -s 2 spectra.mzML </code></p>
       <p>
-
+<!--
       <h4>2.4 Graphical user interface</h4>
       <p>
       To run the GUI of TopFD, double-click the downloaded executive file
@@ -138,7 +139,7 @@
       if needed, and click the button "Start" to start deconvolution. After
       TopFD completes the deconvolution of the file, click the button "Output
       folder" to find output files.
-
+-->
 
       <h3>3 TopPIC</h3>
 
@@ -218,7 +219,7 @@
       <p>Set the error tolerance for precursor and fragment masses in part-per-million
       (ppm). Default value: 15. When the default lookup table approach is used
       for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm. To use other
-      values, the generating function approach (-g) should be chosen.</p>
+      values, the generating function approach (<code>-g</code>) should be chosen.</p>
 
       <p><code>-m [ --max-shift ]  &lt;a number&gt;</code></p>
       <p>Maximum value of the mass shift (in Dalton) of an unexpected modification.
