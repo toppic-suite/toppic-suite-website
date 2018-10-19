@@ -51,7 +51,7 @@
       </p>
       <ol>
         <li>Create a new folder named <code>toppic_tutorial</code> on the <code>C:</code> drive of your system. 
-        <li>Create a new subfolder named <code>pwid</code> in the folder <code>C:\toppic_tutorial\</code> for 
+        <li>Create a new subfolder named <code>pwiz</code> in the folder <code>C:\toppic_tutorial\</code> for 
         the software package ProteoWizard. 
         <li>Create a new subfolder named <code>toppic</code> in the folder <code>C:\toppic_tutorial\</code> for 
         the software TopPIC suite. 
@@ -74,14 +74,16 @@
       <h4>3.1 Top-down MS/MS date set</h4>
       <p>
       A top-down MS/MS data set of human MCF-7 cells is used in the
-      tutorial. The proteins extracted were reduced with dithiothreitol and alkylated with iodoacetamide, and then separated by capillary zone electrophoresis (CZE). A one-meter 
+      tutorial. The proteins extracted from MCF-7 cells were reduced with dithiothreitol 
+      and alkylated with iodoacetamide, and then separated 
+      by capillary zone electrophoresis (CZE). A one-meter 
       linear polyacrylamide coated capillary (50 &mu;m/360 &mu;m i.d./o.d.) 
       was used for CZE, and a commercialized electro-kinetically pumped 
       sheath flow CE-MS interface (CMP Scientific, Brooklyn, NY) was used 
       to couple CZE to MS. The top 3 precursor ions in each MS spectrum 
       were selected for MS/MS analysis. The mass resolution for MS and 
       MS/MS was 120000 and 60000, respectively. The AGC target for MS and MS/MS
-      was the same, 1E6. The number of microscan was 4 and 3 for MS and 
+      was 1E6. The number of microscan was 4 and 3 for MS and 
       MS/MS, respectively. A total of 1 523 HCD MS/MS spectra were acquired.
       </p>
       <p>Click <a href="./data_files/MCF7_500ng_1.raw">here</a>
@@ -136,9 +138,9 @@
       <ol>
         <li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
         <li>Choose the download type 'Windows 64-bit tar.bz2' for end users.</li>
-        <li>Click the button "I agree to the licensing terms, download
-        ProteoWizard" to download ProteoWizard and save the bz2 file in the folder
-        <code>C:\toppic_tutorial\pwid\</code>.</li>
+        <li>Check the box "I have read and accepted the license agreements. </li>
+        <li>Click the button "Download" to download ProteoWizard and save the bz2 file in the folder
+        <code>C:\toppic_tutorial\pwiz\</code>.</li>
         <li>Extract all the files of the downloaded bz2 file to the folder
         <code>C:\toppic_tutorial\pwiz\</code>.</li> 
         <br>
@@ -312,19 +314,16 @@
       </p>
       <h4>5.4 Mass spectral identification using TopMG</h4>
       <p>
-      In TopPIC, all modifications in proteoforms are handled as unknown mass shifts.
-      However, in some situations, we are particularly interested in some PTMs, like oxidation
-      or methylation. These unknown mass shifts can provide a hint on the real modification. 
-      For example, a 80 Da mass shift can be a phosphorylation.
-      </p>
-
-      <p>TopMG is capable of identifying proteoforms with multiple variable PTMs.
-      And we use <code>topmg_gui</code> to further identify PrSMs from MS/MS spectra in the file
+      In TopPIC, all alterations in proteoforms are treated as unexpected ones, and at most 2 alterations 
+      are allowed in a proteoform. 
+      In some situations, we are interested in identifying proteoforms with expected variable PTMs, 
+      like phosphorylation. TopMG is capable of identifying proteoforms with multiple variable PTMs. 
+      Below we use <code>topmg_gui</code> to identify PrSMs with variable PTMs from the data file
       <code>MCF7_500ng_1_ms2.msalign</code>.
       </p>
       <p>
       We need two more files as the input of TopMG:
-      First, a list of variable PTMs. An example can be found <a href="./data_files/mass_graph_mods.txt">here</a>.
+      First, a list of variable PTMs. An example can be found <a href="./data_files/variable_mods.txt">here</a>.
       Second, a list of scans to skip. This file is optional and used to speed up TopMG analysis.
       An example can be found <a href="./data_files/skip_list.txt">here</a>.
       </p>
@@ -405,8 +404,8 @@
         <li>Input mzML file: <pre>C:\toppic_tutorial\data\MCF7_500ng_1.mzML</pre></li>
       </ol>
       <h4>Command</h4>
-      <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\topfd MCF7_500ng_1.mzML</pre>
+      <pre>cd c:\toppic_tutorial\data</pre>
+      <pre>..\toppic\topfd MCF7_500ng_1.mzML</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
@@ -442,8 +441,8 @@
         <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</pre></li>
       </ol>
       <h4>Commands</h4>
-      <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\toppic -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
+      <pre>cd c:\toppic_tutorial\data</pre>
+      <pre>..\toppic\toppic -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
@@ -497,19 +496,12 @@
 
       <h4>6.3 Mass spectral identification using TopMG</font></h4>
       <p>
-      In TopPIC, all modifications in proteoforms are handled as unknown mass shifts.
-      However, in some situations, we are particularly interested in some PTMs, like oxidation
-      or methylation. These unknown mass shifts can provide a hint on the real modification. 
-      For example, a 80 Da mass shift can be a phosphorylation.
-      </p>
-
-      <p>TopMG is capable of identifying proteoforms with multiple variable PTMs.
-      And we use <code>topmg</code> to further identify PrSMs from MS/MS spectra in the file
+      We use <code>topmg</code> to identify PrSMs from MS/MS spectra in the file
       <code>MCF7_500ng_1_ms2.msalign</code>.
       </p>
       <p>
       We need two more files as the input of TopMG:
-      First, a list of variable PTMs. An example can be found <a href="./data_files/mass_graph_mods.txt">here</a>.
+      First, a list of variable PTMs. An example can be found <a href="./data_files/variable_mods.txt">here</a>.
       Second, a list of scans to skip. This file is optional and used to speed up TopMG analysis.
       An example can be found <a href="./data_files/skip_list.txt">here</a>.
       </p>
@@ -521,11 +513,11 @@
         <pre>C:\toppic_tutorial\data\unprot-human.fasta</pre></li>
         <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</pre></li>
         <li>SKip list: <pre>C:\toppic_tutorial\data\skip_list.txt</pre></li>
-        <li>Variable PTM list: <pre>C:\toppic_tutorial\data\mass_graph_mods.txt</pre></li>
+        <li>Variable PTM list: <pre>C:\toppic_tutorial\data\variable_mods.txt</pre></li>
       </ol>
       <h4>Commands</h4>
-      <pre class="code">cd c:\toppic_tutorial\data</pre>
-      <pre class="code">..\toppic\topmg -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 -l skip_list.txt -i mass_graph_mods.txt uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
+      <pre>cd c:\toppic_tutorial\data</pre>
+      <pre>..\toppic\topmg -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 -l skip_list.txt -i variable_mods.txt uniprot-human.fasta MCF7_500ng_1_ms2.msalign</pre>
       <!--
       <p>The screenshot below shows the console output of the above command.</li>
       <p><img src="" height="250" width="500" border="1.5"/></p>
@@ -534,20 +526,20 @@
       <p>TopMG reports two tab delimited text files and a collection of html
       files for identified proteoforms. 
       <ul>
-        <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
+        <li>A tab delimited text file containing identified PrSMs with a 5% spectrum level FDR:
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.OUTPUT_TABLE</pre> 
         </li>
         <li> A tab delimited text file containing identified proteoforms and
-        their best PrSMs with a 1% proteoform level FDR:
+        their best PrSMs with a 5% proteoform level FDR:
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</pre> 
         </li> A folder containing html files for the
-        annotation of identified PrSMs with a 1% spectrum
+        annotation of identified PrSMs with a 5% spectrum
         level FDR: 
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
-        annotation of identified PrSMs with a 1%
+        annotation of identified PrSMs with a 5%
         proteoform level FDR: 
         <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_proteoform_cutoff_html</pre> 
         </li>
