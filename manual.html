@@ -5,7 +5,7 @@
 <title>TopPIC Suite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
-<meta name="author" content="xwliu" >
+<meta name="author" content="xiaowen" >
 
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
@@ -53,8 +53,8 @@
 
 
       <h4>2.1 Input</h4>
-      <p>The input of TopFD is mzML or mzXML mass spectrometry data
-      files. Raw mass spectral data generated from various mass spectrometers
+      <p>The input of TopFD is mass spectrometry data
+      files in the mzXML or mzML format. Raw mass spectral data generated from various mass spectrometers
       can be converted to mzML or mzXML files using <a target="_blank" href="http://proteowizard.sourceforge.net/tools.shtml">msconvert</a>.
 
 
@@ -164,28 +164,28 @@
       <ul>
         <li>A protein database file in the FASTA format</li>
         <li>A mass spectrum data file in the msalign format</li>
-        <li>A text file to specify fixed PTMs (optional)</li>
         <li>A text file containing LC/MS feature information (optional)</li>
-        <li>A text file to specify PTMs for the characterization of mass shifts
+        <li>A text file containing fixed PTMs (optional)</li>
+        <li>A text file containing PTMs for the characterization of mass shifts
         (optional)</li>
       </ul>
 
       <h4>3.2 Output</h4>
       <p>TopPIC outputs two tab delimited text files and a collection of html files for identified
-      proteoforms. For example, when the input mass spectrum data file is
+      proteoforms. For example, when the input data file is
       spectra_ms2.msalign, the output includes: 
       <ul>
         <li><b>spectra_ms2.OUTPUT_TABLE</b>: a tab delimited text file containing 
-        identified proteoform spectrum-matches (PrSMs) with a spectrum level E-value or
+        identified proteoform spectrum-matches (PrSMs) with an E-value or spectrum level 
         FDR cutoff.</li>
         <li><b>spectra_ms2.FORM_OUTPUT_TABLE</b>: a tab delimited text file containing 
-        identified proteoforms with a proteoform level E-value or FDR cutoff.</li>
+        identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_ms2_prsm_cutoff_html</b>: a folder containing html files for the
         annotation of identified PrSMs using the 
-        spectrum level E-value or FDR cutoff.</li>
+        E-value or spectrum level FDR cutoff.</li>
         <li><b>spectra_ms2_proteoform_cutoff_html</b>: a folder containing html files for the
-        annotation of PrSMs corresponding to identified proteoforms using the 
-        proteoform level E-value or FDR cutoff.</li>
+        annotation of identified PrSMs using the E-value or 
+        proteoform level FDR cutoff.</li>
       </ul>
 
       To browse identified
@@ -194,7 +194,7 @@
       or spectrum_ms_proteoform_cutoff_html/proteins.html.
       Google Chrome or Firefox is recommended (IE is not recommended).
       </p>
-      <p>When the input contains two or more spectrum files, TopPIC outputs two tab delimited 
+      <p>When the input contains two or more data files, TopPIC outputs two tab delimited 
       text files and a collection of html files for each input file. In addition, it combines 
       spectra and proteoforms identified from all the input files and removes redundant proteoform 
       identifications. Finally, it reports 
@@ -204,16 +204,16 @@
       output files are:
       <ul>
         <li><b>combined.OUTPUT_TABLE</b>: a tab delimited text file containing 
-        PrSMs identified from all the input files with a spectrum level E-value or
+        PrSMs identified from all the input files with an E-value or spectrum level 
         FDR cutoff.</li>
         <li><b>combined.FORM_OUTPUT_TABLE</b>: a tab delimited text file containing 
-        proteoforms identified from all the input files with a proteoform level E-value or FDR cutoff.</li>
+        proteoforms identified from all the input files with an E-value or proteoform level FDR cutoff.</li>
         <li><b>combined_prsm_cutoff_html</b>: a folder containing html files for the
-        annotation of PrSMs identified from all the input files using the 
-        spectrum level E-value or FDR cutoff.</li>
+        annotation of PrSMs identified from all the input files using the E-value or  
+        spectrum level FDR cutoff.</li>
         <li><b>combined_proteoform_cutoff_html</b>: a folder containing html files for the
-        annotation of PrSMs corresponding to proteoforms identified from all the input files using the 
-        proteoform level E-value or FDR cutoff.</li>
+        annotation of PrSMs identified from all the input files using the 
+        E-value or proteoform level FDR cutoff.</li>
       </ul>
        
       </p>
