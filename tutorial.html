@@ -41,7 +41,7 @@
 
       <h3>1 Overview</h3>
       In this tutorial, we use TopPIC suite to analyze a top-down MS/MS data set
-      of human MCF-7 cell on a computer with a Windows operating system.
+      of human MCF-7 cell on a computer with a Windows 10 operating system.
       <!-- <b>Annotated proteoform spectrum matches (PrSMs) identified from the data set can be browsed 
         <a href="data_files/st_ms2_prsm_cutoff_html/proteins.html">here</a></b>. -->
 
@@ -51,8 +51,6 @@
       </p>
       <ol>
         <li>Create a new folder named <code>toppic_tutorial</code> on the <code>C:</code> drive of your system. 
-        <li>Create a new subfolder named <code>pwiz</code> in the folder <code>C:\toppic_tutorial\</code> for 
-        the software package ProteoWizard. 
         <li>Create a new subfolder named <code>toppic</code> in the folder <code>C:\toppic_tutorial\</code> for 
         the software TopPIC suite. 
         <li>Create a new subfolder named <code>data</code> in the folder <code>C:\toppic_tutorial\</code> for 
@@ -76,15 +74,10 @@
       A top-down MS/MS data set of human MCF-7 cells is used in the
       tutorial. The proteins extracted from MCF-7 cells were reduced with dithiothreitol 
       and alkylated with iodoacetamide, and then separated 
-      by capillary zone electrophoresis (CZE). A one-meter 
-      linear polyacrylamide coated capillary (50 &mu;m/360 &mu;m i.d./o.d.) 
-      was used for CZE, and a commercialized electro-kinetically pumped 
-      sheath flow CE-MS interface (CMP Scientific, Brooklyn, NY) was used 
-      to couple CZE to MS. The top 3 precursor ions in each MS spectrum 
+      by capillary zone electrophoresis. 
+      The top 3 precursor ions in each MS spectrum 
       were selected for MS/MS analysis. The mass resolution for MS and 
-      MS/MS was 120000 and 60000, respectively. The AGC target for MS and MS/MS
-      was 1E6. The number of microscan was 4 and 3 for MS and 
-      MS/MS, respectively. A total of 1 523 HCD MS/MS spectra were acquired.
+      MS/MS was 120,000 and 60,000, respectively. A total of 1,523 HCD MS/MS spectra were acquired.
       </p>
       <p>Click <a href="./data_files/MCF7_500ng_1.raw">here</a>
       <!-- <p>Click <a
@@ -117,18 +110,10 @@
       files into various spectrum file formats. 
 
       <h4>4.1.1 Required software packages to install ProteoWizard</font></h4>
-      You must install the following three software packages to use ProteoWizard
-      <ol>
-        <li>
-        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=5582">Microsoft
-          Visual C++ 2008 SP1 (x86) Redistributable Package</a></li>
-        <li>
-        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=22">
-          Microsoft .NET Framework 3.5 SP1</a></li>
-        <li>
-        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851">
-          Microsoft .NET Framework 4.0</a></li>
-      </ol>
+      <a href="https://www.microsoft.com/en-us/download/details.aspx?id=17851">
+      Microsoft .NET Framework 4.0</a></li> or a higher version      
+      is required. If you are using Windows 10, 
+      Microsoft .NET Framework 4.0 has been preinstalled.
 
       <h4>4.1.2 Download ProteoWizard</h4>
       <p>
@@ -137,25 +122,16 @@
       <p>
       <ol>
         <li>Go to the link  <a href = "http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a>.</li>
-        <li>Choose the download type 'Windows 64-bit tar.bz2' for end users.</li>
-        <li>Check the box "I have read and accepted the license agreements. </li>
-        <li>Click the button "Download" to download ProteoWizard and save the bz2 file in the folder
-        <code>C:\toppic_tutorial\pwiz\</code>.</li>
-        <li>Extract all the files of the downloaded bz2 file to the folder
-        <code>C:\toppic_tutorial\pwiz\</code>.</li> 
-        <br>
-        <p><img src="./images/pwiz_1.png" height="200" width="600" 
-        style="border: #00008B 1px solid;"/>
-        </p>
+        <li>Choose the type 'Windows 64-bit installer' for end users and download ProteoWizard.</li>
+        <li>Double click the downloaded file pwiz-setup-3.0-x86-64.msi to install it. </li> 
       </ol>
-      <br>
 
       <h4>4.2 TopPIC suite</h4>
 
       <h4>4.2.1 Download TopPIC suite</h4>
       <p>
       <ol>
-        <li>Go to the <a href = "./register.html">download webpage</a> of TopPIC.</li>
+        <li>Go to the <a href = "./register.html">download webpage</a> of TopPIC suite.</li>
         <li>Choose the download type "Windows 64-bit zip file", fill out the
         registration form, and click "I accept license agreement and download
         TopPIC suite"
@@ -175,8 +151,7 @@
       <p>We use <b>MSConvertGUI</b> to convert the raw file st.raw to an mzML
       file.</p>
       <ol>
-        <li> Double click the executable file MSConvertGUI.exe in the folder
-        <code>C:\toppic_tutorial\pwiz</code>.</li>
+        <li> Search "msconvert" in the search box on the task bar of Windows 10, and run the desktop app "MSConvert."</li>
         <li> Add the file <code>c:\toppic_tutorial\data\MCF7_500ng_1.raw</code> as an input file.</li>
         <li> Add the filter "peakPeaking vendor msLevel=1-" <b><font
             color=#FF0000>(important)</font></b>.</li>
@@ -245,7 +220,7 @@
         <code>C:\toppic_tutorial\toppic</code>.</li>
         <li> Select <code>C:\toppic_tutorial\data\uniprot-human.fasta</code> as the protein
         database file.</li>
-        <li> Select <code>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</code> as the
+        <li> Add <code>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</code> as a
         mass spectrum data file. </li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
@@ -314,7 +289,7 @@
       </p>
       <h4>5.4 Mass spectral identification using TopMG</h4>
       <p>
-      In TopPIC, all alterations in proteoforms are treated as unexpected ones, and at most 2 alterations 
+      In TopPIC, all alterations in proteoforms are treated as unexpected ones, and at most 2 unexpected mass shifts 
       are allowed in a proteoform. 
       In some situations, we are interested in identifying proteoforms with expected variable PTMs, 
       like phosphorylation. TopMG is capable of identifying proteoforms with multiple variable PTMs. 
@@ -323,9 +298,11 @@
       </p>
       <p>
       We need two more files as the input of TopMG:
-      First, a list of variable PTMs. An example can be found <a href="./data_files/variable_mods.txt">here</a>.
+      First, a list of variable PTMs. An example file can be found <a href="./data_files/variable_mods.txt">here</a>.
       Second, a list of scans to skip. This file is optional and used to speed up TopMG analysis.
-      An example can be found <a href="./data_files/skip_list.txt">here</a>.
+      An example can be found <a href="./data_files/skip_list.txt">here</a>. In practice, we use Microsoft Excel to 
+      open the identification file MCF7_500ng_1_ms2.OUTPUT_TABLE, select the scan numbers of identifications, and save them as 
+      a csv file, which can used as an input file.   
       </p>
 
       <ol>
@@ -333,13 +310,13 @@
         <code>C:\toppic_tutorial\toppic</code>.</li>
         <li> Select <code>C:\toppic_tutorial\data\uniprot-human.fasta</code> as the protein
         database file.</li>
-        <li> Select <code>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</code> as the
+        <li> Add <code>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</code> as a
         mass spectrum data file. </li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
         <li> Select <code>FDR</code> as the proteoform level cutoff type. </li>
-        <li> Select <code>mass_graph_mods.txt</code> as the modification file. </li>
+        <li> Select <code>variable_mods.txt</code> as the modification file. </li>
         <li> Select <code>skip_list.txt</code> as the skip list. </li>
         <li> Click to the button "Start"</li>
       </ol>

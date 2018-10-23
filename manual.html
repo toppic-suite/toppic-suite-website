@@ -46,7 +46,7 @@
       <p>
       TopFD (Top-down mass spectral Feature Detection) is a software tool
       for top-down spectral deconvolution, which groups top-down mass spectral
-      peaks into isotopomer envelopes and converts isotopomer envelops to
+      peaks into isotopomer envelopes and converts isotopomer envelopes to
       monoisotopic neutral masses. In addition, it extracts proteoform features
       from MS1 spectra. 
       </p>
@@ -62,8 +62,7 @@
       <p>TopFD outputs an LC/MS feature text file with a file extension "<b>feature</b>" and two deconvoluted mass spectral
       data files (one is for MS1 spectra and the other for MS/MS
       spectra) in the msalign format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
-      For example, when the input file name is <b>spectra.mzML</b>, the output files
-      include: 
+      For example, when the input file name is <b>spectra.mzML</b>, the output includes: 
       <ul>
         <li><b>spectra.feature</b>: a feature file containing MS/MS scan ids and their
         corresponding LC/MS features.</li>
@@ -74,7 +73,7 @@
       </p>
 
       <h4>2.3 Command line usage</h4>
-      <p>To run TopFD, open a console and run the following command.</p>
+      <p>To run TopFD, open a terminal window and run the following command.</p>
       <p><code>topfd [options] spectrum-file-name</code></p>
 
       <h4>Options</h4>
@@ -136,13 +135,13 @@
       <p><code> topfd -w 2 spectra.mzML </code></p>
       
       <p>
-      Deconvolute a centroid data file spectra.mzML with an signal/noise ratio 2 for MS1 spectra. 
+      Deconvolute a centroid data file spectra.mzML with a signal/noise ratio 2 for MS1 spectra. 
 		</p>
       <p><code> topfd -r 2 spectra.mzML </code></p>
 
       <p>
-      Deconvolute a centroid data file spectra.mzML by setting the maximum
-      charge state to 50, the maximum mass to 30,000 Dalton, and the 
+      Deconvolute a centroid data file spectra.mzML with the following settings: 
+      set the charge state to 50, the maximum mass to 30,000 Dalton, and the 
       signal/noise ratio to 2 for MS/MS spectra.   
 		</p>
       <p><code> topfd -c 50 -m 30000 -s 2 spectra.mzML </code></p>
@@ -165,8 +164,8 @@
         <li>A protein database file in the FASTA format</li>
         <li>A mass spectrum data file in the msalign format</li>
         <li>A text file containing LC/MS feature information (optional)</li>
-        <li>A text file containing fixed PTMs (optional)</li>
-        <li>A text file containing PTMs for the characterization of mass shifts
+        <li>A text file specifying fixed PTMs (optional)</li>
+        <li>A text file specifying PTMs for the characterization of unexpected mass shifts
         (optional)</li>
       </ul>
 
@@ -218,7 +217,7 @@
        
       </p>
       <h4>3.3 Command line usage</h4>
-      <p>To run TopPIC, open a console and run the following command.</p>
+      <p>To run TopPIC, open a terminal window and run the following command.</p>
       <p><code>toppic [options] database-file-name spectrum-file-name</code></p>
 
       <h4>Options</h4>
@@ -228,12 +227,12 @@
       <p><code>-a [ --activation ] &lt;CID|HCD|ETD|UVPD|FILE&gt;</code></p>
       <p>Set the fragmentation method(s) of MS/MS spectra. When "FILE" is
       selected, 
-      fragmentation methods of spectra are given in the input spectrum data
+      the fragmentation methods of spectra are given in the input spectrum data
       file. Default value: FILE.</p>
 
       <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
       <p>Set fixed modifications. Three available options: C57, C58, or the name of
-      a text file containing the information of fixed modifications (see <a
+      a text file containing the information of fixed modifications (see an <a
         target="_blank" href="example_files/fixed_mods.txt">example file</a>).
       When C57 is selected, carbamidomethylation on cysteine is the only fixed
       modification.  When C58 is selected, carboxymethylation on cysteine is the
@@ -262,11 +261,11 @@
       values, the generating function approach (<code>-g</code>) should be chosen.</p>
 
       <p><code>-m [ --max-shift ]  &lt;a number&gt;</code></p>
-      <p>Set the maximum value for mass shifts (in Dalton) of unexpected alterations.
+      <p>Set the maximum value for unexpected mass shifts (in Dalton).
       Default value: 500.</p>
 
       <p><code>-M [ --min-shift ]  &lt;a number&gt;</code></p>
-      <p>Se the minimum value for mass shifts (in Dalton) of unexpected alterations. 
+      <p>Se the minimum value for unexpected mass shifts (in Dalton). 
       Default value: -500.</p>
 
       <p><code>-p [ --num-shift ] &lt;0|1|2&gt;</code></p>
@@ -298,27 +297,29 @@
       <p><code>-i [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
       <p>Specify a text file containing a list of common PTMs for proteoform characterization. The PTMs are used to identify and
       localize PTMs in reported PrSMs with unknown mass
-      shifts. See <a target="_blank" href="example_files/common_mods.txt" >example file</a>.</p>
+      shifts. See an <a target="_blank" href="example_files/common_mods.txt" >example file</a>.</p>
 
       <p><code>-s [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
       <p>Set the score threshold (MIScore) for filtering results of PTM characterization. Default value: 0.45.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
-      <p>Set the number of threads used in the computation. Default value: 1.</p>
+      <p>Set the number of threads used in the computation. Default value: 1. The maximum number of threads is determined by the CPU 
+      and memory of the computer used for computation. About 4 GB memory is required for each thread. If the computer has 16 GB memory
+      and a CPU with 8 cores, the maximum number of threads is 4 because 4 threads need about 16 GB memory.</p>
 
       <p><code>-x [ --no-topfd-feature ]</code></p>
       <p>Specify that there are no TopFD feature files for proteoform identification.</p>
 
       <p><code>-l [ --skip-list ] &lt;a text file with its path&gt;</code></p>  
       <p>Specify a text file containing a list of spectrum scans that have been
-      identified in previous analysis and are not needed to be searched against
+      identified in previous analyses and are not needed to be searched against
       the protein database. 
       See <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>
       </p> 
 
       <p><code>-o [ --output ] &lt;a filename with its path&gt;</code></p>
-      <p>Specify the name for the output file containing all identifications. When the input includes multiple spectrum files, 
-      an output file is reported that contains all PrSMs identified from individual input files. Default: combined.</p>
+      <p>Specify the name for the output file containing combined identifications when the input consists of multiple spectrum files. 
+      Default: combined.</p>
 
       <p><code>-k [ --keep ]</code></p>  
       <p>Keep intermediate files generated by TopPIC. 
@@ -328,7 +329,7 @@
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against a
       protein database file proteins.fasta with a feature file spectra.feature. 
       The user does not need to specify the feature file name. TopPIC will automatically 
-      obtain the name spectra.feature from the spectrum file spectra_ms2.msalign.</p>
+      obtain the name spectra.feature from the spectrum file name spectra_ms2.msalign.</p>
       <p><code> toppic proteins.fasta spectra_ms2.msalign </code></p>
       
       <p> Search two deconvoluted MS/MS spectrum files spectra1_ms2.msalign and 
@@ -385,10 +386,10 @@
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
-      spectra.feature. After proteoforms with unknown mass shifts are
+      spectra.feature. After proteoforms with unexpected mass shifts are
       identified, match these mass shifts to four common PTMs: acetylation,
       phosphorylation, oxidation and methylation, and use an MIScore cutoff 0.3
-      to report possible PTM sites. The modification file common_mods.txt can be 
+      to filter reported PTM sites. The modification file common_mods.txt can be 
       found <a target="_blank" href="example_files/common_mods.txt">here</a>.</p>
       <p><code> toppic -i common_mods.txt -s 0.3 proteins.fasta spectra_ms2.msalign </code></p>
 
@@ -405,8 +406,8 @@
       <ul>
         <li>A protein database file in the FASTA format</li>
         <li>A mass spectrum data file in the msalign format</li>
-        <li>A text file to specify variable PTMs</li>
-        <li>A text file to specify fixed PTMs (optional)</li>
+        <li>A text file specifying variable PTMs</li>
+        <li>A text file specifying fixed PTMs (optional)</li>
         <li>A text file containing LC/MS feature information (optional)</li>
       </ul>
 
@@ -417,16 +418,16 @@
       spectra_ms2.msalign, the output includes: 
       <ul>
         <li><b>spectra_ms2.OUTPUT_TABLE</b>: a tab delimited text file containing 
-        identified PrSMs with a spectrum level E-value or
+        identified PrSMs with an E-value or spectrum level 
         FDR cutoff.</li>
         <li><b>spectra_ms2.FORM_OUTPUT_TABLE</b>: a tab delimited text file containing 
-        identified proteoforms with a proteoform level E-value or FDR cutoff.</li>
+        identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_ms2_prsm_cutoff_html</b>: a folder containing html files for the
-        annotation of identified PrSMs using the 
-        spectrum level E-value or FDR cutoff.</li>
+        annotation of identified PrSMs using the E-value or
+        spectrum level  FDR cutoff.</li>
         <li><b>spectra_ms2_proteoform_cutoff_html</b>: a folder containing html files for the
-        annotation of PrSMs corresponding to identified proteoforms using the 
-        proteoform level E-value or FDR cutoff.</li>
+        annotation of identified PrSMs using the E-value or  
+        proteoform level cutoff.</li>
       </ul>
 
       To browse identified
@@ -445,20 +446,20 @@
       output files are:
       <ul>
         <li><b>combined.OUTPUT_TABLE</b>: a tab delimited text file containing 
-        PrSMs identified from all the input files with a spectrum level E-value or
+        PrSMs identified from all the input files with an E-value or spectrum level
         FDR cutoff.</li>
         <li><b>combined.FORM_OUTPUT_TABLE</b>: a tab delimited text file containing 
-        proteoforms identified from all the input files with a proteoform level E-value or FDR cutoff.</li>
+        proteoforms identified from all the input files with an E-value or proteoform level FDR cutoff.</li>
         <li><b>combined_prsm_cutoff_html</b>: a folder containing html files for the
-        annotation of PrSMs identified from all the input files using the 
-        spectrum level E-value or FDR cutoff.</li>
+        annotation of PrSMs identified from all the input files using the E-value or 
+        spectrum level FDR cutoff.</li>
         <li><b>combined_proteoform_cutoff_html</b>: a folder containing html files for the
-        annotation of PrSMs corresponding to proteoforms identified from all the input files using the 
-        proteoform level E-value or FDR cutoff.</li>
+        annotation of PrSMs identified from all the input files using the 
+        E-value or proteoform level cutoff.</li>
       </ul>      
       
       <h4>4.3 Command line usage</h4>
-      <p>To run TopMG, open a console and run the following command.</p>
+      <p>To run TopMG, open a terminal window and run the following command.</p>
       <p><code>topmg [options] database-file-name spectrum-file-name</code></p>
 
       <h4>Options</h4>
@@ -472,7 +473,7 @@
 
       <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
       <p>Set fixed modifications. Three available options: C57, C58, or the name of
-      a text file containing the information of fixed modifications (see <a
+      a text file specifying fixed modifications (see an <a
         target="_blank" href="example_files/fixed_mods.txt">example file</a>).
       When C57 is selected, carbamidomethylation on cysteine is the only fixed
       modification.  When C58 is selected, carboxymethylation on cysteine is the
@@ -495,11 +496,10 @@
       FDR rates are estimated using the target-decoy approach.</p>
 
       <p><code>-e [ --error-tolerance ] &lt;a positive integer&gt;</code></p>
-      <p>Set the error tolerance for precursor and fragment masses in part-per-million
-      (ppm). Default value: 15.</p>
+      <p>Set the error tolerance for precursor and fragment masses in ppm. Default value: 15.</p>
 
       <p><code>-m [ --max-shift ]  &lt;a number&gt;</code></p>
-      <p>Set the maximum absolute value for mass shifts (in Dalton) of unexpected alterations. Default value: 500.</p>
+      <p>Set the maximum absolute value for unexpected mass shifts (in Dalton). Default value: 500.</p>
 
       <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
       <p>Set the spectrum level cutoff type for filtering PrSMs. Default value: EVALUE.</p>
@@ -516,20 +516,25 @@
       PrSMs. Default value: 0.01.</p>
 
       <p><code>-i [ --mod-file-name ] &lt;a modification file&gt; </code></p>
-      <p>Specify a text file containing the information of variable PTMs. 
-        See <a target="_blank" href="example_files/variable_mods.txt" >example file</a>.</p>
+      <p>Specify a text file specifying variable PTMs. 
+        See an <a target="_blank" href="example_files/variable_mods.txt" >example file</a>.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
-      <p>Set the number of threads used in the computation. Default value: 1.</p>
+      <p>Set the number of threads used in the computation. Default value: 1.
+			The maximum number of threads is determined by the CPU and memory 
+			of the computer used for computation. About 4 GB memory is required for each thread. 
+			If the computer has 16 GB memory and a CPU with 8 cores, the maximum number 
+			of threads is 4 because 4 threads need about 16 GB memory.      
+      </p>
 
       <p><code>-x [ --no-topfd-feature ]</code></p>
       <p>Specify that there are no TopFD feature files for proteoform identification.</p>
 
       <p><code>-l [ --skip-list ] &lt;a text file with its path&gt;</code></p>  
       <p>Specify a text file containing a list of spectrum scans that have been
-      identified in previous analysis and are not needed to be searched against
+      identified in previous analyses and are not needed to be searched against
       the protein database. 
-      See <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>
+      See an <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>
       </p> 
 
       <p><code>-D [ --use-asf-diagonal ]</code></p>
@@ -544,14 +549,15 @@
       <p>Set the maximum number of variable PTM sites in a proteoform. Default value: 5.</p>
 
       <p><code>-p [ --num-shift  &lt;0|1|2&gt;</code></p>
-      <p>Set the maximum number of unexpected alterations in a proteoform. Default value: 0.</p>
+      <p>Set the maximum number of unexpected mass shifts in a proteoform. Default value: 0.</p>
 
       <p><code>-o [ --output ] &lt;a filename with its path&gt;</code></p>
-      <p>Specify the name for the output file containing all identifications. When the input includes multiple spectrum files, 
-      an output file is reported that contains all PrSMs identified from individual input files. Default: combined.</p>
+      <p>Specify the name for the output file containing combined identifications when the input consists 
+      of multiple spectrum files. 
+      Default: combined.</p>
       
       <p><code>-k [ --keep ]</code></p>  
-      <p>Keep intermediate files generated by TopPIC. 
+      <p>Keep intermediate files generated by TopMG. 
       </p>
       
       <h4>Advanced options</h4>
@@ -563,18 +569,21 @@
       </p>
 
 		<p><code>-G [ --var-ptm-in-gap ] &lt;a positive number&gt;</code></p>
-      <p>Set the maximum number of variable PTM sites in a proteform graph gap. Default value: 5.
+      <p>Set the maximum number of variable PTM sites in a gap in a proteoform graph. Default value: 5.
       See 
       <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/28453668">this paper</a>    
       for more details.</p>
       </p>
 
       <h4>Examples</h4>
-      
+      <p> To use the following examples, a variable modification file variable_mods.txt is needed in the current folder. (See an  
+      <a target="_blank" href="example_files/variable_mods.txt" >example</a>.)
+      </p>
+
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against a
       protein database file proteins.fasta with a feature file spectra.feature. 
       The user does not need to specify the feature file name. TopMG will automatically 
-      obtain the name spectra.feature from the spectrum file spectra_ms2.msalign.</p>
+      obtain the name spectra.feature from the spectrum file name spectra_ms2.msalign.</p>
       <p><code> topmg -i variable_mods.txt proteins.fasta spectra_ms2.msalign </code></p>
       
       <p> Search two deconvoluted MS/MS spectrum files spectra1_ms2.msalign and 
@@ -598,9 +607,9 @@
       
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
-      spectra.feature.  In an identified proteoform, at most 1 unexpected alteration and 
+      spectra.feature.  In an identified proteoform, at most 1 unexpected mass shift and 
       4 variable PTMs are
-      allowed and the maximum allowed mass shift value for the unexpected alteration is 10,000 Dalton. </p>
+      allowed and the maximum value for unexpected mass shifts is 10,000 Dalton. </p>
       <p><code> topmg -i variable_mods.txt -P 4 -p 1 -m 10000 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
