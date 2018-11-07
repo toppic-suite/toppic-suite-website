@@ -53,8 +53,9 @@
         <li>Create a new folder named <code>toppic_tutorial</code> on the <code>C:</code> drive of your system. 
         <li>Create a new subfolder named <code>toppic</code> in the folder <code>C:\toppic_tutorial\</code> for 
         the software TopPIC suite. 
-        <li>Create a new subfolder named <code>data</code> in the folder <code>C:\toppic_tutorial\</code> for 
-        data files. 
+        <li>Create a new subfolder named <code>tutorial_1</code> in the folder <code>C:\toppic_tutorial\</code>.
+        <li>Create a new subfolder named <code>tutorial_2</code> in the folder <code>C:\toppic_tutorial\</code>.
+        <li>Create a new subfolder named <code>tutorial_3</code> in the folder <code>C:\toppic_tutorial\</code>.    
         <!--
         <li>Create a new subfolder named 'results' in the folder C:\toppic_tutorial\ for saving
         data files. -->
@@ -109,51 +110,44 @@
         </p>
       </ol>
 
-      <h3>4 Date set</h3>
-
-      <h4>3.1 Top-down MS/MS date set</h4>
+      <h3>4 Tutorial 1</h3>
+		In tutorial 1, we will use TopFD and TopPIC to analyze a top-down MS/MS data set of S. typhimurium 
+		for proteoform identification. 
+      <h4>4.1 Top-down MS/MS Date set</h4>
       <p>
-      A top-down MS/MS data set of human MCF-7 cells is used in the
-      tutorial. The proteins extracted from MCF-7 cells were reduced with dithiothreitol 
-      and alkylated with iodoacetamide, and then separated 
-      by capillary zone electrophoresis. 
-      The top 3 precursor ions in each MS spectrum 
-      were selected for MS/MS analysis. The mass resolution for MS and 
-      MS/MS was 120,000 and 60,000, respectively. A total of 1,523 HCD MS/MS spectra were acquired.
+      In the experiment, the protein extract of S. typhimurium were reduced with dithiothreitol and alkylated with iodoacetamide. 
+      The protein mixture was first separated by gas-phase fractionation, resulting in 7 fractions. 
+      Each fraction was separated with an HPLC system coupled to an LTQ-Orbitrap mass spectrometer (Thermo Fisher Scientific). 
+      MS and MS/MS spectra were collected at a resolution of 60,000 and 30,000, respectively. In this tutorial, we use the data files 
+      of only two fractions (st_1.raw and st_2.raw) to speedup the analysis.  
       </p>
-      <p>Click <a href="./data_files/MCF7_500ng_1.raw">here</a>
+      <p>Click <a href="./data_files/st-raw.zip">here</a>
       <!-- <p>Click <a
            href="filedownload.php?filename=./data_files/st.raw">here</a> -->
-      to download the data set
-      and save it in the folder <code>C:\toppic_tutorial\data\</code>.</p>
+      to download the data set, save it in the folder <code>C:\toppic_tutorial\tutorial_1\</code>, and unzip it in the same folder.</p>
 
-      <h4>3.2 Protein sequence database</h4>
-      <p>The human <a
-        href="https://www.uniprot.org/proteomes/UP000005640">proteome
-        database</a> was downloaded from the UniProt database on Feb 5, 2018. It
-      contains 20,303 protein sequences. 
+      <h4>4.2 Protein sequence database</h4>
+      <p>The S. typhimurium <a href="https://www.uniprot.org/uniprot/?query=proteome:UP000001014%20reviewed:yes">proteome database</a> 
+      was downloaded from the UniProt database. It contains 1,795 protein sequences.      
       </p>
 
-      <p>Click <a href="filedownload.php?filename=./data_files/uniprot-human.fasta">here</a>
+      <p>Click <a href="filedownload.php?filename=./data_files/uniprot-st.fasta">here</a>
       to download the protein database and save it in the folder
-      <code>C:\toppic_tutorial\data\</code>.</p>
+      <code>C:\toppic_tutorial\tutorial_1\</code>.</p>
 
-      <p>The folder <code>C:\toppic_tutorial\data\</code> is shown in the screenshot below.</p>
+      <p>The folder <code>C:\toppic_tutorial\tutorial_1\</code> is shown in the screenshot below.</p>
       <br>
       <img src="./images/folder_2.png" height="200" width="600" 
       style="border: #00008B 1px solid;"/></p>
       </p>
 
- 
+      <h4>4.3 File format conversion</h4>
 
-      <h3>5 Data analysis using GUI</h3>
-      <h4>5.1 File format conversion</h4>
-
-      <p>We use <b>MSConvertGUI</b> to convert the raw file st.raw to an mzML
-      file.</p>
+      <p>We use <b>MSConvertGUI</b> to convert the raw files st_1.raw and st_2.raw to mzML
+      files.</p>
       <ol>
         <li> Search "msconvert" in the search box on the task bar of Windows 10, and run the desktop app "MSConvert."</li>
-        <li> Add the file <code>c:\toppic_tutorial\data\MCF7_500ng_1.raw</code> as an input file.</li>
+        <li> Add the files <code>c:\toppic_tutorial\tutorial_1\st_1.raw</code> and <code>c:\toppic_tutorial\tutorial_1\st_2.raw</code> as input files.</li>
         <li> Add the filter "peakPeaking vendor msLevel=1-" <b><font
             color=#FF0000>(important)</font></b>.</li>
         <li> Click to the button "Start" to perform file format conversion.</li>
@@ -167,25 +161,29 @@
 
       <p>
       In the above file format conversion, the peak picking filter (step 3) is used to
-      generate a centroid, not profile, mzML data file, which is required by the
+      generate centroid, not profile, mzML data files, which are required by the
       spectral deconvolution tool TopFD. 
       </p>
 
       <p>
-      The resulting output mzML file is
-      <pre>C:\toppic_tutorial\result\MCF7_500ng_1.mzML</pre> The size of the file is about 109
-      MB, which can be downloaded <a
-      href="filedownload.php?filename=./data_files/MCF7_500ng_1.mzML">here</a>.  The
+      The resulting output mzML files are
+      <pre>C:\toppic_tutorial\tutorial_1\st_1.mzML</pre> and
+      <pre>C:\toppic_tutorial\tutorial_1\st_2.mzML</pre>
+      The sizes of the files are about 170
+      MB and 194 MB, respectively. They can be downloaded <a
+      href="filedownload.php?filename=./data_files/st-mzml.zip">here</a>.  
+      The
     running time for the file format conversion is less than one minute.   
       </p>
 
-      <h4>5.2 Mass spectral deconvolution</h4>
+      <h4>4.4 Mass spectral deconvolution</h4>
 
       <p>We use <b>topfd_gui</b> for top-down mass spectral deconvolution.</p>
       <ol>
         <li> Double click the executable file <code>topfd_gui.exe</code> in the folder
         <code>C:\toppic_tutorial\toppic</code>.</li>
-        <li> Add the file <code>c:\toppic_tutorial\data\MCF7_500ng_1.mzML</code> as an input file.</li>
+        <li> Add the file <code>c:\toppic_tutorial\tutorial_1\st_1.mzML</code> 
+        and <code>c:\toppic_tutorial\tutorial_1\st_2.mzML</code> as input files.</li>
         <li> Click to the button "Start" to deconvolute the file.</li>
       </ol>
       <p>
@@ -196,33 +194,39 @@
       style="border: #00008B 1px solid;"/>
       </p>
 
-      TopFD reports three text files. 
+      TopFD reports six text files. 
       <ol>
-        <li>A msalign file containing deconvoluted MS1 spectra:
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms1.msalign</pre></li>
-        <li>A msalign file containing deconvoluted MS/MS spectra:
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</pre></li>
-        <li>A text file containing LC/MS features of MS/MS spectra:
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1.feature</pre></li>
+        <li>Two msalign files containing deconvoluted MS1 spectra:
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.msalign</pre>
+        <pre>C:\toppic_tutorial\tutorial_1\st_2_ms1.msalign</pre></li>
+        <li>Two msalign files containing deconvoluted MS/MS spectra:
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
+        <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre></li>
+        <li>Two text files containing LC/MS features of MS/MS spectra:
+        <pre>C:\toppic_tutorial\tutorial_1\st_1.feature</pre>
+        <pre>C:\toppic_tutorial\tutorial_1\st_2.feature</pre></li>
       </ol>
       <p>
-      The three output files can be downloaded
-      <a href="filedownload.php?filename=./data_files/MCF7_500ng_1-msalign.zip">here</a>.  
+      The six output files can be downloaded
+      <a href="filedownload.php?filename=./data_files/st-msalign.zip">here</a>.  
       <!--The running time of TopFD is about 6 minutes. -->
       </p>
 
-      <h4>5.3 Mass spectral identification using TopPIC</h4>
-      <p>We use <code>toppic_gui</code> to search MS/MS spectra in the file
-      <code>MCF7_500ng_1_ms2.msalign</code> against the protein database <code>uniprot-human.fasta</code> to
+      <h4>4.4 Mass spectral identification using TopPIC</h4>
+      <p>We use <code>toppic_gui</code> to search MS/MS spectra in the files
+      <code>st_1_ms2.msalign</code> and <code>st_2_ms2.msalign</code> 
+      against the protein database <code>uniprot-st.fasta</code> to
       identify PrSMs. 
       </p>
       <ol>
         <li> Double click the executable file <code>toppic_gui.exe</code> in the folder
         <code>C:\toppic_tutorial\toppic</code>.</li>
-        <li> Select <code>C:\toppic_tutorial\data\uniprot-human.fasta</code> as the protein
+        <li> Select <code>C:\toppic_tutorial\tutorial_1\uniprot-st.fasta</code> as the protein
         database file.</li>
-        <li> Add <code>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.msalign</code> as a
-        mass spectrum data file. </li>
+        <li> Add <code>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</code> 
+        and <code>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</code> as 
+        mass spectrum data files. </li>
+        <li> Input "combined" as the file name for combined identifications.</li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
@@ -239,25 +243,57 @@
       <p><img src="./images/toppic_3.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>TopPIC reports two tab delimited text files and a collection of html
-      files for identified proteoforms. 
+      <p>For each input msalign file, TopPIC reports two tab delimited text files, an xml file, and a collection of html
+      files for identified proteoforms. For example, the output files for st_1_ms2.msalign are 
       <ul>
-        <li>A tab delimited text file containing identified PrSMs with a 5% spectrum level FDR:
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.OUTPUT_TABLE</pre> 
+        <li>A tab delimited text file containing identified PrSMs with a 1% spectrum level FDR:
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_prsm.tsv</pre> 
         </li>
         <li> A tab delimited text file containing identified proteoforms and
-        their best PrSMs with a 5% proteoform level FDR:
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</pre> 
-        </li> A folder containing html files for the
-        annotation of identified PrSMs with a 5% spectrum
+        their best PrSMs with a 1% proteoform level FDR:
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_proteoform.tsv</pre> 
+        </li>
+        <li> An xml file containing identified proteoforms and
+        their best PrSMs with a 1% proteoform level FDR:
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_proteoform.xml</pre> 
+        </li>  
+        <li>A folder containing html files for the
+        annotation of identified PrSMs with a 1% spectrum
         level FDR: 
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_prsm_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
-        annotation of identified PrSMs with a 5%
+        annotation of identified PrSMs with a 1%
         proteoform level FDR: 
-        <pre>C:\toppic_tutorial\data\MCF7_500ng_1_ms2_proteoform_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_proteoform_cutoff_html</pre> 
+        </li>
+      </ul>
+      </p>
+      <p>In addition, the identifications reported for st_1_ms2.msalign and st_2_ms2.msalign are 
+      combined and filtered by a 1% spectrum-level FDR and a 1% proteoform level FDR. The combined results are reported in the following files.  
+      <ul>
+        <li>A tab delimited text file containing combined PrSM identifications with a 1% spectrum level FDR:
+        <pre>C:\toppic_tutorial\tutorial_1\combined_prsm.tsv</pre> 
+        </li>
+        <li> A tab delimited text file containing combined proteoform identifications and
+        their best PrSMs with a 1% proteoform level FDR:
+        <pre>C:\toppic_tutorial\tutorial_1\combined_proteoform.tsv</pre> 
+        </li>
+        <li> An xml file containing combined proteoform identifications and
+        their best PrSMs with a 1% proteoform level FDR:
+        <pre>C:\toppic_tutorial\tutorial_1\combined_proteoform.xml</pre> 
+        </li>  
+        <li>A folder containing html files for the
+        annotation of combined PrSM identifications with a 1% spectrum
+        level FDR: 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_prsm_cutoff_html</pre> 
+        </li>
+        <li>
+        A folder containing html files for the
+        annotation of combined PrSM identifications with a 1%
+        proteoform level FDR: 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_proteoform_cutoff_html</pre> 
         </li>
       </ul>
       </p>
@@ -272,22 +308,75 @@
       A shuffled decoy database is concatenated
       to the target database to estimate spectrum level and proteoform level
       FDRs. All identified PrSMs are first filtered by a
-      5% spectrum level FDR and the resulting PrSMs are reported in the
-      file <code>MCF7_500ng_1_ms2.OUTPUT_TABLE</code>. The proteoforms corresponding to the PrSMs 
-      are further filtered using a 5% proteoform level FDR and
+      1% spectrum level FDR and the resulting PrSMs are reported in the
+      file <code>combined_prsm.tsv</code>. The proteoforms corresponding to the PrSMs 
+      are further filtered using a 1% proteoform level FDR and
       the resulting proteoforms and their corresponding best PrSMs are reported in the file
-      <code>MCF7_500ng_1_ms2.FORM_OUTPUT_TABLE</code>. Microsoft Excel can be used to open these two files. 
-      To browse the annotations in the two folders <code>MCF7_500ng_1_ms2_prsm_cutoff_html</code> and
-      <code>MCF7_500ng_1_ms2_proteoform_cutoff_html</code>, use a web browser (Google Chrome is
+      <code>combined_proteoforms.tsv</code>. Microsoft Excel can be used to open these two files. 
+      To browse the annotations in the two folders <code>combined_prsm_cutoff_html</code> and
+      <code>combined_proteoform_cutoff_html</code>, use a web browser (Google Chrome is
       recommended) to open the file proteins.html.
       </p>
 
       <p>
       The output files can be downloaded
       <!-- <a href="filedownload.php?filename=./data_files/st-result.zip">here</a>.-->  
-      <a href="./data_files/MCF7_500ng_1-toppic_results.zip">here</a>.  
+      <a href="./data_files/st-result.zip">here</a>.  
       <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
+      
+		<h4>4.5 Data analysis using the command line interface</h4>
+
+      <h4>4.5.1 Mass spectral deconvolution</h4>
+
+      <p>We use <b>TopFD</b> for top-down mass spectral deconvolution.</p>
+
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\topfd.exe</pre></li>
+        <li>Input mzML file: <pre>C:\toppic_tutorial\tutorial_1\st_1.mzML</pre>
+        <pre>C:\toppic_tutorial\tutorial_1\st_2.mzML</pre>
+        </li>
+      </ol>
+      <h4>Commands</h4>
+      <pre>cd c:\toppic_tutorial\tutorial_1</pre>
+      <pre>..\toppic\topfd st_*.mzML</pre>
+      <!--
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+      -->
+
+		<h4>4.5.2 Mass spectral identification using TopPIC</font></h4>
+
+      <p>We use <b>TopPIC</b> to search MS/MS spectra in the files <code>st_1_ms2.msalign</code>
+      and <code>st_2_ms2.msalign</code>
+      against the protein database <code>uniprot-st.fasta</code> to identify PrSMs. 
+      </p>
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
+        <li>Input protein database file:
+        <pre>C:\toppic_tutorial\tutorial_1\unprot-st.fasta</pre></li>
+        <li>Input MS/MS msalign files: <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
+        <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre>
+        </li>
+        <li>Input feature files: <pre>C:\toppic_tutorial\tutorial_1\st_1.feature</pre>
+        <pre>C:\toppic_tutorial\tutorial_1\st_2.feature</pre>
+        </li>
+      </ol>
+      <h4>Commands</h4>
+      <pre>cd c:\toppic_tutorial\tutorial_1</pre>
+      <pre>..\toppic\toppic -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 -c combined uniprot-st.fasta st_*_ms2.msalign</pre>
+      <!--
+      <p>The screenshot below shows the console output of the above command.</li>
+      <p><img src="" height="250" width="500" border="1.5"/></p>
+      -->
+
+      <h3>5. Tutorial 2 </h3>
+      In tutorial 2, we will use TopFD and TopPIC to identify proteoforms from top-down MS data sets generated from two 
+      Salmonella samples: one is ???, and the other is ???. Proteoform identifications reported from the two data sets 
+      will be combined, and the abundances of the identified proteoforms in the two samples will be reported. 
+      
       <h4>5.4 Mass spectral identification using TopMG</h4>
       <p>
       In TopPIC, all alterations in proteoforms are treated as unexpected ones, and at most 2 unexpected mass shifts 
