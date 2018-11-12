@@ -639,6 +639,65 @@
       spectra.feature. Use 6 CPU threads to speed up the computation. </p> 
       <p><code> topmg -i variable_mods.txt -u 6 proteins.fasta spectra_ms2.msalign </code></p>      
 
+      <h3>5 TopMerge</h3>
+
+      <h4>5.1 Input</h4>
+      <ul>
+        <li>A protein database file in the FASTA format</li>
+        <li>Several proteoform identification files in the xml format</li>
+      </ul>
+
+        
+		<h4>5.2 Output</h4>
+      <p>TopMG outputs a tab delimited text file containing the abundances of the proteoforms reported in the identification files. 
+      The default output file name is sample_merged.csv.
+      </p> 
+      
+      <h4>5.3 Command line usage</h4>
+      <p>To run TopMerge, open a terminal window and run the following command.</p>
+      <p><code>topmerge [options] database-file-name identification-file-names</code></p>
+
+      <h4>Options</h4>
+      <p><code>-h [ --help ]</code></p>
+      <p>Print the help message.</p>
+
+      <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
+      <p>Set fixed modifications. Three available options: C57, C58, or the name of
+      a text file specifying fixed modifications (see an <a
+        target="_blank" href="example_files/fixed_mods.txt">example file</a>).
+      When C57 is selected, carbamidomethylation on cysteine is the only fixed
+      modification.  When C58 is selected, carboxymethylation on cysteine is the
+      only fixed modification. The setting of fixed modifications should be the same as that 
+      in proteoform identification.</p>
+      
+      <p><code>-e [ --error-tolerance ] &lt;a positive integer&gt;</code></p>
+      <p>Set the error tolerance for mapping identified proteoforms in multiple samples. Default value: 1.2 Dalton.</p>
+
+      <p><code>-o [ --output ] &lt;a filename&gt;</code></p>
+      <p>Specify an output file name for merged proteoform identifications of multiple samples. The default file name is sample_merged.csv. 
+      </p>
+      
+      <h4>Examples</h4>
+
+      <p> Merge two proteoform identification files spectra1_ms2_toppic_proteoform.xml and spectra2_ms2_toppic_proteoform.xml
+      reported from searches against a protein database proteins.fasta. </p>
+      <p><code> topmerge proteins.fasta spectra1_ms2_toppic_proteoform.xml spectra2_ms2_toppic_proteoform.xml </code></p>
+      
+      <p> Merge two proteoform identification files spectra1_ms2_toppic_proteoform.xml and spectra2_ms2_toppic_proteoform.xml
+      reported from searches against a protein database proteins.fasta. The fixed modification was set to C57 in database searches.</p>
+      <p><code> topmerge -f C57 proteins.fasta spectra1_ms2_toppic_proteoform.xml spectra2_ms2_toppic_proteoform.xml </code></p>
+      
+      <p> Merge two proteoform identification files spectra1_ms2_toppic_proteoform.xml and spectra2_ms2_toppic_proteoform.xml
+      reported from searches against a protein database proteins.fasta. Set the error tolerance for mapping identified proteoforms to 0.2 Dalton.</p>
+      <p><code> topmerge -e 0.2 proteins.fasta spectra1_ms2_toppic_proteoform.xml spectra2_ms2_toppic_proteoform.xml </code></p>
+      
+      <p> Merge two proteoform identification files spectra1_ms2_toppic_proteoform.xml and spectra2_ms2_toppic_proteoform.xml
+      reported from searches against a protein database proteins.fasta. Set the output filename to proteoform_quant.tsv.</p>
+      <p><code> topmerge -o proteoform_quant.tsv proteins.fasta spectra1_ms2_toppic_proteoform.xml spectra2_ms2_toppic_proteoform.xml </code></p>
+      
+      <p> Merge all proteoform identification files reported from searches against a protein database proteins.fasta by TopPIC in the current folder. </p>
+      <p><code> topmerge proteins.fasta *_ms2_toppic_proteoform.xml </code></p>
+    
     </div>
   </div>
 </div>

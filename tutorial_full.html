@@ -372,40 +372,171 @@
       <p><img src="" height="250" width="500" border="1.5"/></p>
       -->
 
-      <h3>5 Tutorial 2</h3>
-      <p>
-      We will use TopMG to analyze the data set st_1.raw described in Tutorial 1. 
-		</p>
-		<h4>5.1 Data set and preprocessing </h4>      
-      The description of the data file and 
-      its preprocessing steps can be found in Sections 4.1 - 4.4. 
-      Click <a href="./data_files/tutorial-3-data.zip">here</a> to download data files used in the 
-      analysis, save it in the folder <code>C:\toppic_tutorial\tutorial_2\</code>, and 
-      unzip it. It includes the following files. 
-      <ul>
-        <li>A S. typhrimurium protein database file:
-        <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre> 
-        </li>
-        <li> A deconvoluted MS/MS data file:
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre> 
-        </li> A MS1 feature file:  
-        <pre>C:\toppic_tutorial\tutorial_2\st_1.feature</pre> 
-        </li>
-        <li>
-        A text file containing two variable PTMs: oxidation and methylation.  
-        <pre>C:\toppic_tutorial\tutorial_2\variable_ptms.txt</pre> 
-        </li>
-      </ul>
+      <h3>5. Tutorial 2 </h3>
+      <p>In this tutorial, we will use TopFD and TopPIC to identify proteoforms from top-down MS data generated from two 
+      Salmonella typhimurium samples. Proteoform identified from the two samples 
+      will be combined, and their abundances will be reported. 
+		</p>      
       
-      <h4>5.2 Proteoform identification by TopMG </h4>
+      <h4>5.1 Top-down MS/MS data</h4>
+		<p>Two Salmonella typhimurium samples were analyzed by top-down MS. One sample was grown in Luria-Bertani (LB) 
+		medium (basal condition), and the other in 
+		low phosphate low magnesium (LPM) acidic minimal medium (infection-like condition).       
+      The protein extract of the each sample was separated by an RPLC system coupled with an LTQ Orbitrap Velos 
+      mass spectrometer. MS1 and ETD MS/MS spectra 
+      were collected at a resolution of 60,000.
+      </p>
+		<p>Click <a href="./data_files/tutorial-2-raw.zip">here</a>
+      to download the data set, save it in the folder <code>C:\toppic_tutorial\tutorial_2\</code>, and unzip it in the same folder.</p>
+
+      <h4>5.2 Protein sequence database</h4>
+      <p>The S. typhimurium <a href="https://www.uniprot.org/uniprot/?query=proteome:UP000001014%20reviewed:yes">proteome database</a> 
+      was downloaded from the UniProt database. It contains 1,795 protein sequences.      
+      </p>
+      <p>Click <a href="filedownload.php?filename=./data_files/uniprot-st.fasta">here</a>
+      to download the protein database and save it in the folder
+      <code>C:\toppic_tutorial\tutorial_2\</code>.</p>
+            
+      <h4>5.3 Data preprocessing</h4>
+		<p>      
+      Follow the steps in Sections 4.3 and 4.4 for data format conversion and spectral deconvolution. It may take 
+      a couple of hours to deconvolute the spectra.  
+		You can download the resulting files        
+		<a href="./data_files/tutorial-2-preprocess.zip">here</a> directly.      
+		</p>       
+		
+		<h4>5.4 Proteoform identification by TopPIC </h4>
+		<p>We use <b>toppic_gui</b> to search MS/MS spectra in the files
+      <code>st_lb_ms2.msalign</code> and <code>st_lpm_ms2.msalign</code> 
+      against the protein database <code>uniprot-st.fasta</code> to
+      identify PrSMs. 
+      </p>
       <ol>
-        <li> Double click the executable file <code>topmg_gui.exe</code> in the folder
+        <li> Double click the executable file <code>toppic_gui.exe</code> in the folder
         <code>C:\toppic_tutorial\toppic</code>.</li>
         <li> Select <code>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</code> as the protein
         database file.</li>
-        <li> Add <code>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</code> as a
+        <li> Add <code>C:\toppic_tutorial\tutorial_2\st_lb_ms2.msalign</code> 
+        and <code>C:\toppic_tutorial\tutorial_2\st_lpm_ms2.msalign</code> as 
+        mass spectrum data files. </li>
+        <li> Leave the file name for combined identifications blank.</li>
+        <li> Check the checkbox <code>Decoy database</code>. </li>
+        <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
+        <li> Select <code>FDR</code> as the proteoform level cutoff type. </li>
+        <li> Click to the button "Start"</li>
+      </ol>
+      <p>
+      The screenshots of <code>toppic_gui</code> are shown below. 
+      </p>
+
+      <p><img src="./images/toppic_4.png" height="400" width="600" style="border: #00008B 1px solid;"/>
+      </p>
+
+      <p><img src="./images/toppic_5.png" height="400" width="600" style="border: #00008B 1px solid;"/>
+      </p>
+      <p>The identification files can be downloaded
+      <a href="./data_files/tutorial-2-result.zip">here</a>. 
+      </p>
+		<h4>5.5 Merging proteoform identifications </h4>
+		<p>
+      We use <b>topmerge_gui</b> to merge identification files <code>C:\toppic_tutorial_2\st_lb_ms2_toppic_proteoform.xml</code>
+      and <code>C:\toppic_tutorial\st_lpm_ms2_toppic_proteoform.xml</code>.
+      </p>
+		<ol>
+        <li> Double click the executable file <code>topmerge_gui.exe</code> in the folder
+        <code>C:\toppic_tutorial\toppic</code>.</li>
+        <li> Select <code>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</code> as the protein
+        database file.</li>
+        <li> Add <code>C:\toppic_tutorial\tutorial_2\st_lb_ms2_toppic_proteoform.xml</code> 
+        and <code>C:\toppic_tutorial\tutorial_2\st_lpm_ms2_toppic_proteoform.xml</code> as 
+        identification files. </li>
+        <li> Click to the button "Start"</li>
+      </ol>      
+      <p>
+      The screenshot of <code>topmerge_gui</code> is shown below. 
+      </p>
+      <p><img src="./images/topmerge_1.png" height="400" width="600" style="border: #00008B 1px solid;"/>
+      </p>
+      <p>TopMerge outputs a csv file <code>C:\toppic_tutorial\tutorial_2\sample_merged.csv</code>, which can be downloaded 
+      <a href="./data_files/tutorial-2-merge.zip">here</a>.
+      </p>
+      
+ 
+		<h4>5.6 Data analysis using the command line interface</h4>
+		<p> See Section 4.6.1 for the commands for spectral deconvolution. </p>
+
+		<h4>5.6.1 Mass spectral identification using TopPIC</font></h4>
+
+      <p>We use <b>toppic</b> to search MS/MS spectra files <code>st_lb_ms2.msalign</code>
+      and <code>st_lpm_ms2.msalign</code>
+      against the protein database <code>uniprot-st.fasta</code> to identify PrSMs. 
+      </p>
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
+        <li>Input protein database file:
+        <pre>C:\toppic_tutorial\tutorial_2\unprot-st.fasta</pre></li>
+        <li>Input MS/MS msalign files: <pre>C:\toppic_tutorial\tutorial_2\st_lb_ms2.msalign</pre>
+        <pre>C:\toppic_tutorial\tutorial_2\st_lpm_ms2.msalign</pre>
+        </li>
+        <li>Input feature files: <pre>C:\toppic_tutorial\tutorial_2\st_lb.feature</pre>
+        <pre>C:\toppic_tutorial\tutorial_2\st_lpm.feature</pre>
+        </li>
+      </ol>
+      <h4>Commands</h4>
+      <pre>cd c:\toppic_tutorial\tutorial_2</pre>
+      <pre>..\toppic\toppic -d -t FDR -T FDR uniprot-st.fasta st_*_ms2.msalign</pre>      
+      
+      <h4>5.6.2 Merging proteoform identifications using TopMerge</font></h4>
+
+      <h4>File locations</h4>
+      <ol>
+        <li>Executable file: <pre>C:\toppic_tutorial\toppic\topmerge.exe</pre></li>
+        <li>Input protein database file:
+        <pre>C:\toppic_tutorial\tutorial_2\unprot-st.fasta</pre></li>
+        <li>Proteoform identification files: <pre>C:\toppic_tutorial\tutorial_2\st_lb_ms2_toppic_proteoform.xml</pre>
+        <pre>C:\toppic_tutorial\tutorial_2\st_lpm_ms2_toppic_proteoform.xml</pre>
+      </ol>
+      <h4>Commands</h4>
+      <pre>cd c:\toppic_tutorial\tutorial_2</pre>
+      <pre>..\toppic\topmerge uniprot-st.fasta st_*_ms2_toppic_proteoform.xml</pre>   
+      
+      
+      
+      <h3>6 Tutorial 3</h3>
+      <p>
+      We will use TopMG to analyze the data set st_1.raw described in Tutorial 1. 
+		</p>
+		<h4>6.1 Data set and preprocessing </h4>      
+      The description of the data file and 
+      its preprocessing steps can be found in Sections 4.1 - 4.4. 
+      Click <a href="./data_files/tutorial-3-data.zip">here</a> to download data files used in the 
+      analysis, save it in the folder <code>C:\toppic_tutorial\tutorial_3\</code>, and 
+      unzip it. It includes the following files. 
+      <ul>
+        <li>A S. typhrimurium protein database file:
+        <pre>C:\toppic_tutorial\tutorial_3\uniprot-st.fasta</pre> 
+        </li>
+        <li> A deconvoluted MS/MS data file:
+        <pre>C:\toppic_tutorial\tutorial_3\st_1_ms2.msalign</pre> 
+        </li> A MS1 feature file:  
+        <pre>C:\toppic_tutorial\tutorial_3\st_1.feature</pre> 
+        </li>
+        <li>
+        A text file containing two variable PTMs: oxidation and methylation.  
+        <pre>C:\toppic_tutorial\tutorial_3\variable_ptms.txt</pre> 
+        </li>
+      </ul>
+      
+      <h4>6.2 Proteoform identification by TopMG </h4>
+      <ol>
+        <li> Double click the executable file <code>topmg_gui.exe</code> in the folder
+        <code>C:\toppic_tutorial\toppic</code>.</li>
+        <li> Select <code>C:\toppic_tutorial\tutorial_3\uniprot-st.fasta</code> as the protein
+        database file.</li>
+        <li> Add <code>C:\toppic_tutorial\tutorial_3\st_1_ms2.msalign</code> as a
         mass spectrum data file. </li>
-        <li> Select <code>C:\toppic_tutorial\tutorial_2\variable_mods.txt</code> as the modification file. </li>
+        <li> Select <code>C:\toppic_tutorial\tutorial_3\variable_mods.txt</code> as the modification file. </li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
@@ -428,26 +559,26 @@
       files for identified proteoforms. 
       <ul>
         <li>A csv file containing identified PrSMs with a 5% spectrum level FDR:
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm.csv</pre> 
+        <pre>C:\toppic_tutorial\tutorial_3\st_1_ms2_topmg_prsm.csv</pre> 
         </li>
         <li> A csv file containing identified proteoforms and
         their best PrSMs with a 5% proteoform level FDR:
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.csv</pre> 
+        <pre>C:\toppic_tutorial\data\st_1_ms2_topmg_proteoform.csv</pre> 
         </li>
         <li> An xml file containing identified proteoforms and
         their best PrSMs with a 5% proteoform level FDR:
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.xml</pre> 
+        <pre>C:\toppic_tutorial\data\st_1_ms2_topmg_proteoform.xml</pre> 
         </li> 
         <li>A folder containing html files for the
         annotation of identified PrSMs with a 5% spectrum
         level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_prsm_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\data\st_1_ms2_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
         annotation of identified PrSMs with a 5%
         proteoform level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_proteoform_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\data\st_1_ms2_proteoform_cutoff_html</pre> 
         </li>
       </ul>
       </p>
@@ -466,13 +597,13 @@
       <ol>
         <li>Executable file: <pre>C:\toppic_tutorial\toppic\topmg.exe</pre></li>
         <li>Input protein database file:
-        <pre>C:\toppic_tutorial\tutorial_2\unprot-st.fasta</pre></li>
-        <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre></li>
-        <li>MS feature file: <pre>C:\toppic_tutorial\tutorial_2\st_1.feature</pre></li>
-        <li>Variable PTM list: <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre></li>
+        <pre>C:\toppic_tutorial\tutorial_3\unprot-st.fasta</pre></li>
+        <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\tutorial_3\st_1_ms2.msalign</pre></li>
+        <li>MS feature file: <pre>C:\toppic_tutorial\tutorial_3\st_1.feature</pre></li>
+        <li>Variable PTM list: <pre>C:\toppic_tutorial\tutorial_3\variable_mods.txt</pre></li>
       </ol>
       <h4>Commands</h4>
-      <pre>cd c:\toppic_tutorial\tutorial_2</pre>
+      <pre>cd c:\toppic_tutorial\tutorial_3</pre>
       <pre>..\toppic\topmg -f C57 -d -t FDR -v 0.05 -T FDR -V 0.05 -i variable_mods.txt uniprot-st.fasta st_1_ms2.msalign</pre>
     </div>
 
