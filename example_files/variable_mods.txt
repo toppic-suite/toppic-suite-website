@@ -23,8 +23,8 @@
 # UnimodID: unmimod id of the modification
 #   - Please use -1, if not in unimod
 
+#Acetyl,42.010565,KR,any,1
+#Dimethyl,28.031300,KR,any,36
 
-Acetyl,42.010565,KR,any,1
-Dimethyl,28.031300,KR,any,36
 Phospho,79.966331,STY,any,21
 Oxidation,15.994915,CPKDNRY,any,35
