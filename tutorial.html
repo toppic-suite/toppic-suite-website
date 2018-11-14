@@ -5,7 +5,7 @@
 <title>TopPIC Suite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
-<meta name="author" content="xwliu" >
+<meta name="author" content="xiaowen" >
 
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
@@ -116,16 +116,16 @@
       <p>
       In the MS experiment, the protein extract of S. typhimurium was reduced with dithiothreitol and alkylated with iodoacetamide. 
       The protein mixture was first separated by gas-phase fractionation, resulting in 7 fractions. 
-      Each fraction was separated with an HPLC system coupled to an LTQ-Orbitrap mass spectrometer (Thermo Fisher Scientific). 
-      MS and MS/MS spectra were collected at a resolution of 60,000 and 30,000, respectively. In this tutorial, we use the data files 
-      of only two fractions (st_1.raw and st_2.raw) to speedup the analysis.  
+      Each fraction was separated by an HPLC system coupled to an LTQ-Orbitrap mass spectrometer (Thermo Fisher Scientific). 
+      MS and MS/MS spectra were collected at a resolution of 60,000 and 30,000, respectively. In this tutorial, we use only the data files 
+      of two fractions (st_1.raw and st_2.raw).  
       </p>
       <p>Click <a href="./data_files/tutorial-1-raw.zip">here</a>
       to download the data set, save it in the folder <code>C:\toppic_tutorial\tutorial_1\</code>, and unzip it in the same folder.</p>
 
       <h4>4.2 Protein sequence database</h4>
       <p>A S. typhimurium <a href="https://www.uniprot.org/uniprot/?query=proteome:UP000001014%20reviewed:yes">proteome database</a> 
-      was downloaded from the UniProt database. It contains 1,795 protein sequences.      
+      of 1,795 proteins was downloaded from the UniProt database.       
       </p>
 
       <p>Click <a href="filedownload.php?filename=./data_files/uniprot-st.fasta">here</a>
@@ -163,10 +163,10 @@
       </p>
 
       <p>
-      The resulting output mzML files are
+      The resulting mzML files are
       <pre>C:\toppic_tutorial\tutorial_1\st_1.mzML</pre> and
       <pre>C:\toppic_tutorial\tutorial_1\st_2.mzML</pre>
-      The sizes of the files are about 170
+      The sizes of the two files are about 170
       MB and 194 MB, respectively. They can be downloaded <a
       href="./data_files/tutorial-1-mzml.zip">here</a>.  
       The
@@ -199,7 +199,7 @@
         <li>Two msalign files containing deconvoluted MS/MS spectra:
         <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
         <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre></li>
-        <li>Two text files containing LC/MS features of MS/MS spectra:
+        <li>Two text files containing LC/MS features:
         <pre>C:\toppic_tutorial\tutorial_1\st_1.feature</pre>
         <pre>C:\toppic_tutorial\tutorial_1\st_2.feature</pre></li>
       </ol>
@@ -210,7 +210,7 @@
       </p>
 
       <h4>4.5 Mass spectral identification using TopPIC</h4>
-      <p>We use <b>toppic_gui</b> to search MS/MS spectra in the files
+      <p>We use <b>toppic_gui</b> to search the MS/MS spectra in 
       <code>st_1_ms2.msalign</code> and <code>st_2_ms2.msalign</code> 
       against the protein database <code>uniprot-st.fasta</code> to
       identify PrSMs. 
@@ -244,53 +244,53 @@
       files for identified proteoforms. For example, the output files for st_1_ms2.msalign are 
       <ul>
         <li>A csv file containing identified PrSMs with a 1% spectrum level FDR:
-        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_prsm.csv</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm.csv</pre> 
         </li>
         <li> A csv file containing identified proteoforms and
         their best PrSMs with a 1% proteoform level FDR:
-        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_proteoform.csv</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.csv</pre> 
         </li>
         <li> An xml file containing identified proteoforms and
         their best PrSMs with a 1% proteoform level FDR:
-        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_proteoform.xml</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.xml</pre> 
         </li>  
         <li>A folder containing html files for the
         annotation of identified PrSMs with a 1% spectrum
         level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_prsm_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
         annotation of identified PrSMs with a 1%
         proteoform level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_proteoform_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform_cutoff_html</pre> 
         </li>
       </ul>
       </p>
       <p>In addition, the identifications reported for st_1_ms2.msalign and st_2_ms2.msalign are 
-      combined and filtered by a 1% spectrum-level FDR and a 1% proteoform level FDR. The combined results are reported in the following files.  
+      combined, and filtered by a 1% spectrum-level FDR and a 1% proteoform level FDR. The combined results are reported in the following files.  
       <ul>
         <li>A csv file containing combined PrSM identifications with a 1% spectrum level FDR:
-        <pre>C:\toppic_tutorial\tutorial_1\combined_prsm.csv</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm.csv</pre> 
         </li>
         <li> A csv file containing combined proteoform identifications and
         their best PrSMs with a 1% proteoform level FDR:
-        <pre>C:\toppic_tutorial\tutorial_1\combined_proteoform.csv</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.csv</pre> 
         </li>
         <li> An xml file containing combined proteoform identifications and
         their best PrSMs with a 1% proteoform level FDR:
-        <pre>C:\toppic_tutorial\tutorial_1\combined_proteoform.xml</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.xml</pre> 
         </li>  
         <li>A folder containing html files for the
         annotation of combined PrSM identifications with a 1% spectrum
         level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_1\combined_prsm_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
         annotation of combined PrSM identifications with a 1%
         proteoform level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_1\combined_proteoform_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform_cutoff_html</pre> 
         </li>
       </ul>
       </p>
@@ -306,10 +306,10 @@
       to the target database to estimate spectrum level and proteoform level
       FDRs. All identified PrSMs are first filtered by a
       1% spectrum level FDR and the resulting PrSMs are reported in the
-      file <code>combined_prsm.csv</code>. The proteoforms corresponding to the PrSMs 
+      file <code>combined_ms2_toppic_prsm.csv</code>. The proteoforms corresponding to the PrSMs 
       are further filtered using a 1% proteoform level FDR and
       the resulting proteoforms and their corresponding best PrSMs are reported in the file
-      <code>combined_proteoform.csv</code>. Microsoft Excel can be used to open these two files. 
+      <code>combined_ms2_toppic_proteoform.csv</code>. Microsoft Excel can be used to open these two files. 
       To browse the annotations in the two folders <code>combined_prsm_cutoff_html</code> and
       <code>combined_proteoform_cutoff_html</code>, use a web browser (Google Chrome is
       recommended) to open the file proteins.html.
@@ -345,7 +345,7 @@
 
 		<h4>4.6.2 Mass spectral identification using TopPIC</font></h4>
 
-      <p>We use <b>toppic</b> to search MS/MS spectra in the files <code>st_1_ms2.msalign</code>
+      <p>We use <b>toppic</b> to search the MS/MS spectra in <code>st_1_ms2.msalign</code>
       and <code>st_2_ms2.msalign</code>
       against the protein database <code>uniprot-st.fasta</code> to identify PrSMs. 
       </p>
@@ -378,7 +378,7 @@
       its preprocessing steps can be found in Sections 4.1 - 4.4. 
       Click 
       <a href="./data_files/tutorial-2-data.zip">here</a>
-		to download data files used in the 
+		to download the data files used in the 
       analysis, save it in the folder <code>C:\toppic_tutorial\tutorial_2\</code>, and 
       unzip it. It includes the following files. 
       <ul>
@@ -391,7 +391,7 @@
         <pre>C:\toppic_tutorial\tutorial_2\st_1.feature</pre> 
         </li>
         <li>
-        A text file containing two variable PTMs: oxidation and methylation.  
+        A text file containing a variable PTM: oxidation.  
         <pre>C:\toppic_tutorial\tutorial_2\variable_ptms.txt</pre> 
         </li>
       </ul>
@@ -404,7 +404,7 @@
         database file.</li>
         <li> Add <code>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</code> as a
         mass spectrum data file. </li>
-        <li> Select <code>C:\toppic_tutorial\tutorial_2\variable_mods.txt</code> as the modification file. </li>
+        <li> Select <code>C:\toppic_tutorial\tutorial_2\variable_mods.txt</code> as the file of variable PTMs. </li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
@@ -440,13 +440,13 @@
         <li>A folder containing html files for the
         annotation of identified PrSMs with a 5% spectrum
         level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_prsm_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm_cutoff_html</pre> 
         </li>
         <li>
         A folder containing html files for the
         annotation of identified PrSMs with a 5%
         proteoform level FDR: 
-        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_proteoform_cutoff_html</pre> 
+        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform_cutoff_html</pre> 
         </li>
       </ul>
       </p>
