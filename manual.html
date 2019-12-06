@@ -60,16 +60,22 @@
 
 
       <h4>2.2 Output</h4>
-      <p>TopFD outputs an LC/MS feature text file with a file extension "<b>feature</b>" and two deconvoluted mass spectral
+      <!--<p>TopFD outputs two LC/MS feature text files with a file extension "<b>feature</b>", one LC/MS feature file with a file extension "<b>xml</b>", and two deconvoluted mass spectral
       data files (one is for MS1 spectra and the other for MS/MS
-      spectra) in the msalign format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
+      spectra) in the msalign format with a file extension "<b>msalign</b>", which is similar to the MGF file format.-->
      
+	 <p>TopFD outputs two LC/MS feature text files with a file extension "<b>feature</b>", one LC/MS feature file with a file extension "<b>xml</b>", and a deconvoluted mass spectral
+      data file for MS/MS spectra in the msalign format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
+	 
       For example, when the input file name is <b>spectra.mzML</b>, the output includes: 
       <ul>
-        <li><b>spectra.feature</b>: a feature file containing MS/MS scan ids and their
+        <li><b>spectra_ms1.feature, spectra_ms2.feature</b>: feature files containing MS/MS scan ids and their
         corresponding LC/MS features.</li>
-        <li><b>spectra_ms1.msalign</b>: a list of deconvoluted MS1 spectra.</li>
+        <li><b>spectra_feature.xml</b>: a feature file containing MS/MS scan ids and their
+            corresponding LC/MS features in xml format</li>
+        <!--<li><b>spectra_ms1.msalign</b>: a list of deconvoluted MS1 spectra.</li>-->
         <li><b>spectra_ms2.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
+
       </ul>
 
       </p>
@@ -93,7 +99,7 @@
       <p>Set the error tolerance of m/z values of spectral peaks. The default
       value is 0.02 m/z.</p>
 
-      <p><code>-s [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
+      <p><code>-t [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio for MS/MS spectra. The default value is 1.</p>
 
       <p><code>-r [ --ms-one-sn-ratio ] &lt;a positive number&gt;</code></p>
@@ -102,13 +108,13 @@
       <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
       <p>Set the precursor isolation window size. The default value is 3.0 m/z.</p>
 
-      <p><code>-n [ --missing-level-one ]</code></p>
+      <p><code>-o [ --missing-level-one ]</code></p>
       <p>Specify that the input file does not contain MS1 spectra.</p>
 
       <h4>Examples</h4>
       <p>
-      Deconvolute a centroid data file spectra.mzML and output three files:
-      spectra_ms1.msalign, spectra_ms2.msalign, and spectra.feature.
+      Deconvolute a centroid data file spectra.mzML and output four files:
+      spectra_ms2.msalign, spectra_ms1.feature, spectra_ms2.feature, spectra_feature.xml.
 		</p>
       <p><code> topfd spectra.mzML </code></p>
       
@@ -128,7 +134,7 @@
       Deconvolute a centroid data file spectra.mzML that does not contain MS1
       spectra. 
 		</p>
-      <p><code> topfd -n spectra.mzML </code></p>
+      <p><code> topfd -o spectra.mzML </code></p>
       
       <p>
       Deconvolute a centroid data file spectra.mzML with a precursor isolation
@@ -146,7 +152,7 @@
       the maximum charge state: 50, the maximum mass: 30,000 Dalton, and the 
       signal/noise ratio for MS/MS spectra: 2.   
 		</p>
-      <p><code> topfd -c 50 -m 30000 -s 2 spectra.mzML </code></p>
+      <p><code> topfd -c 50 -m 30000 -t 2 spectra.mzML </code></p>
       <p>
 <!--
       <h4>2.4 Graphical user interface</h4>
@@ -183,19 +189,18 @@
         identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_ms2_toppic_proteoform.xml</b>: an xml file containing 
         identified proteoforms with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>spectra_ms2_toppic_prsm_cutoff_html</b>: a folder containing html files for the
+        <li><b>spectra_html/spectra_ms2_toppic_prsm_cutoff_html</b>: a folder containing html files for the
         annotation of identified PrSMs using the 
         E-value or spectrum level FDR cutoff.</li>
-        <li><b>spectra_ms2_toppic_proteoform_cutoff_html</b>: a folder containing html files for the
+        <li><b>spectra_html/spectra_ms2_toppic_proteoform_cutoff_html</b>: a folder containing html files for the
         annotation of identified PrSMs using the E-value or 
         proteoform level FDR cutoff.</li>
       </ul>
 
       To browse identified
       proteins, proteoforms, and PrSMs,  
-      use a web browser to open the file spectrum_ms2_toppic_prsm_cutoff_html/proteins.html 
-      or spectrum_ms2_toppic_proteoform_cutoff_html/proteins.html.
-      Google Chrome or Firefox is recommended (IE is not recommended).
+      use a chrome browser to open the file spectrum_html/topview/visual/proteins.html.
+      Google Chrome is recommended (Firefox and IE are not recommended).
       </p>
       <p>When the input contains two or more data files,
       TopPIC outputs two csv files, an xml file, and a collection of html files for each input file. 
@@ -267,15 +272,18 @@
       for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm. To use other
       values, the generating function approach (<code>-g</code>) should be chosen.</p>
 
-      <p><code>-m [ --max-shift ]  &lt;a number&gt;</code></p>
+	  <p><code>-p [ --proteoform-error-tolerance ]  &lt;a positive number&gt;</code></p>
+      <p>Error tolerance for identifying proteoforms in Dalton. Default value: 1.2 Dalton.</p>
+
+      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
       <p>Set the maximum value for unexpected mass shifts (in Dalton).
       Default value: 500.</p>
 
-      <p><code>-M [ --min-shift ]  &lt;a number&gt;</code></p>
+      <p><code>-m [ --min-shift ]  &lt;a number&gt;</code></p>
       <p>Se the minimum value for unexpected mass shifts (in Dalton). 
       Default value: -500.</p>
 
-      <p><code>-p [ --num-shift ] &lt;0|1|2&gt;</code></p>
+      <p><code>-s [ --num-shift ] &lt;0|1|2&gt;</code></p>
       <p>Set the maximum number of unexpected mass shifts in a PrSM. Default value: 1.</p>
 
       <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
@@ -292,7 +300,7 @@
       <p>Set the proteoform level cutoff value for filtering proteoforms and
       PrSMs. Default value: 0.01.</p>
 
-      <p><code>-b [ --lookup-table ]</code></p>
+      <p><code>-l [ --lookup-table ]</code></p>
       <p>Use a lookup table method for computing p-values and E-values.
       It is faster than the default generating function approach, but it
       may reduce the number of identifications.</p>
@@ -306,7 +314,7 @@
       localize PTMs in reported PrSMs with unknown mass
       shifts. See an <a target="_blank" href="example_files/common_mods.txt" >example file</a>.</p>
 
-      <p><code>-s [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
+      <p><code>-h [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
       <p>Set the score threshold (MIScore) for filtering results of PTM characterization. Default value: 0.45.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
@@ -317,12 +325,12 @@
       <p><code>-x [ --no-topfd-feature ]</code></p>
       <p>Specify that there are no TopFD feature files for proteoform identification.</p>
 
-      <p><code>-l [ --skip-list ] &lt;a text file with its path&gt;</code></p>  
-      <p>Specify a text file containing a list of spectrum scans that have been
-      identified in previous analyses and are not needed to be searched against
-      the protein database. 
-      See <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>
-      </p> 
+      <!--<p><code>-l [ &#45;&#45;skip-list ] &lt;a text file with its path&gt;</code></p>  -->
+      <!--<p>Specify a text file containing a list of spectrum scans that have been-->
+      <!--identified in previous analyses and are not needed to be searched against-->
+      <!--the protein database. -->
+      <!--See <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>-->
+      <!--</p> -->
 
       <p><code>-c [ --combined-file-name ] &lt;a filename&gt;</code></p>
       <p>Specify an output file name for combined identifications when the input consists of multiple spectrum files. 
@@ -363,7 +371,7 @@
       a protein database file proteins.fasta with a feature file
       spectra.feature.  In an identified proteoform, at most 2 mass shifts are
       allowed and the maximum allowed mass shift value is 10,000 Dalton. </p>
-      <p><code> toppic -p 2 -m 10000 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> toppic -s 2 -M 10000 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
@@ -392,7 +400,7 @@
       phosphorylation, oxidation and methylation, and uses an MIScore cutoff 0.3
       to filter reported PTM sites. The modification file common_mods.txt can be 
       found <a target="_blank" href="example_files/common_mods.txt">here</a>.</p>
-      <p><code> toppic -i common_mods.txt -s 0.3 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> toppic -i common_mods.txt -h 0.3 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
@@ -414,7 +422,7 @@
 
         
 		<h4>4.2 Output</h4>
-      <p>TopMG outputs two csv files, an xml file, and a collection of html files for identified
+      <p>TopMG outputs two csv files and a collection of html files for identified
       proteoforms. For example, when the input mass spectrum data file is
       spectra_ms2.msalign, the output includes: 
       <ul>
@@ -423,21 +431,18 @@
         FDR cutoff.</li>
         <li><b>spectra_ms2_topmg_proteoform.csv</b>: a csv file containing 
         identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
-        <li><b>spectra_ms2_topmg_proteoform.xml</b>: an xml file containing 
-        identified proteoforms with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>spectra_ms2_topmg_prsm_cutoff_html</b>: a folder containing html files for the
+        <li><b>spectra_html/topmg_prsm_cutoff_html</b>: a folder containing html files for the
         annotation of identified PrSMs using the E-value or
         spectrum level  FDR cutoff.</li>
-        <li><b>spectra_ms2_topmg_proteoform_cutoff_html</b>: a folder containing html files for the
+        <li><b>spectra_html/topmg_proteoform_cutoff_html</b>: a folder containing html files for the
         annotation of identified PrSMs using the E-value or  
         proteoform level cutoff.</li>
       </ul>
 
       To browse identified
       proteins, proteoforms, and PrSMs,  
-      use a web browser to open the file spectrum_ms2_topmg_prsm_cutoff_html/proteins.html 
-      or spectrum_ms2_topmg_proteoform_cutoff_html/proteins.html.
-      Google Chrome or Firefox is recommended (IE is not recommended).
+      use a chrome browser to open the file spectra_html/topview/visual/proteins.html.
+      <b>Google Chrome</b> is recommended (Firefox, IE are not recommended).
       </p>
       <p>When the input contains two or more spectrum files, TopMG outputs two csv
       files, an xml file, and a collection of html files for each input file. 
@@ -455,12 +460,10 @@
         FDR cutoff.</li>
         <li><b>combined_ms2_topmg_proteoform.csv</b>: a csv file containing 
         proteoforms identified from all the input files with an E-value or proteoform level FDR cutoff.</li>
-        <li><b>combined_ms2_topmg_proteoform.xml</b>: an xml file containing 
-        proteoforms identified from all the input files with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>combined_ms2_topmg_prsm_cutoff_html</b>: a folder containing html files for the
+        <li><b>combined_html/combined_ms2_topmg_prsm_cutoff_html</b>: a folder containing html files for the
         annotation of PrSMs identified from all the input files using the E-value or 
         spectrum level FDR cutoff.</li>
-        <li><b>combined_ms2_topmg_proteoform_cutoff_html</b>: a folder containing html files for the
+        <li><b>combined_html/combined_ms2_topmg_proteoform_cutoff_html</b>: a folder containing html files for the
         annotation of PrSMs identified from all the input files using the 
         E-value or proteoform level cutoff.</li>
       </ul>      
@@ -505,7 +508,10 @@
       <p><code>-e [ --error-tolerance ] &lt;a positive integer&gt;</code></p>
       <p>Set the error tolerance for precursor and fragment masses in ppm. Default value: 15.</p>
 
-      <p><code>-m [ --max-shift ]  &lt;a number&gt;</code></p>
+	  <p><code>-p [ --proteoform-error-tolerance ] &lt;a positive number&gt;</code></p>
+      <p>Error tolerance for identifying proteoforms in Dalton. Default value: 1.2 Dalton.</p>
+
+      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
       <p>Set the maximum absolute value for unexpected mass shifts (in Dalton). Default value: 500.</p>
 
       <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
@@ -537,12 +543,12 @@
       <p><code>-x [ --no-topfd-feature ]</code></p>
       <p>Specify that there are no TopFD feature files for proteoform identification.</p>
 
-      <p><code>-l [ --skip-list ] &lt;a text file with its path&gt;</code></p>  
-      <p>Specify a text file containing a list of spectrum scans that have been
-      identified in previous analyses and are not needed to be searched against
-      the protein database. 
-      See an <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>
-      </p> 
+      <!--<p><code>-l [ &#45;&#45;skip-list ] &lt;a text file with its path&gt;</code></p>  -->
+      <!--<p>Specify a text file containing a list of spectrum scans that have been-->
+      <!--identified in previous analyses and are not needed to be searched against-->
+      <!--the protein database. -->
+      <!--See an <a target="_blank" href="example_files/scan_list.txt" >example file</a>.</p>-->
+      <!--</p> -->
 
       <p><code>-D [ --use-asf-diagonal ]</code></p>
       <p>Use the ASF-DIAGONAL method for protein sequence filtering. 
@@ -555,7 +561,7 @@
       <p><code>-P [ --var-ptm ] &lt;a positive number&gt;</code></p>
       <p>Set the maximum number of variable PTM sites in a proteoform. Default value: 5.</p>
 
-      <p><code>-p [ --num-shift  &lt;0|1|2&gt;</code></p>
+      <p><code>-s [ --num-shift  &lt;0|1|2&gt;</code></p>
       <p>Set the maximum number of unexpected mass shifts in a proteoform. Default value: 0.</p>
 
       <p><code>-c [ --combined-file-name ] &lt;a filename&gt;</code></p>
@@ -617,7 +623,7 @@
       spectra.feature.  In an identified proteoform, at most 1 unexpected mass shift and 
       4 variable PTMs are
       allowed and the maximum value for unexpected mass shifts is 10,000 Dalton. </p>
-      <p><code> topmg -i variable_mods.txt -P 4 -p 1 -m 10000 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> topmg -i variable_mods.txt -P 4 -s 1 -M 10000 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file
