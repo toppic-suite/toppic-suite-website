@@ -324,7 +324,7 @@
       localize PTMs in reported PrSMs with unknown mass
       shifts. See an <a target="_blank" href="example_files/common_mods.txt" >example file</a>.</p>
 
-      <p><code>-h [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
+      <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
       <p>Set the score threshold (MIScore) for filtering results of PTM characterization. Default value: 0.45.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
@@ -410,7 +410,7 @@
       phosphorylation, oxidation and methylation, and uses an MIScore cutoff 0.3
       to filter reported PTM sites. The modification file common_mods.txt can be 
       found <a target="_blank" href="example_files/common_mods.txt">here</a>.</p>
-      <p><code> toppic -i common_mods.txt -h 0.3 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> toppic -i common_mods.txt -H 0.3 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with feature files.
