@@ -219,7 +219,7 @@
 		    <pre>C:\toppic_tutorial\tutorial_1\st_2_file</pre></li>
       </ol>
       <p>
-        The twelve output files and folders can be downloaded
+        The output files and folders can be downloaded
         <a href="./data_files/tutorial-1-msalign.zip">here</a>.
         <!--The running time of TopFD is about 6 minutes. -->
       </p>
@@ -531,7 +531,22 @@
 		
 		<h3>5 Tutorial 3</h3>
       <p>
-        We will use TopPic and TopDiff to compare the abundances of proteoforms and find differentially expressed proteoforms. 
+      We will use TopPIC and TopDiff to compare the abundances of 
+      proteoforms and find differentially expressed proteoforms 
+      using two MS data files of <i>Escherichia coli</i> cells (ecoli_1.raw 
+      and ecoli_2.raw). 
+      </p>
+      <p>
+      In the MS experiment, the protein extract of <i>E. coli</i> 
+      was reduced with dithiothreitol and alkylated with iodoacetamide. 
+      The protein mixture was separated by capillary zone 
+      electrophoresis and analyzed by 
+      an LTQ-Orbitrap mass spectrometer (Thermo Fisher Scientific). 
+      Technical duplicates were generated for comparing proteoform 
+      quantification in two runs of the same sample.   
+
+      <!--MS and MS/MS spectra were collected at a resolution of 60,000 
+      and 30,000, respectively. -->
 		
       </p>
       <h4 class="sectionTitle">5.1 Data set and preprocessing </h4>
@@ -554,7 +569,7 @@
           <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.feature</pre>
         </li> 
 		<li>
-          Two folders containing deconvoluted MS/MS spectra in js format.
+          Two folders containing deconvoluted MS/MS spectra in the json format.
           <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_html</pre>
           <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_html</pre>
         </li>
