@@ -529,7 +529,7 @@
           <button class="copyBtn" onclick="copyToClipboard('cmd6')">Copy</button>
         </div>
 		
-		<h3>5 Tutorial 3</h3>
+		<h3>6 Tutorial 3</h3>
       <p>
       We will use TopPIC and TopDiff to compare the abundances of 
       proteoforms and find differentially expressed proteoforms 
@@ -549,7 +549,7 @@
       and 30,000, respectively. -->
 		
       </p>
-      <h4 class="sectionTitle">5.1 Data set and preprocessing </h4>
+      <h4 class="sectionTitle">6.1 Data set and preprocessing </h4>
       The raw data files were processed following the steps found in Sections 4.1 - 4.4. 
       Click
       <a href="./data_files/tutorial-2-data.zip">here</a>
@@ -561,28 +561,28 @@
           <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre>
         </li>
         <li> Two deconvoluted MS/MS data files:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.msalign</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
         </li> 
 		<li> Two deconvoluted MS/MS feature files:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.feature</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
         </li> 
 		<li>
           Two folders containing deconvoluted MS/MS spectra in the json format.
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_html</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_html</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html</pre>
         </li>
 		<li>
           Two folders containing a msalign file for MS1 spectra and a csv file for its mzRT features 
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_file</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_file</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_file</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_file</pre>
         </li>
       </ul>
 
-      <h4 class="sectionTitle">5.2 Mass spectral identification using TopPIC </h4>
+      <h4 class="sectionTitle">6.2 Mass spectral identification using TopPIC </h4>
       <p>We use <b>toppic_gui</b> to search the MS/MS spectra in
-        <code>Ecoli_1_ms2.msalign</code> and <code>Ecoli_2_ms2.msalign</code>
+        <code>ecoli_1_ms2.msalign</code> and <code>ecoli_2_ms2.msalign</code>
         against the protein database <code>uniprot-ecoli.fasta</code> to
         identify PrSMs.
       </p>
@@ -591,8 +591,8 @@
           <code>C:\toppic_tutorial\toppic</code>.</li>
         <li> Select <code>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</code> as the protein
           database file.</li>
-        <li> Add <code>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.msalign</code>
-          and <code>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.msalign</code> as
+        <li> Add <code>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</code>
+          and <code>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</code> as
           mass spectrum data files. </li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
@@ -611,39 +611,39 @@
       </p>
 
       <p>For each input msalign file, TopPIC reports two csv files, an xml file, and collections of html
-        files for identified proteoforms. As a result, the output files for Ecoli_1_ms2.msalign, Ecoli_2_ms2.msalign are
+        files for identified proteoforms. As a result, the output files for ecoli_1_ms2.msalign, ecoli_2_ms2.msalign are
       <ul>
         <li>Two csv files containing identified PrSMs with a 1% spectrum level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2_toppic_prsm.csv</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2_toppic_prsm.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_prsm.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_prsm.csv</pre>
         </li>
         <li> Two csv files containing identified proteoforms and
           their best PrSMs with a 1% proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2_toppic_proteoform.csv</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2_toppic_proteoform.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.csv</pre>
         </li>
         <li> Two xml files containing identified proteoforms and
           their best PrSMs with a 1% proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2_toppic_proteoform.xml</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2_toppic_proteoform.xml</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.xml</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.xml</pre>
         </li>
         <li>Two folders containing html files for the
           annotation of identified PrSMs with a 1% spectrum
           level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_html\toppic_prsm_cutoff</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_html\toppic_prsm_cutoff</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\toppic_prsm_cutoff</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
           Two folders containing html files for the
           annotation of identified PrSMs with a 1%
           proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_html\toppic_proteoform_cutoff</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_html\toppic_proteoform_cutoff</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\toppic_proteoform_cutoff</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\toppic_proteoform_cutoff</pre>
         </li>
 		<li>
           Two folders containing html files for browsing the annotations in the folders above:
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_html\topview</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_html\topview</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\topview</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\topview</pre>
         </li>
       </ul>
       </p>
@@ -655,7 +655,7 @@
         <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
 
-      <h4 class="sectionTitle">5.3 Data analysis using the command line interface</h3>
+      <h4 class="sectionTitle">6.3 Data analysis using the command line interface</h3>
 
 
         <h4>File locations</h4>
@@ -664,11 +664,11 @@
           <li>Input protein database file:
             <pre>C:\toppic_tutorial\tutorial_3\unprot-ecoli.fasta</pre></li>
           <li>Input MS/MS msalign file: 
-		  <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.msalign</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.msalign</pre></li>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre></li>
           <li>MS feature file: 
-		  <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.feature</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
 		  </li>
         </ol>
         <h4>Commands</h4>
@@ -678,17 +678,17 @@
 
         </div>
         <div class="command-container" id="cmd6Container">
-          <pre id="cmd6">..\toppic\toppic -f C57 -d -t FDR -T FDR uniprot-ecoli.fasta Ecoli_*_ms2.msalign</pre>
+          <pre id="cmd6">..\toppic\toppic -f C57 -d -t FDR -T FDR uniprot-ecoli.fasta ecoli_*_ms2.msalign</pre>
           <button class="copyBtn" onclick="copyToClipboard('cmd6')">Copy</button>
         </div>
 		
-		<h4 class="sectionTitle">5.4 Proteoform abundance comparison by TopDiff </h4>
+		<h4 class="sectionTitle">6.4 Proteoform abundance comparison by TopDiff </h4>
       <ol class="textList">
         <li> Double click the executable file <code>topdiff_gui.exe</code> in the folder
           <code>C:\toppic_tutorial\toppic</code>.</li>
         <li> Select <code>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</code> as the protein
           database file.</li>
-        <li> Add <code>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.msalign</code> and <code>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.msalign</code> as a
+        <li> Add <code>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</code> and <code>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</code> as a
           mass spectrum data file. </li>
         <li> Select <code>C57</code> as the fixed modification. </li>
         <li> Click to the button "Start"</li>
@@ -711,7 +711,7 @@
         <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
 
-      <h4 class="sectionTitle">5.5 Data analysis using the command line interface</h3>
+      <h4 class="sectionTitle">6.5 Data analysis using the command line interface</h3>
 
 
         <h4>File locations</h4>
@@ -720,8 +720,8 @@
           <li>Input protein database file:
             <pre>C:\toppic_tutorial\tutorial_3\unprot-ecoli.fasta</pre></li>
           <li>Input MS/MS msalign file: 
-		  <pre>C:\toppic_tutorial\tutorial_3\Ecoli_1_ms2.msalign</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\Ecoli_2_ms2.msalign</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
         </ol>
         <h4>Commands</h4>
         <div class="command-container" id="cmd5Container">
@@ -730,7 +730,7 @@
 
         </div>
         <div class="command-container" id="cmd6Container">
-          <pre id="cmd6">..\toppic\topdiff unprot-ecoli.fasta Ecoli_1_ms2.msalign Ecoli_2_ms2.msalign</pre>
+          <pre id="cmd6">..\toppic\topdiff unprot-ecoli.fasta ecoli_1_ms2.msalign ecoli_2_ms2.msalign</pre>
           <button class="copyBtn" onclick="copyToClipboard('cmd6')">Copy</button>
         </div>
 		
