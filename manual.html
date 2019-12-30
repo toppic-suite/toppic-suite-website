@@ -38,7 +38,8 @@
     <div class="span-12">
       <h3>1 Overview</h3>
       To run TopPIC suite, a computer with at least 4 GB memory and a 64-bit
-      Linux or Windows operating system is required. TopFD, TopPIC and TopMG
+      Linux or Windows operating system is required. TopFD, TopPIC, TopMG, and
+      TopDiff 
       provide a command line interface for both Linux and Windows users as well
       as a graphical user interface (GUI) for Windows users. Please see our <a href="tutorial.html">tutorial</a>
       for more details on the GUI.
@@ -77,7 +78,7 @@
         features.</li>
         <li><b>spectra_ms2.feature</b>: a feature file containing MS/MS scan IDs and their
         corresponding LC/MS feature IDs.</li>
-        <li><b>spectra_feature.xml</b>: a feature file LC/MS features in the xml format.</li>
+        <li><b>spectra_feature.xml</b>: a feature file containing LC/MS features in the xml format.</li>
         <!--<li><b>spectra_ms1.msalign</b>: a list of deconvoluted MS1 spectra.</li>-->
         <li><b>spectra_ms2.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
         <li><b>spectra_file</b>: a folder containing deconvoluted MS1 spectra
@@ -200,12 +201,15 @@
         <li><b>spectra_ms2_toppic_proteoform.xml</b>: an xml file containing 
         identified proteoforms with the E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_html/toppic_prsm_cutoff</b>: 
-        a folder containing html files for the
+        a folder containing java script files for the
         annotation of identified PrSMs using the 
         E-value or spectrum level FDR cutoff.</li>
-        <li><b>spectra_html/toppic_proteoform_cutoff</b>: a folder containing html files for the
+        <li><b>spectra_html/toppic_proteoform_cutoff</b>: a folder containing
+        java script files for the
         annotation of identified PrSMs using the E-value or 
         proteoform level FDR cutoff.</li>
+        <li><b>spectra_html/topview</b>: a folder containing
+        html files for the visualization of identified PrSMs.</li>
       </ul>
 
       To browse identified
@@ -236,6 +240,8 @@
         <li><b>combined_html/toppic_proteoform_cutoff</b>: a folder containing html files for the
         annotation of PrSMs identified from all the input files using the 
         E-value or proteoform level FDR cutoff.</li>
+        <li><b>combined_html/topview</b>: a folder containing
+        html files for the visualization of identified PrSMs.</li>
       </ul>
        
       </p>
@@ -443,12 +449,16 @@
         identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_ms2_topmg_proteoform.xml</b>: an xml file containing 
         identified proteoforms with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>spectra_html/topmg_prsm_cutoff</b>: a folder containing html files for the
+        <li><b>spectra_html/topmg_prsm_cutoff</b>: a folder containing java
+        script files for the
         annotation of identified PrSMs using the E-value or
         spectrum level  FDR cutoff.</li>
-        <li><b>spectra_html/topmg_proteoform_cutoff</b>: a folder containing html files for the
+        <li><b>spectra_html/topmg_proteoform_cutoff</b>: a folder containing
+        java script files for the
         annotation of identified PrSMs using the E-value or  
         proteoform level cutoff.</li>
+        <li><b>spectra_html/topview</b>: a folder containing
+        html files for the visualization of identified PrSMs.</li>
       </ul>
 
       To browse identified
@@ -474,12 +484,16 @@
         proteoforms identified from all the input files with an E-value or proteoform level FDR cutoff.</li>
         <li><b>combined_ms2_topmg_proteoform.xml</b>: an xml file containing 
         proteoforms identified from all the input files with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>combined_html/topmg_prsm_cutoff</b>: a folder containing html files for the
+        <li><b>combined_html/topmg_prsm_cutoff</b>: a folder containing java
+        script files for the
         annotation of PrSMs identified from all the input files using the E-value or 
         spectrum level FDR cutoff.</li>
-        <li><b>combined_html/topmg_proteoform_cutoff</b>: a folder containing html files for the
+        <li><b>combined_html/topmg_proteoform_cutoff</b>: a folder containing
+        java script files for the
         annotation of PrSMs identified from all the input files using the 
         E-value or proteoform level cutoff.</li>
+        <li><b>combined_html/topview</b>: a folder containing
+        html files for the visualization of identified PrSMs.</li>
       </ul>      
       
       <h4>4.3 Command line usage</h4>
