@@ -57,9 +57,7 @@
           the software TopPIC suite.
         <li>Create a new subfolder named <code>tutorial_1</code> in the folder <code>C:\toppic_tutorial\</code>.
         <li>Create a new subfolder named <code>tutorial_2</code> in the folder <code>C:\toppic_tutorial\</code>.
-          <!--
-         <li>Create a new subfolder named 'results' in the folder C:\toppic_tutorial\ for saving
-         data files. -->
+        <li>Create a new subfolder named <code>tutorial_3</code> in the folder <code>C:\toppic_tutorial\</code>.
       </ol>
       <p>The resulting folder structure is shown in the screenshot below.</p>
       <br>
@@ -131,7 +129,7 @@
 
       <h4 class="sectionTitle">4.2 Protein sequence database</h4>
       <p>A S. typhimurium <a href="https://www.uniprot.org/uniprot/?query=proteome:UP000001014%20reviewed:yes">proteome database</a>
-        of 1,795 proteins was downloaded from the UniProt database.
+        of 1,799 proteins was downloaded from the UniProt database.
       </p>
 
       <p>Click <a href="filedownload.php?filename=./data_files/uniprot-st.fasta">here</a>
@@ -211,7 +209,7 @@
 		  <li>Two xml files containing LC/MS features:
 			<pre>C:\toppic_tutorial\tutorial_1\st_1_feature.xml</pre>
 			<pre>C:\toppic_tutorial\tutorial_1\st_2_feature.xml</pre></li>
-		  <li>Two folders containing deconvoluted MS/MS spectra in the json format
+		  <li>Two folders containing deconvoluted MS/MS spectra in the java script format
 		    <pre>C:\toppic_tutorial\tutorial_1\st_1_html</pre>
 		    <pre>C:\toppic_tutorial\tutorial_1\st_2_html</pre></li>
 		  <li>Two folders containing a msalign file for MS1 spectra and a csv file for its mzRT features 
@@ -269,19 +267,18 @@
           their best PrSMs with a 1% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.xml</pre>
         </li>
-        <li>A folder containing html files for the
-          annotation of identified PrSMs with a 1% spectrum
+        <li>A folder containing java script files of identified PrSMs with a 1% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
-          A folder containing html files for the
-          annotation of identified PrSMs with a 1%
+          A folder containing java script files of identified PrSMs with a 1%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_html\toppic_proteoform_cutoff</pre>
         </li>
 		<li>
-          A folder containing html files for browsing the annotations in the two folders above:
+          A folder containing html files for the visualization of identified
+          PrSMs:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_html\topview</pre>
         </li>
       </ul>
@@ -300,19 +297,18 @@
           their best PrSMs with a 1% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.xml</pre>
         </li>
-        <li>A folder containing html files for the
-          annotation of combined PrSM identifications with a 1% spectrum
+        <li>A folder containing java script files of combined PrSM identifications with a 1% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
-          A folder containing html files for the
-          annotation of combined PrSM identifications with a 1%
+          A folder containing java script files of combined PrSM identifications with a 1%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_html\toppic_proteoform_cutoff</pre>
         </li>
 		<li>
-          A folder containing html files for browsing the annotations in the two folders above:
+          A folder containing html files for the visualization of identified
+          PrSMs: 
           <pre>C:\toppic_tutorial\tutorial_1\combined_html\topview</pre>
         </li>
       </ul>
@@ -333,9 +329,10 @@
         are further filtered using a 1% proteoform level FDR and
         the resulting proteoforms and their corresponding best PrSMs are reported in the file
         <code>combined_ms2_toppic_proteoform.csv</code>. Microsoft Excel can be used to open these two files.
-        To browse the annotations in the two folders <code>toppic_prsm_cutoff</code> and
-        <code>toppic_proteoform_cutoff</code>, go to the folder <code>combined_html\topview</code> and use a web browser (<b>Google Chrome</b> is
-        recommended) to open the file index.html. Then choose the folder to browse in the drop-down menu and click submit.
+        To browse the PrSM identifications, 
+        go to the folder <code>combined_html\topview</code> and use <b>Google
+        Chrome</b> (Windows IE and Firefox are not recommended) 
+        to open the file index.html. 
       </p>
 
       <p>
@@ -370,7 +367,7 @@
     <p><img src="" height="250" width="500" border="1.5"/></p>
     -->
 
-      <h4>4.6.2 Mass spectral identification using TopPIC</font></h4>
+      <h4>4.6.2 Mass spectral identification using TopPIC</h4>
 
       <p>We use <b>toppic</b> to search the MS/MS spectra in <code>st_1_ms2.msalign</code>
         and <code>st_2_ms2.msalign</code>
@@ -427,7 +424,9 @@
         </li>
         <li> A deconvoluted MS/MS data file:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre>
-        </li> A MS1 feature file:
+        </li> 
+        <li> Two MS feature file:
+        <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.feature</pre>
         <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
         </li>
         <li>
@@ -435,7 +434,7 @@
           <pre>C:\toppic_tutorial\tutorial_2\variable_ptms.txt</pre>
         </li>
 		<li>
-          A folder containing deconvoluted MS/MS spectra in the json format.
+          A folder containing deconvoluted MS/MS spectra in the java script format.
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html</pre>
         </li>
 		<li>
@@ -485,16 +484,19 @@
           their best PrSMs with a 5% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.xml</pre>
         </li>
-        <li>A folder containing html files for the
-          annotation of identified PrSMs with a 5% spectrum
+        <li>A folder containing java script files of identified PrSMs with a 5% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html\topmg_prsm_cutoff</pre>
         </li>
         <li>
-          A folder containing html files for the
-          annotation of identified PrSMs with a 5%
+          A folder containing java script files of identified PrSMs with a 5%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html\topmg_proteoform_cutoff</pre>
+        </li>
+        <li>
+          A folder containing html files for the visualization of identified
+          PrSMs:
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_html\topview</pre>
         </li>
       </ul>
       </p>
@@ -506,7 +508,16 @@
         <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
 
-      <h4 class="sectionTitle">5.3 Data analysis using the command line interface</h3>
+      <p>
+      To browse the PrSM identifications, 
+      go to the folder <code>st_1_html\topview</code> and use <b>Google
+        Chrome</b> (Windows IE and Firefox are not recommended) 
+      to open the file index.html. 
+      </p>
+
+
+      <h4 class="sectionTitle">5.3 Data analysis using the command line
+        interface</h4>
 
 
         <h4>File locations</h4>
@@ -515,7 +526,10 @@
           <li>Input protein database file:
             <pre>C:\toppic_tutorial\tutorial_2\unprot-st.fasta</pre></li>
           <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre></li>
-          <li>MS feature file: <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre></li>
+          <li>MS feature files:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
+          </li>
           <li>Variable PTM list: <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre></li>
         </ol>
         <h4>Commands</h4>
@@ -531,7 +545,7 @@
 		
 		<h3>6 Tutorial 3</h3>
       <p>
-      We will use TopPIC and TopDiff to compare the abundances of 
+      We will use TopPIC and TopDiff to compare the abundance of 
       proteoforms and find differentially expressed proteoforms 
       using two MS data files of <i>Escherichia coli</i> cells (ecoli_1.raw 
       and ecoli_2.raw). 
@@ -542,7 +556,7 @@
       The protein mixture was separated by capillary zone 
       electrophoresis and analyzed by 
       an LTQ-Orbitrap mass spectrometer (Thermo Fisher Scientific). 
-      Technical duplicates were generated for comparing proteoform 
+      Technical duplicates were generated for testing proteoform 
       quantification in two runs of the same sample.   
 
       <!--MS and MS/MS spectra were collected at a resolution of 60,000 
@@ -556,6 +570,8 @@
       to download the data files used in the
       analysis, save it in the folder <code>C:\toppic_tutorial\tutorial_3\</code>, and
       unzip it. It includes the following files.
+      <br>
+      <br>
       <ul>
         <li>E.coli protein database file:
           <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre>
@@ -564,12 +580,14 @@
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
         </li> 
-		<li> Two deconvoluted MS/MS feature files:
+		<li> Four deconvoluted MS/MS feature files:
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.feature</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
         </li> 
 		<li>
-          Two folders containing deconvoluted MS/MS spectra in the json format.
+          Two folders containing deconvoluted MS/MS spectra in the java script format.
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html</pre>
         </li>
@@ -627,21 +645,20 @@
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.xml</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.xml</pre>
         </li>
-        <li>Two folders containing html files for the
-          annotation of identified PrSMs with a 1% spectrum
+        <li>Two folders containing java script files of identified PrSMs with a 1% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\toppic_prsm_cutoff</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
-          Two folders containing html files for the
-          annotation of identified PrSMs with a 1%
+          Two folders containing java script files of identified PrSMs with a 1%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\toppic_proteoform_cutoff</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\toppic_proteoform_cutoff</pre>
         </li>
 		<li>
-          Two folders containing html files for browsing the annotations in the folders above:
+          Two folders containing html files for the visualization of identified
+          PrSMs: 
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\topview</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\topview</pre>
         </li>
@@ -655,34 +672,8 @@
         <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
 
-      <h4 class="sectionTitle">6.3 Data analysis using the command line interface</h3>
-
-
-        <h4>File locations</h4>
-        <ol class="textList">
-          <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
-          <li>Input protein database file:
-            <pre>C:\toppic_tutorial\tutorial_3\unprot-ecoli.fasta</pre></li>
-          <li>Input MS/MS msalign file: 
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre></li>
-          <li>MS feature file: 
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
-		  </li>
-        </ol>
-        <h4>Commands</h4>
-        <div class="command-container" id="cmd5Container">
-          <pre id="cmd5">cd c:\toppic_tutorial\tutorial_3 </pre>
-          <button class="copyBtn" onclick="copyToClipboard('cmd5')">Copy</button>
-
-        </div>
-        <div class="command-container" id="cmd6Container">
-          <pre id="cmd6">..\toppic\toppic -f C57 -d -t FDR -T FDR uniprot-ecoli.fasta ecoli_*_ms2.msalign</pre>
-          <button class="copyBtn" onclick="copyToClipboard('cmd6')">Copy</button>
-        </div>
 		
-		<h4 class="sectionTitle">6.4 Proteoform abundance comparison by TopDiff </h4>
+		<h4 class="sectionTitle">6.3 Proteoform abundance comparison by TopDiff </h4>
       <ol class="textList">
         <li> Double click the executable file <code>topdiff_gui.exe</code> in the folder
           <code>C:\toppic_tutorial\toppic</code>.</li>
@@ -711,17 +702,25 @@
         <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
 
-      <h4 class="sectionTitle">6.5 Data analysis using the command line interface</h3>
+      <h4 class="sectionTitle">6.4 Data analysis using the command line
+        interface</h4>
 
+      <h4 class="sectionTitle">6.4.1 Mass spectral identification by TopPIC</h4>
 
         <h4>File locations</h4>
         <ol class="textList">
-          <li>Executable file: <pre>C:\toppic_tutorial\toppic\topdiff.exe</pre></li>
+          <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
           <li>Input protein database file:
             <pre>C:\toppic_tutorial\tutorial_3\unprot-ecoli.fasta</pre></li>
-          <li>Input MS/MS msalign file: 
+          <li>Input MS/MS msalign files: 
 		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre></li>
+          <li>MS feature files: 
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.feature</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.feature</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
+		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
+		  </li>
         </ol>
         <h4>Commands</h4>
         <div class="command-container" id="cmd5Container">
@@ -730,7 +729,35 @@
 
         </div>
         <div class="command-container" id="cmd6Container">
-          <pre id="cmd6">..\toppic\topdiff unprot-ecoli.fasta ecoli_1_ms2.msalign ecoli_2_ms2.msalign</pre>
+          <pre id="cmd6">..\toppic\toppic -f C57 -d -t FDR -T FDR uniprot-ecoli.fasta ecoli_*_ms2.msalign</pre>
+          <button class="copyBtn" onclick="copyToClipboard('cmd6')">Copy</button>
+        </div>
+
+      <h4 class="sectionTitle">6.4.2 Comparing proteoform abundances using
+        TopDiff</h4>
+
+        <h4>File locations</h4>
+        <ol class="textList">
+          <li>Executable file: <pre>C:\toppic_tutorial\toppic\topdiff.exe</pre></li>
+          <li>Input protein database file:
+          <pre>C:\toppic_tutorial\tutorial_3\unprot-ecoli.fasta</pre></li>
+          <li>Input MS/MS msalign files: 
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
+          </li>
+          <li>Input proteoform identification files:  
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.xml</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.xml</pre>
+          </li>
+        </ol>
+        <h4>Commands</h4>
+        <div class="command-container" id="cmd5Container">
+          <pre id="cmd5">cd c:\toppic_tutorial\tutorial_3 </pre>
+          <button class="copyBtn" onclick="copyToClipboard('cmd5')">Copy</button>
+
+        </div>
+        <div class="command-container" id="cmd6Container">
+          <pre id="cmd6">..\toppic\topdiff -f C57 unprot-ecoli.fasta ecoli_1_ms2.msalign ecoli_2_ms2.msalign</pre>
           <button class="copyBtn" onclick="copyToClipboard('cmd6')">Copy</button>
         </div>
 		
