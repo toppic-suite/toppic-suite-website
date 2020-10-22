@@ -118,8 +118,17 @@
       <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
       <p>Set the precursor isolation window size. The default value is 3.0 m/z.</p>
 
+      <p><code>-n [ --env-cnn ]</code></p>
+      <p>Use EnvCNN as the scoring function of isotopic envelopes.</p>
+
       <p><code>-o [ --missing-level-one ]</code></p>
       <p>Specify that the input file does not contain MS1 spectra.</p>
+
+      <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p>
+      <p>Number of threads used in spectral deconvolution. Default value: 1.</p>
+
+      <p><code>-g [ --skip-html-folder ] </code></p>
+      <p>Skip the generation of html files for the visualization of spectra and identifications.</p>
 
       <h4>Examples</h4>
       <p>
@@ -127,10 +136,10 @@
       spectra_ms2.msalign, spectra_ms1.feature, spectra_ms2.feature, spectra_feature.xml.
 		</p>
       <p><code> topfd spectra.mzML </code></p>
-      
+
       <p>
       Deconvolute two centroid data files spectra1.mzML and spectra2.mzML and 
-      output three files for each input data file.
+      output four files for each input data file.
 		</p>
       <p><code> topfd spectra1.mzML spectra2.mzML </code></p>
       
@@ -139,6 +148,16 @@
 		</p>
 		
       <p><code> topfd *.mzML </code></p>
+
+      <p>
+        Deconvolute a centroid data file spectra.mzML and do not generate html folder for visualization.  
+      </p>
+        <p><code> topfd -g spectra.mzML </code></p>
+
+      <p>
+        Deconvolute a centroid data file spectra.mzML using 4 threads and EnvCNN scoring function.
+      </p>
+        <p><code> topfd -u 4 -n spectra.mzML </code></p>
 
       <p>
       Deconvolute a centroid data file spectra.mzML that does not contain MS1
@@ -735,6 +754,70 @@
       </p>
       <p><code> topdiff -f C57 -t topmg proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
       
+      <h3>6 TopIndex</h3>
+
+      <h4>6.1 Input</h4>
+      <ul>
+        <li>A protein database file in the FASTA format</li>
+      </ul>
+
+      <h4>6.2 Output</h4>
+      <p>TopIndex outputs a folder containing protein index files from a protein database file. </p>
+      
+      <h4>6.3 Command line usage</h4>
+      <p>To run TopIndex, open a terminal window and run the following command.</p>
+      <p><code>topindex [options] database-file-name </code></p>
+
+      <h4>Options</h4>
+      <p><code>-h [ --help ]</code></p>
+      <p>Print the help message.</p>
+     
+      <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt; </code></p>
+      <p>Set fixed modifications. Three available options: C57, C58, or the name of
+        a text file specifying fixed modifications (see an <a
+          target="_blank" href="example_files/fixed_mods.txt">example file</a>).
+        When C57 is selected, carbamidomethylation on cysteine is the only fixed
+        modification.  When C58 is selected, carboxymethylation on cysteine is the
+        only fixed modification.</p></p>
+      
+      <p><code>-n [ --n-terminal-form ] &lt;a list of allowed N-terminal forms&gt;</code></p>
+      <p>Set N-terminal forms of proteins. Four N-terminal forms can be selected:
+        NONE, NME, NME_ACETYLATION, and M_ACETYLATION.  NONE stands for no
+        modifications, NME for N-terminal methionine excision, NME_ACETYLATION for
+        N-terminal acetylation after the initiator methionine is removed, and
+        M_ACETYLATION for N-terminal methionine acetylation.  When multiple forms
+        are allowed, they are separated by commas. Default value:
+        NONE,M_ACETYLATION,NME,NME_ACETYLATION.</p>
+      
+      <p><code>-d [ --decoy ]</code></p>
+      <p>Use a shuffled decoy protein database to estimate spectrum and
+        proteoform level FDRs.
+        When -d is chosen, a shuffled decoy database is automatically
+        generated and appended to the target database before database search, and
+        FDR rates are estimated using the target-decoy approach.</p>
+      
+      <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p> 
+      <p>Set the error tolerance for precursor and fragment masses in ppm. Default value: 15.</p>
+      
+      <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p> 
+      <p>Set the number of threads used in the computation. Default value: 1. The maximum number of threads is determined by the CPU 
+        and memory of the computer used for computation. About 4 GB memory is required for each thread. If the computer has 16 GB memory
+        and a CPU with 8 cores, the maximum number of threads is 4 because about 16 GB memory is needed for 4 threads.</p>
+
+      <h4>Examples</h4>
+      <p> Generate index files from protein database file uniprot-st.fasta using default parameters. The output folder name is uniprot-st.fasta_idx.  
+      </p>
+      <p><code> topindex uniprot-st.fasta</code></p>
+
+      <p> Generate index files from protein database file protein.fasta using carboxymethylation as fixed modification, and 
+      N-terminal methionine excision and N-terminal methionine acetylation as N-terminal form. The output folder name is protein.fasta_idx.  
+      </p>
+      <p><code> topindex -f C58 -n NME,M_ACETYLATION protein.fasta</code></p>
+
+      <p> Generate index files from protein database file protein.fasta using decoy database, mass error tolerance of 10, and 
+        4 threads for speedup. The output folder name is protein.fasta_idx.  
+        </p>
+        <p><code> topindex -d -e 10 -u 4 protein.fasta</code></p>
     </div>
   </div>
 </div>
