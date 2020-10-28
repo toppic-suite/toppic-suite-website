@@ -114,7 +114,7 @@
       <hr>
 
       <h3>4 Tutorial 1</h3>
-      In this tutorial, we will use TopFD and TopPIC to analyze a top-down MS/MS data set of Salmonella typhimurium
+      In this tutorial, we will use TopIndex, TopFD and TopPIC to analyze a top-down MS/MS data set of Salmonella typhimurium
       for proteoform identification.
       <h4 class="sectionTitle">4.1 Top-down MS/MS Date set</h4>
       <p>
@@ -255,7 +255,7 @@
 		  <li>Two xml files containing LC/MS features:
 			<pre>C:\toppic_tutorial\tutorial_1\st_1_feature.xml</pre>
 			<pre>C:\toppic_tutorial\tutorial_1\st_2_feature.xml</pre></li>
-		  <li>Two folders containing deconvoluted MS/MS spectra in the java script format
+		  <li>Two folders containing deconvoluted MS/MS spectra in the javascript format
 		    <pre>C:\toppic_tutorial\tutorial_1\st_1_html</pre>
 		    <pre>C:\toppic_tutorial\tutorial_1\st_2_html</pre></li>
 		  <li>Two folders containing a msalign file for MS1 spectra and a csv file for its mzRT features 
@@ -299,26 +299,26 @@
       <p><img src="./images/toppic_3.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>For each input msalign file, TopPIC reports two csv files, an xml file, and collections of html
+      <p>For each input msalign file, TopPIC reports two tsv files, an xml file, and collections of html
         files for identified proteoforms. For example, the output files for st_1_ms2.msalign are
       <ul>
-        <li>A csv file containing identified PrSMs with a 1% spectrum level FDR:
-          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm.csv</pre>
+        <li>A tsv file containing identified PrSMs with a 1% spectrum level FDR:
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm.tsv</pre>
         </li>
-        <li> A csv file containing identified proteoforms and
+        <li> A tsv file containing identified proteoforms and
           their best PrSMs with a 1% proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.tsv</pre>
         </li>
         <li> An xml file containing identified proteoforms and
           their best PrSMs with a 1% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.xml</pre>
         </li>
-        <li>A folder containing java script files of identified PrSMs with a 1% spectrum
+        <li>A folder containing javascript files of identified PrSMs with a 1% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
-          A folder containing java script files of identified PrSMs with a 1%
+          A folder containing javascript files of identified PrSMs with a 1%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_html\toppic_proteoform_cutoff</pre>
         </li>
@@ -332,23 +332,23 @@
       <p>In addition, the identifications reported for st_1_ms2.msalign and st_2_ms2.msalign are
         combined, and filtered by a 1% spectrum-level FDR and a 1% proteoform level FDR. The combined results are reported in the following files.
       <ul>
-        <li>A csv file containing combined PrSM identifications with a 1% spectrum level FDR:
-          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm.csv</pre>
+        <li>A tsv file containing combined PrSM identifications with a 1% spectrum level FDR:
+          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm.tsv</pre>
         </li>
-        <li> A csv file containing combined proteoform identifications and
+        <li> A tsv file containing combined proteoform identifications and
           their best PrSMs with a 1% proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.tsv</pre>
         </li>
         <li> An xml file containing combined proteoform identifications and
           their best PrSMs with a 1% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.xml</pre>
         </li>
-        <li>A folder containing java script files of combined PrSM identifications with a 1% spectrum
+        <li>A folder containing javascript files of combined PrSM identifications with a 1% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
-          A folder containing java script files of combined PrSM identifications with a 1%
+          A folder containing javascript files of combined PrSM identifications with a 1%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_html\toppic_proteoform_cutoff</pre>
         </li>
@@ -371,10 +371,10 @@
         to the target database to estimate spectrum level and proteoform level
         FDRs. All identified PrSMs are first filtered by a
         1% spectrum level FDR and the resulting PrSMs are reported in the
-        file <code>combined_ms2_toppic_prsm.csv</code>. The proteoforms corresponding to the PrSMs
+        file <code>combined_ms2_toppic_prsm.tsv</code>. The proteoforms corresponding to the PrSMs
         are further filtered using a 1% proteoform level FDR and
         the resulting proteoforms and their corresponding best PrSMs are reported in the file
-        <code>combined_ms2_toppic_proteoform.csv</code>. Microsoft Excel can be used to open these two files.
+        <code>combined_ms2_toppic_proteoform.tsv</code>. Microsoft Excel can be used to open these two files.
         To browse the PrSM identifications, 
         go to the folder <code>combined_html\topview</code> and use <b>Google
         Chrome</b> (Windows IE and Firefox are not recommended) 
@@ -497,7 +497,7 @@
           <pre>C:\toppic_tutorial\tutorial_2\variable_ptms.txt</pre>
         </li>
 		<li>
-          A folder containing deconvoluted MS/MS spectra in the java script format.
+          A folder containing deconvoluted MS/MS spectra in the javascript format.
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html</pre>
         </li>
 		<li>
@@ -536,23 +536,23 @@
       <p>TopMG reports two cvs files, an xml file, and collections of html
         files for identified proteoforms.
       <ul>
-        <li>A csv file containing identified PrSMs with a 5% spectrum level FDR:
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm.csv</pre>
+        <li>A tsv file containing identified PrSMs with a 5% spectrum level FDR:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm.tsv</pre>
         </li>
-        <li> A csv file containing identified proteoforms and
+        <li> A tsv file containing identified proteoforms and
           their best PrSMs with a 5% proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.tsv</pre>
         </li>
         <li> An xml file containing identified proteoforms and
           their best PrSMs with a 5% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.xml</pre>
         </li>
-        <li>A folder containing java script files of identified PrSMs with a 5% spectrum
+        <li>A folder containing javascript files of identified PrSMs with a 5% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html\topmg_prsm_cutoff</pre>
         </li>
         <li>
-          A folder containing java script files of identified PrSMs with a 5%
+          A folder containing javascript files of identified PrSMs with a 5%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html\topmg_proteoform_cutoff</pre>
         </li>
@@ -650,7 +650,7 @@
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
         </li> 
 		<li>
-          Two folders containing deconvoluted MS/MS spectra in the java script format.
+          Two folders containing deconvoluted MS/MS spectra in the javascript format.
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html</pre>
         </li>
@@ -691,30 +691,30 @@
       <p><img src="./images/toppic_3.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>For each input msalign file, TopPIC reports two csv files, an xml file, and collections of html
+      <p>For each input msalign file, TopPIC reports two tsv files, an xml file, and collections of html
         files for identified proteoforms. As a result, the output files for ecoli_1_ms2.msalign, ecoli_2_ms2.msalign are
       <ul>
-        <li>Two csv files containing identified PrSMs with a 1% spectrum level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_prsm.csv</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_prsm.csv</pre>
+        <li>Two tsv files containing identified PrSMs with a 1% spectrum level FDR:
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_prsm.tsv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_prsm.tsv</pre>
         </li>
-        <li> Two csv files containing identified proteoforms and
+        <li> Two tsv files containing identified proteoforms and
           their best PrSMs with a 1% proteoform level FDR:
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.csv</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.csv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.tsv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.tsv</pre>
         </li>
         <li> Two xml files containing identified proteoforms and
           their best PrSMs with a 1% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.xml</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.xml</pre>
         </li>
-        <li>Two folders containing java script files of identified PrSMs with a 1% spectrum
+        <li>Two folders containing javascript files of identified PrSMs with a 1% spectrum
           level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\toppic_prsm_cutoff</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\toppic_prsm_cutoff</pre>
         </li>
         <li>
-          Two folders containing java script files of identified PrSMs with a 1%
+          Two folders containing javascript files of identified PrSMs with a 1%
           proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\toppic_proteoform_cutoff</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\toppic_proteoform_cutoff</pre>
@@ -754,14 +754,14 @@
       <p><img src="./images/topdiff_1.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>TopDiff reports one csv file for identified proteoforms with their abundances in the input mass spectrum data
-          <pre>C:\toppic_tutorial\tutorial_3\sample_diff.csv</pre>
+      <p>TopDiff reports one tsv file for identified proteoforms with their abundances in the input mass spectrum data
+          <pre>C:\toppic_tutorial\tutorial_3\sample_diff.tsv</pre>
       </p>
 
       <p>
         The output file can be downloaded
         <!-- <a href="filedownload.php?filename=./data_files/st-result.zip">here</a>.-->
-        <a href="./data_files/sample_diff.csv">here</a>.
+        <a href="./data_files/sample_diff.tsv">here</a>.
         <!-- The running time of TopPIC is about 5 minutes. -->
       </p>
 

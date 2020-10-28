@@ -38,8 +38,7 @@
     <div class="span-12">
       <h3>1 Overview</h3>
       To run TopPIC suite, a computer with at least 4 GB memory and a 64-bit
-      Linux or Windows operating system is required. TopFD, TopPIC, TopMG, and
-      TopDiff 
+      Linux or Windows operating system is required. TopFD, TopPIC, TopMG, TopDiff, and TopIndex 
       provide a command line interface for both Linux and Windows users as well
       as a graphical user interface (GUI) for Windows users. Please see our <a href="tutorial.html">tutorial</a>
       for more details on the GUI.
@@ -69,7 +68,7 @@
       one LC/MS feature file with a file extension "<b>xml</b>", 
       and a deconvoluted mass spectral data file for MS/MS spectra in the msalign 
       format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
-      In addition, TopFD creates two folders containing java scripts files of
+      In addition, TopFD creates two folders containing javascripts files of
       spectral data for spectral visualization and other files generated in spectral deconvolution.
 
       For example, when the input file name is <b>spectra.mzML</b>, the output includes: 
@@ -83,7 +82,7 @@
         <li><b>spectra_ms2.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
         <li><b>spectra_file</b>: a folder containing deconvoluted MS1 spectra
         and annotations of LC/MS data.</li>
-        <li><b>spectra_html</b>: a folder containing java script files of MS1
+        <li><b>spectra_html</b>: a folder containing javascript files of MS1
         and MS/MS data for spectral visualization.</li>
 
       </ul>
@@ -128,7 +127,7 @@
       <p>Number of threads used in spectral deconvolution. Default value: 1.</p>
 
       <p><code>-g [ --skip-html-folder ] </code></p>
-      <p>Skip the generation of html files for the visualization of spectra and identifications.</p>
+      <p>Skip generating the folder for spectral visualization.</p>
 
       <h4>Examples</h4>
       <p>
@@ -207,23 +206,23 @@
       </ul>
 
       <h4>3.2 Output</h4>
-      <p>TopPIC outputs two comma separated value (csv) files, an xml file, 
+      <p>TopPIC outputs two tab separated value (tsv) files, an xml file, 
       and a collection of html files for identified
       proteoforms. For example, when the input data file is
       spectra_ms2.msalign, the output includes: 
       <ul>
-        <li><b>spectra_ms2_toppic_prsm.csv</b>: a csv file containing 
+        <li><b>spectra_ms2_toppic_prsm.tsv</b>: a tsv file containing 
         identified proteoform spectrum-matches (PrSMs) with an E-value or spectrum level 
         FDR cutoff.</li>
-        <li><b>spectra_ms2_toppic_proteoform.csv</b>: a csv file containing 
+        <li><b>spectra_ms2_toppic_proteoform.tsv</b>: a tsv file containing 
         identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_ms2_toppic_proteoform.xml</b>: an xml file containing 
         identified proteoforms with the E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_html/toppic_prsm_cutoff</b>: 
-        a folder containing java script files of identified PrSMs using the 
+        a folder containing javascript files of identified PrSMs using the 
         E-value or spectrum level FDR cutoff.</li>
         <li><b>spectra_html/toppic_proteoform_cutoff</b>: a folder containing
-        java script files of identified PrSMs using the E-value or 
+        javascript files of identified PrSMs using the E-value or 
         proteoform level FDR cutoff.</li>
         <li><b>spectra_html/topview</b>: a folder containing
         html files for the visualization of identified PrSMs.</li>
@@ -235,27 +234,26 @@
       <b>Google Chrome</b> is recommended (Firefox and IE are not recommended).
       </p>
       <p>When the input contains two or more data files,
-      TopPIC outputs two csv files, an xml file, and a collection of html files for each input file. 
+      TopPIC outputs two tsv files, an xml file, and a collection of html files for each input file. 
       When a file name is specified for combined identifications, it combines 
       spectra and proteoforms identified from all the input files, removes redundant proteoform 
       identifications, and reports 
-      two csv files, an xml file, and a collection of html files for the combined results. 
+      two tsv files, an xml file, and a collection of html files for the combined results. 
       For example, when the input is spectra1_ms2.msalign and spectra2_ms2.msalign and the combined
       output file name is "combined," the output files are:
       
       <ul>
-        <li><b>combined_ms2_toppic_prsm.csv</b>: a csv file containing 
+        <li><b>combined_ms2_toppic_prsm.tsv</b>: a tsv file containing 
         PrSMs identified from all the input files with an E-value or spectrum level 
         FDR cutoff.</li>
-        <li><b>combined_ms2_toppic_proteoform.csv</b>: a csv file containing 
+        <li><b>combined_ms2_toppic_proteoform.tsv</b>: a tsv file containing 
         proteoforms identified from all the input files with an E-value or proteoform level FDR cutoff.</li>
         <li><b>combined_ms2_toppic_proteoform.xml</b>: an xml file containing 
         proteoforms identified from all the input files with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>combined_html/toppic_prsm_cutoff</b>: a folder containing java
-        script files of PrSMs identified from all the input files using the E-value or  
+        <li><b>combined_html/toppic_prsm_cutoff</b>: a folder containing javascript files of PrSMs identified from all the input files using the E-value or  
         spectrum level FDR cutoff.</li>
         <li><b>combined_html/toppic_proteoform_cutoff</b>: a folder containing
-        java script files of PrSMs identified from all the input files using the 
+        javascript files of PrSMs identified from all the input files using the 
         E-value or proteoform level FDR cutoff.</li>
         <li><b>combined_html/topview</b>: a folder containing
         html files for the visualization of identified PrSMs.</li>
@@ -373,6 +371,9 @@
       <p>Keep intermediate files generated by TopPIC. 
       </p> 
 
+      <p><code>-g [ --skip-html-folder ] </code></p>
+      <p>Skip generating the folder for spectral visualization.</p>
+
       <h4>Examples</h4>
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against a
       protein database file proteins.fasta with a feature file spectra.feature. 
@@ -455,22 +456,21 @@
 
         
 		<h4>4.2 Output</h4>
-      <p>TopMG outputs two csv files, an xml file, and a collection of html files for identified
+      <p>TopMG outputs two tsv files, an xml file, and a collection of html files for identified
       proteoforms. For example, when the input mass spectrum data file is
       spectra_ms2.msalign, the output includes: 
       <ul>
-        <li><b>spectra_ms2_topmg_prsm.csv</b>: a csv file containing 
+        <li><b>spectra_ms2_topmg_prsm.tsv</b>: a tsv file containing 
         identified PrSMs with an E-value or spectrum level 
         FDR cutoff.</li>
-        <li><b>spectra_ms2_topmg_proteoform.csv</b>: a csv file containing 
+        <li><b>spectra_ms2_topmg_proteoform.tsv</b>: a tsv file containing 
         identified proteoforms with an E-value or proteoform level FDR cutoff.</li>
         <li><b>spectra_ms2_topmg_proteoform.xml</b>: an xml file containing 
         identified proteoforms with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>spectra_html/topmg_prsm_cutoff</b>: a folder containing java
-        script files of identified PrSMs using the E-value or
+        <li><b>spectra_html/topmg_prsm_cutoff</b>: a folder containing javascript files of identified PrSMs using the E-value or
         spectrum level  FDR cutoff.</li>
         <li><b>spectra_html/topmg_proteoform_cutoff</b>: a folder containing
-        java script files of identified PrSMs using the E-value or  
+        javascript files of identified PrSMs using the E-value or  
         proteoform level cutoff.</li>
         <li><b>spectra_html/topview</b>: a folder containing
         html files for the visualization of identified PrSMs.</li>
@@ -481,29 +481,28 @@
       use a chrome browser to open the file spectra_html/topview/index.html.
       <b>Google Chrome</b> is recommended (Firefox, IE are not recommended).
       </p>
-      <p>When the input contains two or more spectrum files, TopMG outputs two csv
+      <p>When the input contains two or more spectrum files, TopMG outputs two tsv
       files, an xml file, and a collection of html files for each input file. 
       When a file name is specified for combined identifications, it combines 
       spectra and proteoforms identified from all the input files, removes redundant proteoform 
       identifications, and reports 
-      two csv files, an xml file, and a collection of html files for the combined results. 
+      two tsv files, an xml file, and a collection of html files for the combined results. 
       
       For example, when the input is spectra1_ms2.msalign and spectra2_ms2.msalign and the combined
       output file name is "combined," the output files are:      
 
       <ul>
-        <li><b>combined_ms2_topmg_prsm.csv</b>: a csv file containing 
+        <li><b>combined_ms2_topmg_prsm.tsv</b>: a tsv file containing 
         PrSMs identified from all the input files with an E-value or spectrum level
         FDR cutoff.</li>
-        <li><b>combined_ms2_topmg_proteoform.csv</b>: a csv file containing 
+        <li><b>combined_ms2_topmg_proteoform.tsv</b>: a tsv file containing 
         proteoforms identified from all the input files with an E-value or proteoform level FDR cutoff.</li>
         <li><b>combined_ms2_topmg_proteoform.xml</b>: an xml file containing 
         proteoforms identified from all the input files with the E-value or proteoform level FDR cutoff.</li>
-        <li><b>combined_html/topmg_prsm_cutoff</b>: a folder containing java
-        script files of PrSMs identified from all the input files using the E-value or 
+        <li><b>combined_html/topmg_prsm_cutoff</b>: a folder containing javascript files of PrSMs identified from all the input files using the E-value or 
         spectrum level FDR cutoff.</li>
         <li><b>combined_html/topmg_proteoform_cutoff</b>: a folder containing
-        java script files of PrSMs identified from all the input files using the 
+        javascript files of PrSMs identified from all the input files using the 
         E-value or proteoform level cutoff.</li>
         <li><b>combined_html/topview</b>: a folder containing
         html files for the visualization of identified PrSMs.</li>
@@ -612,7 +611,10 @@
       <p><code>-k [ --keep ]</code></p>  
       <p>Keep intermediate files generated by TopMG. 
       </p>
-      
+
+      <p><code>-g [ --skip-html-folder ] </code></p>
+      <p>Skip generating the folder for spectral visualization.</p>
+
       <h4>Advanced options</h4>
       <p><code>-j [ --proteo-graph-dis ] &lt;a positive number&gt;</code></p>
       <p>Set the length of the largest gap in constructing proteoform graphs. Default value: 40. 
@@ -699,9 +701,9 @@
 
 
       <h4>5.2 Output</h4>
-      <p>TopDiff outputs a csv file containing proteoform identifications
+      <p>TopDiff outputs a tsv file containing proteoform identifications
       and their abundances in the input mass spectrum data. 
-      The default output file name is sample_diff.csv.
+      The default output file name is sample_diff.tsv.
       
       <h4>5.3 Command line usage</h4>
       <p>To run TopDiff, open a terminal window and run the following command.</p>
@@ -730,7 +732,7 @@
 
       <p><code>-o [ --output ] &lt;a file name&gt;</code></p>
       <p>
-      Specify the output file name. Default: sample_diff.csv.
+      Specify the output file name. Default: sample_diff.tsv.
       </p>
 
       <h4>Examples</h4>
@@ -762,8 +764,20 @@
       </ul>
 
       <h4>6.2 Output</h4>
-      <p>TopIndex outputs a folder containing protein index files from a protein database file. </p>
-      
+      <p>TopIndex outputs a folder containing protein index files from a protein database file. 
+      For example, when the input file name is <b>protein.fasta</b> and the default parameters are used, the output includes:</p>
+      <ul>
+        <li><b>uniprot-st.fasta_idx\zero_ptm_term_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins without PTM using match score.</li>
+        <li><b>uniprot-st.fasta_idx\zero_ptm_rev_term_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins without PTM using match score in a reverse order.</li>
+        <li><b>uniprot-st.fasta_idx\zero_ptm_diag_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins without PTM using diagonal score.</li>
+        <li><b>uniprot-st.fasta_idx\zero_ptm_rev_diag_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins without PTM using diagonal score in a reverse order.</li>
+        <li><b>uniprot-st.fasta_idx\one_ptm_term_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins with a single PTM using match score.</li>
+        <li><b>uniprot-st.fasta_idx\one_ptm_rev_term_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins with a single PTM using match score in a reverse order.</li>
+        <li><b>uniprot-st.fasta_idx\one_ptm_diag_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins with a single PTM using diagonal score.</li>
+        <li><b>uniprot-st.fasta_idx\one_ptm_rev_diag_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins with a single PTM using diagonal score in a reverse order.</li>
+        <li><b>uniprot-st.fasta_idx\multi_ptm_index_N_NME_NMEA_MA_FILE_15_no_decoy0</b>: a file containing indices of proteins with multiple PTMs.</li>
+  
+      </ul>  
       <h4>6.3 Command line usage</h4>
       <p>To run TopIndex, open a terminal window and run the following command.</p>
       <p><code>topindex [options] database-file-name </code></p>
