@@ -52,68 +52,77 @@ src="https://www.googletagmanager.com/gtag/js?id=UA-109009447-1"></script>
 
       <p>
       <b>TopPIC Suite</b>  
-      consists of five software tools for the interpretation of top-down mass
-      spectrometry data: TopFD, TopPIC, TopMG, TopDiff, and TopIndex.
+      consists of five software tools for the analysis of top-down mass
+      spectrometry data: TopFD, TopIndex, TopPIC, TopMG, and TopDiff.
       </p>
 
       <ul style="list-style-type:circle">
         <li>
-        <b>TopFD</b> 
-        (Top-down mass spectral Feature Detection) is a software tool
-        for top-down spectral deconvolution and a successor to MS-Deconv.
-        It groups top-down spectral
-        peaks into isotopomer envelopes and converts isotopomer envelopes to
-        monoisotopic neutral masses. In addition, it extracts proteoform features
-        from LC-MS or CE-MS data. 
-        </li>
-        <li> 
-        <b>TopPIC</b> 
-        (Top-down mass spectrometry based Proteoform Identification and
-        Characterization) identifies and characterizes proteoforms at the
-        proteome level by searching top-down tandem mass spectra
-        against a protein sequence database. TopPIC is a successor to MS-Align+. 
-        It efficiently identifies
-        proteoforms with unexpected alterations, such as mutations and post-translational
-        modifications (PTMs), accurately estimates the statistical significance of
-        identifications, and characterizes reported proteoforms with 
-        unknown mass shifts.  It uses several techniques, such as indexes,
-        spectral alignment, generation function methods, and the
-        modification identification score (MIScore), to increase the speed,
-        sensitivity, and accuracy. 
+          <b>TopFD</b> 
+          (Top-down mass spectral Feature Detection) is a software tool
+          for top-down spectral deconvolution and a successor to MS-Deconv.
+          It groups top-down spectral
+          peaks into isotopic envelopes and converts isotopic envelopes to
+          monoisotopic neutral masses. In addition, it extracts proteoform features
+          from LC-MS or CE-MS data. 
         </li>
 
         <li>
-        <b>TopMG</b> 
-        (Top-down mass spectrometry based proteoform identification using
-        Mass Graphs) is a software tool for identifying ultra-modified proteoforms 
-        by searching top-down tandem mass spectra against a protein sequence
-        database. It is capable of identifying 
-        proteoforms with multiple variable PTMs and unexpected alterations, such as
-        histone proteoforms and phosphorylated ones. It uses mass
-        graphs, which efficiently represent candidate proteoforms with
-        multiple variable PTMs, to increase the speed and sensitivity in
-        proteoform identification. In addition, approximate spectrum-based filtering 
-        methods are employed for protein sequence filtering, and a Markov chain Monte Carlo 
-        method (TopMCMC) is used for estimating the statistical significance of identifications. 
+          <b>TopIndex</b> (Top-down protein sequence database Indexing) 
+          generates index files for protein sequence databases. 
+          The index files are used in TopPIC and TopMG to speed up proteoform
+          identification by database search. 
+        </li>
+
+
+        <li> 
+          <b>TopPIC</b> 
+          (Top-down mass spectrometry-based Proteoform Identification and
+          Characterization) identifies and characterizes proteoforms at the
+          proteome level by searching top-down tandem mass spectra
+          against a protein sequence database. TopPIC is a successor to MS-Align+. 
+          It efficiently identifies
+          proteoforms with unexpected alterations, such as mutations and post-translational
+          modifications (PTMs), accurately estimates the statistical significance of
+          identifications, and characterizes reported proteoforms with 
+          unknown mass shifts.  It uses several techniques, such as indexes,
+          spectral alignment, generating function methods, and the
+          modification identification score (MIScore), to increase the speed,
+          sensitivity, and accuracy. 
+        </li>
+
+        <li>
+          <b>TopMG</b> 
+          (Top-down mass spectrometry-based proteoform identification using
+          Mass Graphs) is a software tool for identifying highly modified proteoforms 
+          by searching top-down tandem mass spectra against a protein sequence
+          database. It is capable of identifying 
+          proteoforms with multiple variable PTMs and unexpected alterations, such as
+          histone proteoforms and phosphorylated ones. It uses mass
+          graphs, which efficiently represent candidate proteoforms with
+          multiple variable PTMs, to increase the speed and sensitivity in
+          proteoform identification. In addition, approximate spectrum-based filtering 
+          methods are employed for protein sequence filtering, and a Markov chain Monte Carlo 
+          method (TopMCMC) is used for estimating the statistical significance of identifications. 
         </li>
         <li>
-        <b>TopDiff</b> (Top-down mass spectrometry-based identification of
-        Differentially expressed proteoforms) compares the abundances of
-        proteoforms and finds differentially expressed proteoforms by 
-        using identifications of top-down mass spectrometry data of several protein samples. 
+          <b>TopDiff</b> (Top-down mass spectrometry-based identification of
+          Differentially expressed proteoforms) compares the abundances of
+          proteoforms and finds differentially expressed proteoforms by 
+          using identifications of top-down mass spectrometry data of several protein samples. 
         </li>
-        <li>
-          <b>TopIndex</b> (Top-down mass spectrometry-based Indexing of proteins) generates and stores the indexed
-          proteins from a protein database file based on the number of PTMs. The output files are used for computing the match scores between the deconvoluted mass spectrum and the candidate proteins. 
-          If TopIndex is used as a preprocessing step, the processing time of TopPIC and TopMG becomes much shorter.  
-          </li>
       </ul>
 
       <h3>Release notes</h3>
+      <b>Version 1.4 (December 31, 2020)</b>
+      <ul style="list-style-type:circle">
+        <li>[TopFD] Added multiple thread support for TopFD. </li>
+        <li>[TopIndex] Added TopIndex.</li>
+      </ul>
       <b>Version 1.3 (December 31, 2019)</b>
       <ul style="list-style-type:circle">
-        <li>[TopPIC] Added spectral visualization in reported Html files.</li>
-        <li>[TopMG] Added spectral visualization in reported Html files.</li>
+        <li>[TopPIC] Added spectral visualization using Html files.</li>
+        <li>[TopMG] Added spectral visualization using Html files.</li>
         <li>[TopDiff] Added TopDiff.</li>
       </ul>
       <b>Version 1.2 (November 15, 2018)</b>
