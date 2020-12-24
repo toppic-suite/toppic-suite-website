@@ -24,7 +24,7 @@ fwrite($reg_file,$_SERVER['REMOTE_ADDR']);
 fwrite($reg_file,"\t");
 fwrite($reg_file,date('Y-m-d'));
 fwrite($reg_file,"\t");
-fwrite($download_type);
+fwrite($reg_file, $download_type);
 fwrite($reg_file,"\n");
 fclose($reg_file);
 
