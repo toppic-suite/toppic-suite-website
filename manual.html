@@ -134,6 +134,9 @@
 
       <p><code>-g [ --skip-html-folder ] </code></p>
       <p>Skip generating the folder for spectral visualization.</p>
+	  
+	  <p><code>-d [ --disable-final-filtering ] </code></p>
+      <p>Skip final filtering of envelopes.</p>
 
       <h4>Examples</h4>
       <p>
@@ -155,9 +158,9 @@
       <p><code> topfd *.mzML </code></p>
 
       <p>
-      Deconvolute a centroid data file spectra.mzML and do not generate the HTML folder for visualization.  
+      Deconvolute a centroid data file spectra.mzML and skip final filtering and generatation of the HTML folder for visualization.  
       </p>
-      <p><code> topfd -g spectra.mzML </code></p>
+      <p><code> topfd -d -g spectra.mzML </code></p>
 
       <p>
         Deconvolute a centroid data file spectra.mzML using 4 threads and the EnvCNN scoring function.
