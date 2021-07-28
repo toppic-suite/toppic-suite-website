@@ -107,14 +107,14 @@
       <p>Set the maximum monoisotopic mass of precursor and fragment ions. The
       default value is 100,000 Dalton.</p>
 
-      <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
+      <p><code>-t [ --mz-error ] &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance of m/z values of spectral peaks. The default
       value is 0.02 m/z.</p>
 
       <p><code>-r [ --ms-one-sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio for MS1 spectra. The default value is 3.</p>
 
-      <p><code>-t [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
+      <p><code>-s [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio for MS/MS spectra. The default value is 1.</p>
 
       <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
@@ -190,7 +190,7 @@
       the maximum charge state: 50, the maximum mass: 30,000 Dalton, and the 
       signal/noise ratio for MS/MS spectra: 2.   
       </p>
-      <p><code> topfd -c 50 -m 30000 -t 2 spectra.mzML </code>
+      <p><code> topfd -c 50 -m 30000 -s 2 spectra.mzML </code>
       </p>
 
 
@@ -246,7 +246,7 @@
       computer. About 4 GB memory is required for each
       thread. If the computer has 16 GB memory and a CPU with 8 cores, the
       maximum number of threads is 4 because about 16 GB memory is needed for 4
-      threads.</p>
+      threads. <b>Users with a spinning hard disk would experience faster speed when using only one thread instead of multple threads.</b></p>
 
       <h4>Examples</h4>
       <p> Generate index files for a protein database file proteins.fasta using
