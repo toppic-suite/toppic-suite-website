@@ -124,7 +124,9 @@ h4 {
 .sectionTitle{
   font-size:20px;
 }
-
-
+/*styling the div containing release notes and download graph*/
+#bottom-div{
+  display:flex;
+}
 
 </style>
