@@ -38,11 +38,11 @@
             },
             mark: 'bar',
             encoding: {
-              x: {field: 'a', type: 'ordinal', "title": "Year"},
+              x: {field: 'a', type: 'ordinal', "title": "Year", "axis": {"labelAngle":-45}},
               y: {field: 'b', type: 'quantitative', "title": "Number of Downloads"}
             }
           };
-        vegaEmbed('#download-graph-div', yourVlSpec);
+        vegaEmbed('#download-graph-div', yourVlSpec, {"actions": false});
     }
     };
     xmlhttp.open("GET","register_info.txt",true);
