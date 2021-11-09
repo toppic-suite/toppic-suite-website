@@ -30,15 +30,15 @@
         var yourVlSpec = {
             $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
             description: 'A simple bar chart with embedded data.',
-            //width:250,
-            //height:300,
+            width:250,
+            height:300,
             title:"Number of Downloads Per Year",
             data: {
               values: finalData
             },
 			encoding: {
               x: {field: 'a', type: 'ordinal', "title": "Year", "axis": {"labelAngle":-45}},
-              y: {field: 'b', type: 'quantitative', "title": "Number of Downloads"}
+              y: {field: 'b', type: 'quantitative', "scale": {"domain": [0, 700]}, "title": "Number of Downloads"}
             },
             layer: [{
                 mark: 'bar'
