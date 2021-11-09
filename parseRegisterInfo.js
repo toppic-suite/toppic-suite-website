@@ -36,7 +36,18 @@
             data: {
               values: finalData
             },
-            mark: 'bar',
+            layer: [{
+                mark: 'bar',
+                mark: {
+                    type: "text",
+                    align: "left",
+                    baseline: "middle",
+                    dx: 3
+                  },
+                  encoding: {
+                    text: {field: "b", type: "quantitative"}
+                  }
+            }],
             encoding: {
               x: {field: 'a', type: 'ordinal', "title": "Year", "axis": {"labelAngle":-45}},
               y: {field: 'b', type: 'quantitative', "title": "Number of Downloads"}

@@ -107,14 +107,14 @@
       <p>Set the maximum monoisotopic mass of precursor and fragment ions. The
       default value is 100,000 Dalton.</p>
 
-      <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
+      <p><code>-t [ --mz-error ] &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance of m/z values of spectral peaks. The default
       value is 0.02 m/z.</p>
 
       <p><code>-r [ --ms-one-sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio for MS1 spectra. The default value is 3.</p>
 
-      <p><code>-t [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
+      <p><code>-s [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio for MS/MS spectra. The default value is 1.</p>
 
       <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
@@ -443,6 +443,10 @@
       <p>Keep intermediate files. 
       </p> 
 
+      <p><code>-K [ --keep-decoy-ids ]</code></p>  
+      <p>Keep decoy identifications.
+      </p> 
+
       <p><code>-g [ --skip-html-folder ] </code></p>
       <p>Skip generating the folder for spectral visualization.</p>
 
@@ -691,6 +695,10 @@
       <p>Keep intermediate files. 
       </p>
 
+      <p><code>-K [ --keep-decoy-ids ]</code></p>  
+      <p>Keep decoy identifications.
+      </p> 
+
       <p><code>-g [ --skip-html-folder ] </code></p>
       <p>Skip generating the HTML folder for spectral visualization.</p>
 
@@ -837,6 +845,114 @@
       carbamidomethylation on cysteine, is used in database search. </p>
       </p>
       <p><code> topdiff -f C57 -t topmg proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
+
+      <h3>7 TopMerge</h3>
+
+      <h4>7.1 Input</h4>
+      <ul>
+        <li>A protein database file in the FASTA format</li>
+        <li>Several mass spectrum data files in the msalign format</li>
+        <li>Proteoform identification files of the mass spectrum data files 
+          in the XML format, e.g., spectra_ms2_toppic_proteoform.xml </li>
+        <li>Feature files containing LC-MS features, and MS/MS scan IDs and their
+          corresponding LC-MS feature IDs. format, e.g., spectra_ms1.feature, spectra_ms2.feature </li>
+      </ul>
+
+      <h4>7.2 Output</h4>
+      <p>TopMerge combines proteoform identifications and features from all input files to
+        create a single output file for each file type (tsv, xml, feature).
+      
+      <h4>6.3 Command line usage</h4>
+      <p>To run TopMerge, open a terminal window and run the following command.</p>
+      <p><code>topmerge [options] database-file-name spectrum-file-name-1 spectrum-file-name-2 spectrum-file-name-3-or-more</code></p>
+
+      <h4>Options</h4>
+      <p><code>-h [ --help ]</code></p>
+      <p>Print the help message.</p>
+
+      <p><code>-d [ --decoy ]</code></p>
+      <p>Use a shuffled decoy protein database to estimate spectrum and
+      proteoform level FDRs.</p>
+
+      <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p>
+      <p>Set the error tolerance for precursor and fragment masses in part-per-million
+      (ppm). Default value: 15. When the lookup table approach (<code>-l</code>) is used
+      for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm.</p>
+
+	    <p><code>-p [ --proteoform-error-tolerance ]  &lt;a positive number&gt;</code></p>
+      <p>Set the error tolerance for identifying PrSM clusters (in Dalton). Default value: 1.2 Dalton.</p>
+
+      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
+      <p>Set the maximum value for unexpected mass shifts (in Dalton).
+      Default value: 500 Dalton.</p>
+
+      <p><code>-m [ --min-shift ]  &lt;a number&gt;</code></p>
+      <p>Se the minimum value for unexpected mass shifts (in Dalton). 
+      Default value: -500 Dalton.</p>
+
+      <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
+      <p>Set the spectrum-level cutoff type for filtering PrSMs. Default value: EVALUE.</p>
+
+      <p><code>-v [ --spectrum-cutoff-value ] &lt;a positive number&gt;</code></p>
+      <p>Set the spectrum-level cutoff value for filtering PrSMs. Default value: 0.01.</p>
+
+      <p><code>-T [ --proteoform-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
+      <p>Set the proteoform-level cutoff type for filtering proteoforms and
+      PrSMs. Default value: EVALUE.</p>
+
+      <p><code>-V [ --proteoform-cutoff-value ] &lt;a positive number&gt;</code></p>
+      <p>Set the proteoform-level cutoff value for filtering proteoforms and
+      PrSMs. Default value: 0.01.</p>
+
+      <p><code>-i [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
+      <p>Specify a text file containing a list of common PTMs for proteoform
+      characterization. The PTMs are used to identify and localize PTMs in
+      reported PrSMs with unknown mass shifts. See an 
+      <a target="_blank" href="example_files/common_mods.txt">example file</a>.</p>
+
+      <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
+      <p>Set the score threshold (MIScore) for filtering results of PTM
+      characterization. Default value: 0.45.</p>
+
+      <p><code>-x [ --no-topfd-feature ]</code></p>
+      <p>Specify that there are no TopFD feature files for proteoform identification.</p>
+
+      <p><code>-c [ --combined-file-name ] &lt;a filename&gt;</code></p>
+      <p>Specify an output file name for combined identifications when the input
+      consists of multiple data files.</p>
+
+      <p><code>-k [ --keep ]</code></p>  
+      <p>Keep intermediate files. 
+      </p> 
+
+      <p><code>-K [ --keep-decoy-ids ]</code></p>  
+      <p>Keep decoy identifications.
+      </p> 
+
+      <p><code>-g [ --skip-html-folder ] </code></p>
+      <p>Skip generating the folder for spectral visualization.</p>
+
+
+      <h4>Examples</h4>
+      <p> Merge identification results from two spectrum files spectra1_ms2.msalign and spectra2_ms2.msalign. 
+      The protein sequence database file name is proteins.fasta.  
+      </p>
+      <p><code> topmerge proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
+
+      <p> Merge identification results from two spectrum files
+      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
+      database file name is proteins.fasta. Use the target decoy approach to compute spectrum level
+      and proteoform-level FDRs, filter identified proteoform
+      spectrum-matches by a 5% spectrum level FDR, and filter identified
+      proteoforms by a 5% proteoform-level FDR.</p>
+      </p>
+      <p><code> topmerge -d -t FDR -v 0.05 -T FDR -V 0.05 proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
+
+      <p> Merge identification results from two spectrum files
+      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
+      database file name is proteins.fasta. Set the output file name as "merged." Skip generation of html folders . </p>
+      </p>
+      <p><code> topmerge -c merged -k proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
       
     </div>
   </div>
