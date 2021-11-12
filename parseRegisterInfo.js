@@ -36,11 +36,22 @@
             data: {
               values: finalData
             },
-            mark: 'bar',
-            encoding: {
+	    encoding: {
               x: {field: 'a', type: 'ordinal', "title": "Year", "axis": {"labelAngle":-45}},
-              y: {field: 'b', type: 'quantitative', "title": "Number of Downloads"}
-            }
+              y: {field: 'b', type: 'quantitative', "scale": {"domain": [0, 700]}, "title": "Number of Downloads"}
+            },
+            layer: [{
+                mark: 'bar'
+	    }, {
+                mark: {
+                    type: "text",
+                    align: "center",
+                    dy: -5
+                },
+                encoding: {
+                    text: {field: "b", type: "quantitative"}
+                }
+            }]
           };
         vegaEmbed('#download-graph-div', yourVlSpec, {"actions": false});
     }
