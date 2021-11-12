@@ -247,6 +247,12 @@
           <div class="controls"><input type="text" style="width:290px;" name="email" id="email"></div>
         </div>
 
+        <div class="form-control-group" style="margin-top: 10px;margin-bottom: 10px;">
+          <label class="control-label"
+            style="font-size:14px;text-align:left;width:190px;">51 + 49 = ? </label>
+          <div class="controls"><input type="text" style="width:290px;" name="math" id="math"></div>
+        </div>
+
         <h4> 2.4 Click the button below to accept the agreement and download
           TopPIC suite </h4>
         <div class="form-control-group" style="margin-top: 15px;margin-bottom:
@@ -287,6 +293,11 @@ function validateForm() {
   x = document.forms["registration-form"]["email"].value;
   if (x == "") {
     alert("Email must be filled out!");
+    return false;
+  }
+  x = document.forms["registration-form"]["math"].value;
+  if (parseInt(x) != 100) {
+    alert("Enter a correct value for the last question!");
     return false;
   }
   //check if recapcha is checked
