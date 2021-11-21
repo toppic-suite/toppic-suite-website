@@ -117,7 +117,10 @@
       <p>Set the signal/noise ratio for MS/MS spectra. The default value is 1.</p>
 
       <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
-      <p>Set the precursor isolation window size. The default value is 3.0 m/z.</p>
+      <p>Set the precursor isolation window size. The default value is 3.0 m/z.
+      When the input file contains the information of precursor windows, the 
+      parameter will be ignored.
+      </p>
 
       <p><code>-n [ --env-cnn ]</code></p>
       <p>Use EnvCNN as the scoring function of isotopic envelopes. Detailed
@@ -132,7 +135,7 @@
       <p>Number of threads used in spectral deconvolution. Default value: 1.</p>
 
       <p><code>-g [ --skip-html-folder ] </code></p>
-      <p>Skip generating the folder for spectral visualization.</p>
+      <p>Skip generation of HTML files for visualization.</p>
 	  
 	  <p><code>-d [ --disable-final-filtering ] </code></p>
       <p>Skip final filtering of envelopes.</p>
@@ -201,7 +204,7 @@
       </p>
 
       <h4>3.2 Output</h4>
-      <p>The output is a folder containing protein index files. For example, when the input file name is
+      <p>The output is a folder containing protein sequence index files. For example, when the input file name is
       <b>proteins.fasta</b>, the output folder is <b>proteins.fasta_idx</b>.
 
       <h4>3.3 Command line usage</h4>
@@ -245,7 +248,7 @@
       computer. About 4 GB memory is required for each
       thread. If the computer has 16 GB memory and a CPU with 8 cores, the
       maximum number of threads is 4 because about 16 GB memory is needed for 4
-      threads. <b>Users with a spinning hard disk would experience faster speed when using only one thread instead of multple threads.</b></p>
+      threads.</p>
 
       <h4>Examples</h4>
       <p> Generate index files for a protein database file proteins.fasta using
@@ -379,13 +382,13 @@
 	    <p><code>-p [ --proteoform-error-tolerance ]  &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance for identifying PrSM clusters (in Dalton). Default value: 1.2 Dalton.</p>
 
-      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
-      <p>Set the maximum value for unexpected mass shifts (in Dalton).
-      Default value: 500 Dalton.</p>
-
       <p><code>-m [ --min-shift ]  &lt;a number&gt;</code></p>
       <p>Se the minimum value for unexpected mass shifts (in Dalton). 
       Default value: -500 Dalton.</p>
+
+      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
+      <p>Set the maximum value for unexpected mass shifts (in Dalton).
+      Default value: 500 Dalton.</p>
 
       <p><code>-s [ --num-shift ] &lt;0|1|2&gt;</code></p>
       <p>Set the maximum number of unexpected mass shifts in a PrSM. Default value: 1.</p>
@@ -422,7 +425,7 @@
 
       <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
       <p>Set the score threshold (MIScore) for filtering results of PTM
-      characterization. Default value: 0.45.</p>
+      characterization. Default value: 0.15.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
       <p>Set the number of threads used in the computation. Default value: 1.
@@ -447,7 +450,7 @@
       </p> 
 
       <p><code>-g [ --skip-html-folder ] </code></p>
-      <p>Skip generating the folder for spectral visualization.</p>
+      <p>Skip the generation of HTML files for visualization.</p>
 
       <h4>Examples</h4>
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against a
@@ -507,10 +510,10 @@
       a protein database file proteins.fasta with a feature file.
       After proteoforms with unexpected mass shifts are
       identified, TopPIC matches the mass shifts to four common PTMs: acetylation,
-      phosphorylation, oxidation and methylation, and uses an MIScore cutoff 0.3
+      phosphorylation, oxidation and methylation, and uses an MIScore cutoff 0.1
       to filter reported PTM sites. The modification file common_mods.txt can be 
       found <a target="_blank" href="example_files/common_mods.txt">here</a>.</p>
-      <p><code> toppic -i common_mods.txt -H 0.3 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> toppic -i common_mods.txt -H 0.1 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file.
@@ -600,7 +603,7 @@
       <p>Print the help message.</p>
 
       <p><code>-a [ --activation ] &lt;CID|HCD|ETD|UVPD|FILE&gt;</code></p>
-      <p>Fragmentation method of tandem mass spectra. When FILE is used, 
+      <p>Fragmentation method of MS/MS spectra. When FILE is used, 
         fragmentation methods of spectra are given in the input spectral data file. 
         Default value: FILE.</p>
 
@@ -699,7 +702,7 @@
       </p> 
 
       <p><code>-g [ --skip-html-folder ] </code></p>
-      <p>Skip generating the HTML folder for spectral visualization.</p>
+      <p>Skip the generation of HTML files for visualization.</p>
 
       <h4>Advanced options</h4>
       <p><code>-j [ --proteo-graph-dis ] &lt;a positive number&gt;</code></p>
@@ -845,6 +848,7 @@
       </p>
       <p><code> topdiff -f C57 -t topmg proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
 
+      <!--
       <h3>7 TopMerge</h3>
 
       <h4>7.1 Input</h4>
@@ -952,6 +956,7 @@
       database file name is proteins.fasta. Set the output file name as "merged." Skip generation of html folders . </p>
       </p>
       <p><code> topmerge -c merged -k proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
+      -->
       
     </div>
   </div>
