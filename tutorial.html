@@ -751,11 +751,8 @@
       <ol class="textList">
         <li> Double click the executable file <code>topdiff_gui.exe</code> in the folder
           <code>C:\toppic_tutorial\toppic</code>.</li>
-        <li> Select <code>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</code> as the protein
-          database file.</li>
-        <li> Add <code>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</code> and <code>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</code> as a
-          mass spectrum data file. </li>
-        <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Add <code>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</code> and <code>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</code> as 
+          mass spectrum data files. </li>
         <li> Click to the button "Start"</li>
       </ol>
       <p>
@@ -819,8 +816,6 @@
         <h4>File locations</h4>
         <ol class="textList">
           <li>Executable file: <pre>C:\toppic_tutorial\toppic\topdiff.exe</pre></li>
-          <li>Protein database file:
-          <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre></li>
           <li>MS/MS msalign files: 
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
@@ -837,7 +832,7 @@
 
         </div>
         <div class="command-container" id="cmd10Container">
-          <pre id="cmd10">..\toppic\topdiff -f C57 uniprot-ecoli.fasta ecoli_1_ms2.msalign ecoli_2_ms2.msalign</pre>
+          <pre id="cmd10">..\toppic\topdiff ecoli_1_ms2.msalign ecoli_2_ms2.msalign</pre>
           <button class="copyBtn" onclick="copyToClipboard('cmd10')">Copy</button>
         </div>
 		

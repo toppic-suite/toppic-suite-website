@@ -785,8 +785,6 @@
 
       <h4>6.1 Input</h4>
       <ul>
-        <li>A protein database file in the FASTA format</li>
-        <li>Several mass spectrum data files in the msalign format</li>
         <li>Proteoform identification files of the mass spectrum data files 
         in the XML format, e.g., spectra_ms2_toppic_proteoform.xml </li>
       </ul>
@@ -799,19 +797,11 @@
       
       <h4>6.3 Command line usage</h4>
       <p>To run TopDiff, open a terminal window and run the following command.</p>
-      <p><code>topdiff [options] database-file-name spectrum-file-names</code></p>
+      <p><code>topdiff [options] spectrum-file-names</code></p>
 
       <h4>Options</h4>
       <p><code>-h [ --help ]</code></p>
       <p>Print the help message.</p>
-
-      <p><code>-f [ --fixed-mod ] &lt;C57|C58|a fixed modification file&gt;</code></p>
-      <p>Set fixed modifications. Three available options: C57, C58, or the name of
-      a text file specifying fixed modifications (see an <a
-        target="_blank" href="example_files/fixed_mods.txt">example file</a>).
-      When C57 is selected, carbamidomethylation on cysteine is the only fixed
-      modification.  When C58 is selected, carboxymethylation on cysteine is the
-      only fixed modification.</p>
 
       <p><code>-e [ --error-tolerance ] &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance for mapping identified proteoforms across
@@ -829,24 +819,14 @@
 
       <h4>Examples</h4>
       <p> Compare proteoform abundances using TopPIC identifications of two spectrum files
-      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
-      database file name is proteins.fasta.  
+      spectra1_ms2.msalign and spectra2_ms2.msalign. 
       </p>
-      <p><code> topdiff proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
-
-      <p> Compare proteoform abundances using TopPIC identifications of two spectrum files
-      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
-      database file name is proteins.fasta and a fixed modification,
-      carbamidomethylation on cysteine, is used in database search. </p>
-      </p>
-      <p><code> topdiff -f C57 proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
+      <p><code> topdiff spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
 
       <p> Compare proteoform abundances using TopMG identifications of two spectrum files
-      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
-      database file name is proteins.fasta and a fixed modification,
-      carbamidomethylation on cysteine, is used in database search. </p>
+      spectra1_ms2.msalign and spectra2_ms2.msalign.
       </p>
-      <p><code> topdiff -f C57 -t topmg proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
+      <p><code> topdiff -t topmg spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
 
       <!--
       <h3>7 TopMerge</h3>
