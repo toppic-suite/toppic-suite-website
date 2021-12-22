@@ -295,11 +295,6 @@ function validateForm() {
     alert("Email must be filled out!");
     return false;
   }
-  x = document.forms["registration-form"]["math"].value;
-  if (parseInt(x) != 100) {
-    alert("Enter a correct value for the last question!");
-    return false;
-  }
   //check if recapcha is checked
   let capcha = grecaptcha.getResponse();
   if (capcha.length == 0) {

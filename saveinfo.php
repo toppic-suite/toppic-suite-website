@@ -4,7 +4,13 @@ $first=$_REQUEST["first"];
 $last=$_REQUEST["last"];
 $email=$_REQUEST["email"];
 $org=$_REQUEST["org"];
+$math=$_REQUEST["math"];
 $download_type=$_REQUEST["downloadtype"];
+
+if($math != 100) {
+  echo'Enter a correct value for the last question!';
+  exit;
+}
 
 $reg_file=fopen("register_info.txt","a");
 if(!$reg_file)
