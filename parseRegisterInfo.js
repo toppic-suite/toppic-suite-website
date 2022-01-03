@@ -19,7 +19,7 @@
                 downloadData[year] = downloadData[year] + 1;
             }
             else {
-                downloadData[year] = 0;
+                downloadData[year] = 1;
             }
         })
         let years = Object.keys(downloadData);
@@ -38,7 +38,7 @@
             },
 	    encoding: {
               x: {field: 'a', type: 'ordinal', "title": "Year", "axis": {"labelAngle":-45}},
-              y: {field: 'b', type: 'quantitative', "scale": {"domain": [0, 800]}, "title": "Number of Downloads"}
+              y: {field: 'b', type: 'quantitative', "scale": {"domain": [0, 900]}, "title": "Number of Downloads"}
             },
             layer: [{
                 mark: 'bar'
