@@ -289,20 +289,30 @@
       <p><img src="./images/toppic_3.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>For each input msalign file, TopPIC reports two TSV files, an XML file,
+      <p>For each input msalign file, TopPIC reports four TSV files, two XML files,
       and collections of HTML
         files for identified proteoforms. For example, the output files for st_1_ms2.msalign are
       <ul>
-        <li>A TSV file containing identified PrSMs with a 1% spectrum-level FDR:
+        <li>A TSV file containing identified PrSMs with a 1% spectrum-level FDR, including additional protein matches if a proteoform can be matched to more than one protein in the database:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm.tsv</pre>
         </li>
+        <li>A TSV file containing identified PrSMs with a 1% spectrum-level FDR, including only one protein match per proteoform:
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm_single.tsv</pre>
+        </li>
         <li> A TSV file containing identified proteoforms and
-          their best PrSMs with a 1% proteoform-level FDR:
+          their best PrSMs with a 1% proteoform-level FDR, including additional protein matches if a proteoform can be matched to more than one protein in the database:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.tsv</pre>
+        </li>
+        <li> A TSV file containing identified proteoforms and
+          their best PrSMs with a 1% proteoform-level FDR, including only one protein match per proteoform:
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform_single.tsv</pre>
         </li>
         <li> An XML file containing identified proteoforms and
           their best PrSMs with a 1% proteoform-level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_proteoform.xml</pre>
+        </li>
+        <li> An XML file containing all identified PrSMs without clustering and filtering:
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2_toppic_prsm.xml</pre>
         </li>
         <li>A folder containing JavaScript files of identified PrSMs with a 1% 
           spectrum-level FDR:
@@ -325,16 +335,26 @@
       a 1% proteoform-level FDR. The combined results are reported in the
       following files.
       <ul>
-        <li>A TSV file containing combined PrSM identifications with a 1% spectrum level FDR:
+        <li>A TSV file containing combined PrSM identifications with a 1% spectrum level FDR, including additional protein matches if a proteoform can be matched to more than one protein in the database:
           <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm.tsv</pre>
         </li>
+        <li>A TSV file containing combined PrSM identifications with a 1% spectrum level FDR, including only one protein match per proteoform:
+          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm_single.tsv</pre>
+        </li>
         <li> A TSV file containing combined proteoform identifications and
-          their best PrSMs with a 1% proteoform level FDR:
+          their best PrSMs with a 1% proteoform level FDR, including additional protein matches if a proteoform can be matched to more than one protein in the database::
           <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.tsv</pre>
+        </li>
+        <li> A TSV file containing combined proteoform identifications and
+          their best PrSMs with a 1% proteoform level FDR, including only one protein match per proteoform:
+          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform_single.tsv</pre>
         </li>
         <li> An XML file containing combined proteoform identifications and
           their best PrSMs with a 1% proteoform level FDR:
           <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_proteoform.xml</pre>
+        </li>
+        <li> An XML file containing all identified PrSMs without clustering and filtering:
+          <pre>C:\toppic_tutorial\tutorial_1\combined_ms2_toppic_prsm.xml</pre>
         </li>
         <li>A folder containing JavaScript files of combined PrSM
           identifications with a 1% spectrum-level FDR:
@@ -533,19 +553,29 @@
       <p><img src="./images/topmg_2.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>TopMG reports two TSV files, an XML file, and collections of HTML
+      <p>TopMG reports two TSV files, two XML files, and collections of HTML
         files for identified proteoforms.
       <ul>
-        <li>A TSV file containing identified PrSMs with a 5% spectrum-level FDR:
+        <li>A TSV file containing identified PrSMs with a 5% spectrum-level FDR, including additional protein matches if a proteoform can be matched to more than one protein in the database:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm.tsv</pre>
         </li>
+        <li>A TSV file containing identified PrSMs with a 5% spectrum-level FDR, including only one protein match per proteoform:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm_single.tsv</pre>
+        </li>
         <li> A TSV file containing identified proteoforms and
-          their best PrSMs with a 5% proteoform-level FDR:
+          their best PrSMs with a 5% proteoform-level FDR, including additional protein matches if a proteoform can be matched to more than one protein in the database:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.tsv</pre>
+        </li>
+        <li> A TSV file containing identified proteoforms and
+          their best PrSMs with a 5% proteoform-level FDR, including only one protein match per proteoform:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform_single.tsv</pre>
         </li>
         <li> An XML file containing identified proteoforms and
           their best PrSMs with a 5% proteoform-level FDR:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_proteoform.xml</pre>
+        </li>
+        <li> An XML file containing all identified PrSMs without clustering and filtering:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2_topmg_prsm.xml</pre>
         </li>
         <li>A folder containing JavaScript files of identified PrSMs with a 5% 
           spectrum-level FDR:
@@ -706,22 +736,30 @@
       <p><img src="./images/toppic_3.png" height="400" width="600" style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>For each input msalign file, TopPIC reports two TSV files, an XML file, and collections of html
+      <p>For each input msalign file, TopPIC reports two TSV files, two XML files, and collections of html
         files for identified proteoforms. As a result, the output files for ecoli_1_ms2.msalign, ecoli_2_ms2.msalign are
       <ul>
-        <li>Two TSV files containing identified PrSMs with a 1% spectrum-level FDR:
+        <li>Four TSV files containing identified PrSMs with a 1% spectrum-level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_prsm.tsv</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_prsm.tsv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_prsm_single.tsv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_prsm_single.tsv</pre>
         </li>
-        <li> Two TSV files containing identified proteoforms and
+        <li> Four TSV files containing identified proteoforms and
           their best PrSMs with a 1% proteoform-level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.tsv</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.tsv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform_single.tsv</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform_single.tsv</pre>
         </li>
         <li> Two XML files containing identified proteoforms and
           their best PrSMs with a 1% proteoform-level FDR:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_proteoform.xml</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_proteoform.xml</pre>
+        </li>
+        <li> Two XML files containing all identified PrSMs without clustering and filtering:
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2_toppic_prsm.xml</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2_toppic_prsm.xml</pre>
         </li>
         <li>Two folders containing JavaScript files of identified PrSMs with a 1% 
           spectrum-level FDR:
