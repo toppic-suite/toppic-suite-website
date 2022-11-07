@@ -41,10 +41,12 @@ if ($download_type=="docker") {
   header("Location: https://hub.docker.com/r/toppicsuite/toppic");
 }
 
-$file_name = 'release_files/toppic-windows-1.5.4.zip';
 if ($download_type=="linux") {
-  $file_name = "release_files/toppic-linux-1.5.4.zip";
+  header("Location: http://github.com/toppic-suite/toppic-suite/releases/tag/v1.5.5");
 }
+
+
+$file_name = 'release_files/toppic-windows-1.5.5.zip';
 
 if (file_exists($file_name)) {
   header('Content-Description: File Transfer');

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+src="https://www.googletagmanager.com/gtag/js?id=UA-109009447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+        gtag('config', 'UA-109009447-1');
+</script>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TopFD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="xiaowen" >
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link rel="shortcut icon" href="toppic.ico">
+</head>
+
+<body style="overflow-y:scroll">
+<div class="container">
+  <div class="masthead">
+    <h2 class="muted"><font color=#0066DD>TopFD Supplemental Material</font></h2>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span-12" style="font-size:16px">
+      <h3><font color=#0066DD>TopFD</font></h3>
+      <p>
+	  TopFD (Top-down mass spectral Feature Detection) is a software tool
+	  for top-down spectral deconvolution and a successor to MS-Deconv.
+	  It groups top-down spectral
+	  peaks into isotopic envelopes and converts isotopic envelopes to
+	  monoisotopic neutral masses. In addition, it extracts proteoform features
+	  from LC-MS or CE-MS data. TopFD integrates algorithms for proteoform feature detection, 
+	  feature boundary refinement, and machine learning models for evaluating proteoform features.
+	  
+      </p>
+
+      <ul style="list-style-type:circle">
+        <li>
+          <b>Code Availability:</b> 
+          TopFD has been made available as part of TopPIC suite and can be downloaded from 
+		  <a href="https://github.com/toppic-suite/toppic-suite/releases/tag/v1.6_beta">https://github.com/toppic-suite/toppic-suite/releases/tag/v1.6_beta</a>.
+        </li>
+		<br/>
+
+        <li>
+          <b>Executables:</b> 
+		  You can download the zipped executable files using 
+		  <a href="https://github.com/toppic-suite/toppic-suite/releases/download/v1.6_beta/toppic-windows-v1.6_beta.zip"> for Windows </a> and 
+		  <a href="https://github.com/toppic-suite/toppic-suite/releases/download/v1.6_beta/toppic-linux-v1.6_beta.zip"> for Linux/MAC </a>.
+        </li>
+		<br/>
+		
+        <li>
+          <b>Evaluation Scripts:</b> 
+		  Evaluation scripts are made available as a GitHub repository and are available at
+		  <a href="https://github.com/ARBasharat/TopFD_Evaluation_Scripts">https://github.com/ARBasharat/TopFD_Evaluation_Scripts</a>.
+        </li>
+		<br/>				
+
+
+        <li> 
+          <b>Data:</b> 
+          The data files have been made available for all 5 data sets used in the study and can be accessed using 
+		  <a href="https://wavetulane-my.sharepoint.com/:f:/g/personal/xwliu_tulane_edu/Eis_5FcPAsREiib6D7G8HaoB4_OHzXIRBHgo7xaqpp29Dw?e=QLK1VS"> RAW </a> 
+		  and <a href="https://wavetulane-my.sharepoint.com/:f:/g/personal/xwliu_tulane_edu/Eh56nwJ23_pKiupSu8P8gNMBkQ6epC8ST-tW4XaOaVxAjg?e=A5plad"> mzML </a> files.
+        </li>
+		<br/>
+		
+		<li> 
+          <b>Extracted Feature:</b> 
+          Proteoform features extrated from all data sets using TopFD, ProMex, FlashDeconv and Xtract have been made available at 
+		  <a href="https://wavetulane-my.sharepoint.com/:f:/g/personal/xwliu_tulane_edu/EpBlMQzy37ZCuh7IFLZuRXoBPsAcP3No3jTxS08ugRblHQ?e=5ggoDC"> link</a>.
+        </li>
+		<br/>
+		
+		<li> 
+          <b>Training Data and Model file:</b> 
+          Data used to train ECScore model and the trained model are available at 
+		  <a href="https://wavetulane-my.sharepoint.com/:f:/g/personal/xwliu_tulane_edu/EhOwaHlhjl9AkMA5z4QOsA4BmDiX_0EVhXDId1EdlDX6rA?e=KTRI3G"> link</a>.
+        </li>
+		<br/>
+		
+		<li> 
+          <b>Processed Feature List:</b> 
+          Proteoform features following the removal of mass artifacts are available at 
+		  <a href="https://wavetulane-my.sharepoint.com/:f:/g/personal/xwliu_tulane_edu/EjUdScXqOdhBrwAZEIKrIg4BYgRYuiNXnXJcPIdhogxCVg?e=LgvUwb"> link</a>.
+        </li>
+		<br/>
+		<br/>
+      </ul>
+	   <!--
+	    <p>
+	      <b>Contact:</b> 
+		  For more information, please contact <a href="xwliu@tulane.edu"> Dr. Xioawen Liu (xwliu@tulane.edu)</a> or <a href="abbash@iu.edu"> Abdul Rehman Basharat (abbash@iu.edu) </a>.
+	    </p> 
+		-->
+    </div>
+
+  </div>
+
+</div>
+<script src="assets/js/jquery-1.7.1.min.js"></script>
+<script src="parseRegisterInfo.js"></script>
+
+
+</body>
+</html>
