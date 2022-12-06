@@ -272,7 +272,10 @@
       <p>We use <b>toppic_gui</b> to search the MS/MS spectra in
         <code>st_1_ms2.msalign</code> and <code>st_2_ms2.msalign</code>
         against the protein database <code>uniprot-st.fasta</code> to
-        identify PrSMs.
+        identify PrSMs with a variable PTM file <code>var_mods.txt</code>, 
+        in which oxidation on methionine is set
+        as a variable PTM. The variable PTM file can be downloaded  
+        <a href="./data_files/var_mods.txt">here</a>.
       </p>
       <ol class="textList">
         <li> Double click the executable file <code>toppic_gui.exe</code> in the folder
@@ -284,6 +287,7 @@
           mass spectrum data files. </li>
         <li> Input "combined" as the file name for combined identifications.</li>
         <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Select file "var_mods.txt" as the variable PTM file. </li> 
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
         <li> Select <code>FDR</code> as the proteoform level cutoff type. </li>
@@ -468,10 +472,13 @@
           <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre>
         </li>
         <li>Input feature files: 
-		  <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_1\st_2_ms1.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.feature</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_2_ms1.feature</pre>
           <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.feature</pre>
+        </li>
+        <li>Variable PTM file: 
+          <pre>C:\toppic_tutorial\tutorial_1\var_mods.txt</pre>
         </li>
       </ol>
       <h4>Commands</h4>
@@ -480,7 +487,7 @@
         <button class="copyBtn" onclick="copyToClipboard('cmd3')">Copy</button>
       </div>
       <div class="command-container" id="cmd4Container">
-        <pre id="cmd4">..\toppic\toppic -f C57 -d -t FDR -T FDR -c combined uniprot-st.fasta st_*_ms2.msalign</pre>
+        <pre id="cmd4">..\toppic\toppic -f C57 -d -t FDR -T FDR -b var_mods.txt -c combined uniprot-st.fasta st_*_ms2.msalign</pre>
         <button class="copyBtn" onclick="copyToClipboard('cmd4')">Copy</button>
       </div>
       <!--

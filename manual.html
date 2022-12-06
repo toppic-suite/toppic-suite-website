@@ -132,7 +132,7 @@
       <p>Specify that the input file does not contain MS1 spectra.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p>
-      <p>Number of threads used in spectral deconvolution. Default value: 1.</p>
+      <p>Number of CPU threads used in spectral deconvolution. Default value: 1.</p>
 
       <p><code>-g [ --skip-html-folder ] </code></p>
       <p>Skip generation of HTML files for visualization.</p>
@@ -160,12 +160,13 @@
       <p><code> topfd *.mzML </code></p>
 
       <p>
-      Deconvolute a centroid data file spectra.mzML and skip final filtering and generatation of the HTML folder for visualization.  
+      Deconvolute a centroid data file spectra.mzML and skip the final filtering
+      and skip the generatation of the HTML folder for visualization.  
       </p>
       <p><code> topfd -d -g spectra.mzML </code></p>
 
       <p>
-        Deconvolute a centroid data file spectra.mzML using 4 threads and the EnvCNN scoring function.
+        Deconvolute a centroid data file spectra.mzML using 4 CPU threads and the EnvCNN scoring function.
       </p>
 
       <p><code> topfd -u 4 -n spectra.mzML </code></p>
@@ -240,15 +241,12 @@
       the concatenated database are generated.</p>
 
       <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p> 
-      <p>Set the error tolerance for precursor and fragment masses in ppm. Default value: 15.</p>
+      <p>Set the error tolerance for precursor and fragment masses in ppm.
+      Default value: 10.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p> 
       <p>Set the number of threads used in the computation. Default value: 1.
-      The maximum number of threads is determined by the CPU and memory of the
-      computer. About 4 GB memory is required for each
-      thread. If the computer has 16 GB memory and a CPU with 8 cores, the
-      maximum number of threads is 4 because about 16 GB memory is needed for 4
-      threads.</p>
+      About 0.5 GB memory is required for each CPU thread.</p>
 
       <h4>Examples</h4>
       <p> Generate index files for a protein database file proteins.fasta using
@@ -257,14 +255,15 @@
       <p><code> topindex proteins.fasta</code></p>
 
       <p> Generate index files for a protein database file proteins.fasta using
-      carboxymethylation as the fixed modification, and N-terminal methionine
+      carbamidomethylation as the fixed modification, and N-terminal methionine
       excision and N-terminal methionine acetylation as the N-terminal forms.   
       </p>
-      <p><code> topindex -f C58 -n NME,M_ACETYLATION proteins.fasta</code></p>
+      <p><code> topindex -f C57 -n NME,M_ACETYLATION proteins.fasta</code></p>
 
       <p> Generate index files for a protein database file proteins.fasta using a 
-      target-decoy concatenated database, a mass error tolerance of 10 ppm, and 4 threads.</p>
-      <p><code> topindex -d -e 10 -u 4 proteins.fasta</code></p>
+      target-decoy concatenated database, a mass error tolerance of 5 ppm, and 4
+      CPU threads.</p>
+      <p><code> topindex -d -e 5 -u 4 proteins.fasta</code></p>
 
       <h3>4 TopPIC</h3>
 
@@ -274,6 +273,7 @@
         <li>A mass spectrum data file in the msalign format</li>
         <li>A text file containing LC-MS feature information (optional)</li>
         <li>A text file of fixed PTMs (optional)</li>
+        <li>A text file of variable PTMs (optional)</li>
         <li>A text file of PTMs for the characterization of unexpected mass shifts
         (optional)</li>
       </ul>
@@ -401,6 +401,27 @@
       are allowed, they are separated by commas. Default value:
       NONE,M_ACETYLATION,NME,NME_ACETYLATION.</p>
 
+      <p><code>-s [ --num-shift ] &lt;0|1|2&gt;</code></p>
+      <p>The maximum number of unexpected mass shifts in a PrSM. Default value: 1.</p>
+
+      <p><code>-m [ --min-shift ]  &lt;a number&gt;</code></p>
+      <p>The minimum value for unexpected mass shifts (in Dalton). 
+      Default value: -500 Dalton.</p>
+
+      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
+      <p>The maximum value for unexpected mass shifts (in Dalton).
+      Default value: 500 Dalton.</p>
+
+      <p><code>-S [ --variable-ptm-num] &lt;a number&gt;</code></p>
+      <p>The maximum number of variable PTM sites in a proteoform-spectrum-match. 
+      Default value: 3. </p>
+
+      <p><code>-b [ --variable-ptm-file-name] a variable PTM file</code></p>
+      <p>Specify a text file containing the information of varaible PTMs
+      (see an <a target="_blank" href="example_files/var_mods.txt">example
+        variable PTM file</a>).
+      </p>
+
       <p><code>-d [ --decoy ]</code></p>
       <p>Use a shuffled decoy protein database to estimate spectrum and
       proteoform-level FDRs.
@@ -410,22 +431,11 @@
 
       <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p>
       <p>Set the error tolerance for precursor and fragment masses in part-per-million
-      (ppm). Default value: 15. When the lookup table approach (<code>-l</code>) is used
+      (ppm). Default value: 10. When the lookup table approach (<code>-l</code>) is used
       for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm.</p>
 
 	    <p><code>-p [ --proteoform-error-tolerance ]  &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance for identifying PrSM clusters (in Dalton). Default value: 1.2 Dalton.</p>
-
-      <p><code>-m [ --min-shift ]  &lt;a number&gt;</code></p>
-      <p>Se the minimum value for unexpected mass shifts (in Dalton). 
-      Default value: -500 Dalton.</p>
-
-      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
-      <p>Set the maximum value for unexpected mass shifts (in Dalton).
-      Default value: 500 Dalton.</p>
-
-      <p><code>-s [ --num-shift ] &lt;0|1|2&gt;</code></p>
-      <p>Set the maximum number of unexpected mass shifts in a PrSM. Default value: 1.</p>
 
       <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
       <p>Set the spectrum-level cutoff type for filtering PrSMs. Default value: EVALUE.</p>
@@ -441,17 +451,20 @@
       <p>Set the proteoform-level cutoff value for filtering proteoforms and
       PrSMs. Default value: 0.01.</p>
 
+      <p><code> -A [ --approximate-spectra ]</code></p>
+      <p>Use approximate spectra to increase the sensitivity in protein
+      filtering 
+      (see this <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5825287/">paper</a> for
+      details).
+      </p>
+
       <p><code>-l [ --lookup-table ]</code></p>
       <p>Use a lookup table method for computing E-values.
       It is faster than the default generating function approach, but it
       may reduce the number of identifications.</p>
 
-      <p><code>-r [ --num-combined-spectra ] &lt;a positive integer&gt;</code></p>
-      <p>Set the number of combined spectra. The parameter is set to 2 (or 3)
-      for combining spectral pairs (or triplets) generated by the alternating
-      fragmentation mode. Default value: 1.</p>
 
-      <p><code>-i [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
+      <p><code>-B [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
       <p>Specify a text file containing a list of common PTMs for proteoform
       characterization. The PTMs are used to identify and localize PTMs in
       reported PrSMs with unknown mass shifts. See an 
@@ -462,14 +475,15 @@
       characterization. Default value: 0.15.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
-      <p>Set the number of threads used in the computation. Default value: 1.
-      The maximum number of threads is determined by the CPU and memory of the
-      computer. About 4 GB memory is required for each thread. If the computer
-      has 16 GB memory and a CPU with 8 cores, the maximum number of threads is
-      4 because about 16 GB memory is needed for 4 threads.</p>
+      <p>Set the number of threads used in the computation. Default value: 1.</p>
 
       <p><code>-x [ --no-topfd-feature ]</code></p>
       <p>Specify that there are no TopFD feature files for proteoform identification.</p>
+
+      <p><code>-r [ --num-combined-spectra ] &lt;a positive integer&gt;</code></p>
+      <p>Set the number of combined spectra. The parameter is set to 2 (or 3)
+      for combining spectral pairs (or triplets) generated by the alternating
+      fragmentation mode. Default value: 1.</p>
 
       <p><code>-c [ --combined-file-name ] &lt;a filename&gt;</code></p>
       <p>Specify an output file name for combined identifications when the input
@@ -522,6 +536,13 @@
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file.
+      Two variable PTMs: oxidation on M and methylation on K are used. 
+      The modification file two_var_mods.txt can be 
+      found <a target="_blank" href="example_files/two_var_mods.txt">here</a>.</p>
+      <p><code> toppic -b two_var_mods.txt -H 0.1 proteins.fasta spectra_ms2.msalign </code></p>
+
+      <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
+      a protein database file proteins.fasta with a feature file.
       The error tolerance for precursor and fragment masses is
       5 ppm. </p> 
       <p><code> toppic -e 5 proteins.fasta spectra_ms2.msalign </code></p>
@@ -547,14 +568,11 @@
       phosphorylation, oxidation and methylation, and uses an MIScore cutoff 0.1
       to filter reported PTM sites. The modification file common_mods.txt can be 
       found <a target="_blank" href="example_files/common_mods.txt">here</a>.</p>
-      <p><code> toppic -i common_mods.txt -H 0.1 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> toppic -B common_mods.txt -H 0.1 proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
-      a protein database file proteins.fasta with a feature file.
-      Use 6 CPU threads to speed up the computation. 
-      <b><font color=#FF0000>About 24 GB memory is required for 6 threads (4 GB
-          per thread). If the computer lacks enough memory, TopPIC may crash.</font></b  
-      </p> 
+      a protein database file proteins.fasta with a feature file.Use 6 CPU threads to speed up the computation. 
+      </p>
       <p><code> toppic -u 6 proteins.fasta spectra_ms2.msalign </code></p>
 
 
@@ -704,7 +722,7 @@
 
       <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p>
       <p>Set the error tolerance for precursor and fragment masses in ppm.
-      Default value: 15 ppm.</p>
+      Default value: 10 ppm.</p>
 
       <p><code>-p [ --proteoform-error-tolerance ] &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance for identifying PrSM clusters (in Dalton). Default value: 1.2 Dalton.</p>
@@ -733,10 +751,6 @@
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
       <p>Set the number of threads used in the computation. Default value: 1.
-			The maximum number of threads is determined by the CPU and memory 
-			of the computer. About 4 GB memory is required for each thread. 
-			If the computer has 16 GB memory and a CPU with 8 cores, the maximum number 
-			of threads is 4 because 16 GB memory is required for 4 threads.      
       </p>
 
       <p><code>-x [ --no-topfd-feature ]</code></p>
@@ -846,9 +860,7 @@
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file.
-      Use 6 CPU threads to speed up the computation. <b><font
-            color=#FF0000>About 24 GB memory is required for 6 threads (4 GB per
-            thread). If the computer lacks enough memory, TopMG may crash.</font></b 
+      Use 6 CPU threads to speed up the computation. 
       </p> 
       <p><code> topmg -i variable_mods.txt -u 6 proteins.fasta spectra_ms2.msalign </code></p>      
 
