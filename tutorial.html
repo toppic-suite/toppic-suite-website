@@ -51,10 +51,8 @@
       <p>
       In this tutorial, we use TopPIC Suite to analyze two top-down LC-MS/MS data files
       on a computer with a Windows 10 Operating System.
-      <!--
       <b>Annotated proteoform spectrum matches (PrSMs) identified by TopPIC from the data files can be browsed
-      <a href="data_files/combined_html/topmsv/index.html">here</a></b>. 
-      -->
+      <a href="data_files/st_1_html/topmsv/index.html">here</a></b>. 
       </p>
 
       <hr>
@@ -165,7 +163,7 @@
         <li> Double click the executable file <code>topindex_gui.exe</code> in the folder
           <code>C:\toppic_tutorial\toppic</code>.</li>
         <li> Add the file <code>c:\toppic_tutorial\tutorial_1\uniprot-st.fasta</code>.</li>
-        <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Select <code>Carbamidomethylation on cysteine</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Click to the button "Start" to generate index files.</li>
       </ol>
@@ -181,7 +179,7 @@
           containing index files. 
       </p>
 
-      <p> In the analysis, C57 is selected as the fixed modification because
+      <p> In the analysis, carbamidomethylation is selected as the fixed modification because
         proteins were reduced with dithiothreitol and alkylated with
         iodoacetamide before the MS experiment. When proteins are not reduced,
         no fixed modification should be selected.
@@ -288,7 +286,7 @@
           and <code>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</code> as
           mass spectrum data files. </li>
         <li> Input "combined" as the file name for combined identifications.</li>
-        <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Select <code>Carbamidomethylation on cysteine</code> as the fixed modification. </li>
         <li> Select file "var_mods.txt" as the variable PTM file. </li> 
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
@@ -389,7 +387,7 @@
       </ul>
       </p>
 
-      <p> In the analysis, C57 is selected as the fixed modification because
+      <p> In the analysis, carbamidomethylation is selected as the fixed modification because
         proteins were reduced with dithiothreitol and alkylated with
         iodoacetamide before the MS experiment. When proteins are not reduced,
         no fixed modification should be selected.
@@ -525,7 +523,7 @@
         <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
         </li>
         <li>
-          A text file containing a variable PTM: oxidation.
+          A text file containing a variable PTM: oxidation on methionine.
           <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre>
         </li>
 		<li>
