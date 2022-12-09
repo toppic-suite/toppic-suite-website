@@ -158,7 +158,16 @@
 
       <h4 class="sectionTitle">4.2.1 Index file generation</h4>
       <p>We use <b>TopIndex</b> to generate index files from the protein
-      database. They will speed up database search of TopPIC and TopMG. <b>While TopIndex supports multithreading, users with a spinning hard disk would experience faster speed when using only one thread instead of multple threads.</b></p>
+      database. They will speed up database search of TopPIC and TopMG.
+      <b>While TopIndex supports multithreading, users with a spinning hard
+      disk would experience faster speed when using only one thread instead of
+      multple threads. TopIndex generates very large index files. For example,
+      index files generated for the targe-decoy concatenated UniProt human
+      proteome database are about 240 GB. 
+      <font color=#FF0000> 
+      To achieve high speed index
+      generation, we suggest that a computer with at least 1 TB SSD (Solid State
+      Drive) should be used.</font></b></p>
       <ol class="textList">
         <li> Double click the executable file <code>topindex_gui.exe</code> in the folder
           <code>C:\toppic_tutorial\toppic</code>.</li>
@@ -500,8 +509,8 @@
       <h3>5 Tutorial 2</h3>
       <p>
         We will use TopMG to analyze the data set st_1.raw described in Tutorial 1.
-        <b><font color=#FF0000> TopMG is still in the development stage. Please let us know
-          if you find any bugs in it.</font></b>.
+	<b><font color=#FF0000> TopMG is still in the development stage. Please
+			let us know if you find any bugs in it.</font></b>.
       </p>
       <h4 class="sectionTitle">5.1 Data set and preprocessing </h4>
       The description of the data file and
