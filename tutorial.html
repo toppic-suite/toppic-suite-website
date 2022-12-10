@@ -50,7 +50,7 @@
       <h3>1 Overview</h3>
       <p>
       In this tutorial, we use TopPIC Suite to analyze two top-down LC-MS/MS data files
-      on a computer with a Windows 10 Operating System.
+      on a computer with a Windows Operating System.
       <b>Annotated proteoform spectrum matches (PrSMs) identified by TopPIC from the data files can be browsed
       <a href="data_files/st_1_html/topmsv/index.html">here</a></b>. 
       </p>
@@ -159,15 +159,16 @@
       <h4 class="sectionTitle">4.2.1 Index file generation</h4>
       <p>We use <b>TopIndex</b> to generate index files from the protein
       database. They will speed up database search of TopPIC and TopMG.
+      This step is optional. Skipping index generation only slows the analysis 
+      of section 4.5 for database search.
       <b>While TopIndex supports multithreading, users with a spinning hard
       disk would experience faster speed when using only one thread instead of
       multple threads. TopIndex generates very large index files. For example,
       index files generated for the targe-decoy concatenated UniProt human
       proteome database are about 240 GB. 
-      <font color=#FF0000> 
       To achieve high speed index
       generation, we suggest that a computer with at least 1 TB SSD (Solid State
-      Drive) should be used.</font></b></p>
+      Drive) should be used.</b></p>
       <ol class="textList">
         <li> Double click the executable file <code>topindex_gui.exe</code> in the folder
           <code>C:\toppic_tutorial\toppic</code>.</li>
@@ -561,7 +562,7 @@
         <li> Add <code>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</code> as a
           mass spectrum data file. </li>
         <li> Select <code>C:\toppic_tutorial\tutorial_2\variable_mods.txt</code> as the file of variable PTMs. </li>
-        <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Select <code>Carbamidomethylation on cysteine</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
         <li> Set the spectrum level FDR cutoff to 0.05. </li>
@@ -746,7 +747,7 @@
         <li> Add <code>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</code>
           and <code>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</code> as
           mass spectrum data files. </li>
-        <li> Select <code>C57</code> as the fixed modification. </li>
+        <li> Select <code>Carbamidomethylation on cysteine</code> as the fixed modification. </li>
         <li> Check the checkbox <code>Decoy database</code>. </li>
         <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
         <li> Select <code>FDR</code> as the proteoform level cutoff type. </li>
