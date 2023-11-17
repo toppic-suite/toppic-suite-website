@@ -64,11 +64,12 @@
       <h4>2.2 Output</h4>
       <p>TopFD outputs two LC-MS feature text files with a file extension "<b>feature</b>", 
       one LC-MS feature file with a file extension "<b>xml</b>", 
-      and a deconvoluted mass spectral data file for MS/MS spectra in the msalign 
+      and two deconvoluted mass spectral data file for MS/MS spectra in the msalign 
       format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
-      In addition, TopFD creates two folders containing JavaScript files of
-      spectral data for spectral visualization and other files generated in spectral deconvolution.
-
+      In addition, TopFD creates a folder containing JavaScript files of
+      spectral data for spectral visualization.</p>
+      
+      <p>
       For example, when the input file name is <b>spectra.mzML</b>, the output includes: 
       <ul>
         <li><b>spectra_ms1.feature</b>: a feature file containing LC-MS
@@ -76,9 +77,8 @@
         <li><b>spectra_ms2.feature</b>: a feature file containing MS/MS scan IDs and their
         corresponding LC-MS feature IDs.</li>
         <li><b>spectra_feature.xml</b>: a feature file containing LC-MS features in the xml format.</li>
+        <li><b>spectra_ms1.msalign</b>: a list of deconvoluted MS1 spectra.</li>
         <li><b>spectra_ms2.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
-        <li><b>spectra_file</b>: a folder containing deconvoluted MS1 spectra
-        and annotations of LC-MS data.</li>
         <li><b>spectra_html</b>: a folder containing JavaScript files of MS1
         and MS/MS data for spectral visualization.</li>
 
@@ -107,7 +107,7 @@
       <p>Set the maximum monoisotopic mass of precursor and fragment ions. The
       default value is 70,000 Dalton.</p>
 
-      <p><code>-t [ --mz-error ] &lt;a positive number&gt;</code></p>
+      <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance of m/z values of spectral peaks. The default
       value is 0.02 m/z.</p>
 
@@ -123,10 +123,8 @@
       parameter will be ignored.
       </p>
 
-      <p><code>-n [ --env-cnn ]</code></p>
-      <p>Use EnvCNN as the scoring function of isotopic envelopes. Detailed
-      description of EnvCNN can be found 
-      <a href="https://pubmed.ncbi.nlm.nih.gov/32356965/">here</a>.
+      <p><code>-n [ --msdeconv ]</code></p>
+      <p>Use the MS-Deconv score to rank isotopic envelopes. 
       </p>
 
       <p><code>-o [ --missing-level-one ]</code></p>
@@ -167,7 +165,7 @@
       <p><code> topfd -d -g spectra.mzML </code></p>
 
       <p>
-        Deconvolute a centroid data file spectra.mzML using 4 CPU threads and the EnvCNN scoring function.
+        Deconvolute a centroid data file spectra.mzML using 4 CPU threads and MS-deconv score.
       </p>
 
       <p><code> topfd -u 4 -n spectra.mzML </code></p>
