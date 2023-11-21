@@ -463,7 +463,7 @@
       may reduce the number of identifications.</p>
 
 
-      <p><code>-B [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
+      <p><code>-B [ --local-ptm-file-name ] &lt;a common modification file&gt; </code></p>
       <p>Specify a text file containing a list of common PTMs for proteoform
       characterization. The PTMs are used to identify and localize PTMs in
       reported PrSMs with unknown mass shifts. See an 
@@ -488,7 +488,7 @@
       <p>Specify an output file name for combined identifications when the input
       consists of multiple data files.</p>
 
-      <p><code>-k [ --keep ]</code></p>  
+      <p><code>-k [ --keep-temp-files ]</code></p>  
       <p>Keep intermediate files. 
       </p> 
 
@@ -538,7 +538,7 @@
       Two variable PTMs: oxidation on M and methylation on K are used. 
       The modification file two_var_mods.txt can be 
       found <a target="_blank" href="example_files/two_var_mods.txt">here</a>.</p>
-      <p><code> toppic -b two_var_mods.txt -H 0.1 proteins.fasta spectra_ms2.msalign </code></p>
+      <p><code> toppic -b two_var_mods.txt proteins.fasta spectra_ms2.msalign </code></p>
 
       <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
       a protein database file proteins.fasta with a feature file.
