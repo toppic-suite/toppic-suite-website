@@ -124,7 +124,12 @@
       </p>
 
       <p><code>-n [ --msdeconv ]</code></p>
-      <p>Use the MS-Deconv score to rank isotopic envelopes. 
+      <p>Use the MS-Deconv score 
+      (see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3101958/">paper</a>)
+      to rank isotopic envelopes.
+      If -n is not selected, the default EnvCNN score 
+      (see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7341906/">paper</a>)
+      is used to rank isotopic envelopes.
       </p>
 
       <p><code>-o [ --missing-level-one ]</code></p>
@@ -136,19 +141,20 @@
       <p><code>-g [ --skip-html-folder ] </code></p>
       <p>Skip generation of HTML files for visualization.</p>
 	  
-	  <p><code>-d [ --disable-final-filtering ] </code></p>
+	    <p><code>-d [ --disable-final-filtering ] </code></p>
       <p>Skip final filtering of envelopes.</p>
 
       <h4>Examples</h4>
       <p>
-      Deconvolute a centroid data file spectra.mzML and output four files:
-      spectra_ms2.msalign, spectra_ms1.feature, spectra_ms2.feature, spectra_feature.xml.
+      Deconvolute a centroid data file spectra.mzML and output five files:
+      spectra_ms1.feature, spectra_ms2.feature, spectra_feature.xml,
+      spectra_ms1.msalign, and spectra_ms2.msalign.
       </p>
       <p><code> topfd spectra.mzML </code></p>
 
       <p>
       Deconvolute two centroid data files spectra1.mzML and spectra2.mzML and 
-      output four files for each input data file.
+      output five files for each input data file.
       </p>
       <p><code> topfd spectra1.mzML spectra2.mzML </code></p>
 
@@ -470,7 +476,8 @@
       <a target="_blank" href="example_files/common_mods.txt">example file</a>.</p>
 
       <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
-      <p>Set the score threshold (MIScore) for filtering results of PTM
+      <p>Set the MIScore threshold (see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5359983/">paper</a>)
+      for filtering results of PTM
       characterization. Default value: 0.15.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
@@ -976,7 +983,8 @@
       <a target="_blank" href="example_files/common_mods.txt">example file</a>.</p>
 
       <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
-      <p>Set the score threshold (MIScore) for filtering results of PTM
+      <p>Set the score threshold (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5359983/">MIScore</a>)
+      for filtering results of PTM
       characterization. Default value: 0.45.</p>
 
       <p><code>-x [ --no-topfd-feature ]</code></p>
