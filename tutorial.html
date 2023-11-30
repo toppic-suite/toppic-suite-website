@@ -251,11 +251,13 @@
               style="border: #00008B 1px solid;"/>
       </p>
 
-      <p>TopFD reports eight text files and four folders.</p>
+      <p>TopFD reports ten text files and two folders.</p>
 	  
       <ol class="textList">
-        <li>Two msalign files containing deconvoluted MS/MS spectra:
+        <li>Four msalign files containing deconvoluted MS1 and MS/MS spectra:
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_2_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre></li>
         <li>Four text files containing LC-MS features:
           <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.feature</pre>
@@ -268,9 +270,6 @@
 		  <li>Two folders containing deconvoluted MS/MS spectra in the JavaScript format
 		    <pre>C:\toppic_tutorial\tutorial_1\st_1_html</pre>
 		    <pre>C:\toppic_tutorial\tutorial_1\st_2_html</pre></li>
-		  <li>Two folders containing a msalign file for MS1 spectra and a CSV file for its mzRT features 
-		    <pre>C:\toppic_tutorial\tutorial_1\st_1_file</pre>
-		    <pre>C:\toppic_tutorial\tutorial_1\st_2_file</pre></li>
       </ol>
       <p>
         The output files and folders can be downloaded
@@ -478,7 +477,10 @@
         <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
         <li>Input protein database file:
           <pre>C:\toppic_tutorial\tutorial_1\uniprot-st.fasta</pre></li>
-        <li>Input MS/MS msalign files: <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
+        <li>Input MS1 and MS/MS msalign files: 
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_2_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre>
         </li>
         <li>Input feature files: 
@@ -525,7 +527,8 @@
         <li>A S. typhrimurium protein database file:
           <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre>
         </li>
-        <li> A deconvoluted MS/MS data file:
+        <li> A deconvoluted MS1 file and a MS/MS data file:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre>
         </li> 
         <li> Two MS feature file:
@@ -539,10 +542,6 @@
 		<li>
           A folder containing deconvoluted MS/MS spectra in the JavaScript format.
           <pre>C:\toppic_tutorial\tutorial_2\st_1_html</pre>
-        </li>
-		<li>
-          A folder containing a msalign file for MS1 spectra and a CSV file for its mzRT features 
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_file</pre>
         </li>
       </ul>
       <h4 class="sectionTitle">5.2 Index file generation </h4>
@@ -642,15 +641,23 @@
 
         <h4>File locations</h4>
         <ol class="textList">
-          <li>Executable file: <pre>C:\toppic_tutorial\toppic\topmg.exe</pre></li>
-          <li>Input protein database file:
-            <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre></li>
-          <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre></li>
-          <li>MS feature files:
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.feature</pre>
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
+          <li>Executable file: 
+            <pre>C:\toppic_tutorial\toppic\topmg.exe</pre>
           </li>
-          <li>Variable PTM list: <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre></li>
+          <li>Input protein database file:
+            <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre>
+          </li>
+          <li>Input MS1 and MS/MS msalign files: 
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.msalign</pre>
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre>
+          </li>
+          <li>MS feature files:
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.feature</pre>
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
+          </li>
+          <li>Variable PTM list: 
+            <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre>
+          </li>
         </ol>
         <h4>Commands</h4>
         <div class="command-container" id="cmd5Container">
@@ -700,8 +707,10 @@
         <li>E.coli protein database file:
           <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre>
         </li>
-        <li> Two deconvoluted MS/MS data files:
+        <li> Four deconvoluted MS1 and MS/MS data files:
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
         </li> 
 		<li> Four deconvoluted LC-MS feature files:
@@ -718,11 +727,6 @@
           Two folders containing deconvoluted MS/MS spectra in the JavaScript format.
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html</pre>
-        </li>
-		<li>
-          Two folders containing a msalign file for MS1 spectra and a CSV file for its mzRT features 
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_file</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_file</pre>
         </li>
       </ul>
 
