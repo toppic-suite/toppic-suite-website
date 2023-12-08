@@ -269,8 +269,8 @@
 			<pre>C:\toppic_tutorial\tutorial_1\st_1_feature.xml</pre>
 			<pre>C:\toppic_tutorial\tutorial_1\st_2_feature.xml</pre></li>
 		  <li>Two folders containing deconvoluted MS/MS spectra in the JavaScript format
-		    <pre>C:\toppic_tutorial\tutorial_1\st_1_html</pre>
-		    <pre>C:\toppic_tutorial\tutorial_1\st_2_html</pre>
+		    <pre>C:\toppic_tutorial\tutorial_1\st_1_html\topfd</pre>
+		    <pre>C:\toppic_tutorial\tutorial_1\st_2_html\topfd</pre>
       </li>
       <p>
         The output files and folders can be downloaded
@@ -476,8 +476,14 @@
       <ol class="textList">
         <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
         <li>Input protein database file:
-          <pre>C:\toppic_tutorial\tutorial_1\uniprot-st.fasta</pre></li>
-        <li>Input MS/MS msalign files: <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\uniprot-st.fasta</pre>
+        </li>
+        <li>Input MS1 msalign files: 
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms1.msalign</pre>
+          <pre>C:\toppic_tutorial\tutorial_1\st_2_ms1.msalign</pre>
+        </li>
+        <li>Input MS/MS msalign files: 
+          <pre>C:\toppic_tutorial\tutorial_1\st_1_ms2.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_1\st_2_ms2.msalign</pre>
         </li>
         <li>Input feature files: 
@@ -524,6 +530,9 @@
         <li>A S. typhrimurium protein database file:
           <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre>
         </li>
+        <li> A deconvoluted MS1 data file:
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.msalign</pre>
+        </li> 
         <li> A deconvoluted MS/MS data file:
           <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre>
         </li> 
@@ -533,15 +542,11 @@
         </li>
         <li>
           A text file containing a variable PTM: oxidation on methionine.
-          <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre>
+          <pre>C:\toppic_tutorial\tutorial_2\var_mods.txt</pre>
         </li>
 		<li>
           A folder containing deconvoluted MS/MS spectra in the JavaScript format.
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_html</pre>
-        </li>
-		<li>
-          A folder containing a msalign file for MS1 spectra and a CSV file for its mzRT features 
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_file</pre>
+          <pre>C:\toppic_tutorial\tutorial_2\st_1_html\topfd</pre>
         </li>
       </ul>
       <h4 class="sectionTitle">5.2 Index file generation </h4>
@@ -641,15 +646,25 @@
 
         <h4>File locations</h4>
         <ol class="textList">
-          <li>Executable file: <pre>C:\toppic_tutorial\toppic\topmg.exe</pre></li>
-          <li>Input protein database file:
-            <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre></li>
-          <li>Input MS/MS msalign file: <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre></li>
-          <li>MS feature files:
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.feature</pre>
-          <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
+          <li>Executable file: 
+            <pre>C:\toppic_tutorial\toppic\topmg.exe</pre>
           </li>
-          <li>Variable PTM list: <pre>C:\toppic_tutorial\tutorial_2\variable_mods.txt</pre></li>
+          <li>Input protein database file:
+            <pre>C:\toppic_tutorial\tutorial_2\uniprot-st.fasta</pre>
+          </li>
+          <li>Input MS1 msalign file: 
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.msalign</pre>
+          </li>
+          <li>Input MS/MS msalign file: 
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.msalign</pre>
+          </li>
+          <li>MS feature files:
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms1.feature</pre>
+            <pre>C:\toppic_tutorial\tutorial_2\st_1_ms2.feature</pre>
+          </li>
+          <li>Variable PTM list: 
+            <pre>C:\toppic_tutorial\tutorial_2\var_mods.txt</pre>
+          </li>
         </ol>
         <h4>Commands</h4>
         <div class="command-container" id="cmd5Container">
@@ -699,6 +714,10 @@
         <li>E.coli protein database file:
           <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre>
         </li>
+        <li> Two mzML files:
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_mzML</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_mzML</pre>
+        </li> 
         <li> Two deconvoluted MS1 data files:
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.msalign</pre>
           <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.msalign</pre>
@@ -719,8 +738,8 @@
         </li> 
         <li>
           Two folders containing deconvoluted MS/MS spectra in the JavaScript format.
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html</pre>
-          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_html\topfd</pre>
+          <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_html\topfd</pre>
         </li>
       </ul>
 
@@ -850,16 +869,22 @@
         <ol class="textList">
           <li>Executable file: <pre>C:\toppic_tutorial\toppic\toppic.exe</pre></li>
           <li>Input protein database file:
-            <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre></li>
+            <pre>C:\toppic_tutorial\tutorial_3\uniprot-ecoli.fasta</pre>
+          </li>
+          <li>MS1 msalign files: 
+            <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.msalign</pre>
+            <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.msalign</pre>
+          </li>
           <li>MS/MS msalign files: 
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre></li>
+		        <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.msalign</pre>
+		        <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.msalign</pre>
+          </li>
           <li>LC-MS feature files: 
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
-		  <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
-		  </li>
+		        <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms1.feature</pre>
+		        <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms1.feature</pre>
+		        <pre>C:\toppic_tutorial\tutorial_3\ecoli_1_ms2.feature</pre>
+		        <pre>C:\toppic_tutorial\tutorial_3\ecoli_2_ms2.feature</pre>
+		      </li>
         </ol>
         <h4>Commands</h4>
         <div class="command-container" id="cmd7Container">
