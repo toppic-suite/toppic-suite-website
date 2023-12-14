@@ -204,10 +204,12 @@
       <p><code> topfd -o spectra.mzML </code></p>
 
       <p>
-      Deconvolute a centroid data file spectra.mzML with a precursor isolation
-      window size of 2 m/z.  
+      Deconvolute a centroid data file spectra.mzML. In proteoform feature
+      identification, each proteoform feature is required to be detected in at
+      least one MS1 scan and the ECScore cutoff is set to 0.2. 
+      This settings will increase the number of reported proteoform features.   
       </p>
-      <p><code> topfd -w 2 spectra.mzML </code></p>
+      <p><code> topfd -t 0.2 -b 1 spectra.mzML </code></p>
 
       <p>
       Deconvolute a centroid data file spectra.mzML with a signal/noise ratio 2 for MS1 spectra. 
