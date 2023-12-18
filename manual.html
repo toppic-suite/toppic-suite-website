@@ -58,16 +58,16 @@
       <p>The input of TopFD is mass spectrometry data
       files in the mzML format. Raw mass spectral data generated from various mass spectrometers
       can be converted to mzML files using <a target="_blank"
-                                                       href="https://proteowizard.sourceforge.io/tools/msconvert.html">msconvert</a>.
+      href="https://proteowizard.sourceforge.io/tools/msconvert.html">msconvert</a>.
 
 
       <h4>2.2 Output</h4>
       <p>TopFD outputs two LC-MS feature text files with a file extension "<b>feature</b>", 
       one LC-MS feature file with a file extension "<b>xml</b>", 
-      and two deconvoluted mass spectral data file for MS/MS spectra in the msalign 
+      and two deconvoluted mass spectral data files in the msalign 
       format with a file extension "<b>msalign</b>", which is similar to the MGF file format. 
-      In addition, TopFD creates a folder containing JavaScript files of
-      spectral data for spectral visualization.</p>
+      In addition, TopFD creates a folder containing JavaScript files 
+      for spectral visualization.</p>
       
       <p>
       For example, when the input file name is <b>spectra.mzML</b>, the output includes: 
@@ -79,8 +79,7 @@
         <li><b>spectra_feature.xml</b>: a feature file containing LC-MS features in the xml format.</li>
         <li><b>spectra_ms1.msalign</b>: a list of deconvoluted MS1 spectra.</li>
         <li><b>spectra_ms2.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
-        <li><b>spectra_html</b>: a folder containing JavaScript files of MS1
-        and MS/MS data for spectral visualization.</li>
+        <li><b>spectra_html</b>: a folder containing JavaScript files for MS1 and MS/MS spectral visualization.</li>
 
       </ul>
 
@@ -94,10 +93,9 @@
       <p><code>-h [ --help ]</code></p>
       <p>Print the help message.</p>
 
-      <p><code>-a [ --activation ] &lt;CID|HCD|ETD|UVPD|FILE&gt;</code></p>
+      <p><code>-a [ --activation ] &lt;CID|ETD|HCD|MPD|UVPD|FILE&gt;</code></p>
       <p>Set the fragmentation method(s) of MS/MS spectra. When "FILE" is
-      selected, 
-      the fragmentation methods of spectra are given in the input spectrum data
+      selected, the fragmentation methods of spectra are given in the input spectrum data
       file. Default value: FILE.</p>
       
       <p><code>-c [ --max-charge ] &lt;a positive integer&gt;</code></p>
@@ -117,38 +115,67 @@
       <p><code>-s [ --ms-two-sn-ratio ] &lt;a positive number&gt;</code></p>
       <p>Set the signal/noise ratio for MS/MS spectra. The default value is 1.</p>
 
+      <p><code>-o [ --missing-level-one ]</code></p>
+      <p>Specify that the input file does not contain MS1 spectra.</p>
+
+      <p><code>-n [ --msdeconv ]</code></p>
+      <p>Use the MS-Deconv score 
+      (see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3101958/">paper</a>)
+      to rank isotopic envelopes.
+      If -n is not selected, the default EnvCNN score 
+      (see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7341906/">paper</a>)
+      is used to rank isotopic envelopes.
+      </p>
+
       <p><code>-w [ --precursor-window ] &lt;a positive number&gt;</code></p>
       <p>Set the precursor isolation window size. The default value is 3.0 m/z.
       When the input file contains the information of precursor windows, the 
       parameter will be ignored.
       </p>
 
-      <p><code>-n [ --msdeconv ]</code></p>
-      <p>Use the MS-Deconv score to rank isotopic envelopes. 
+      <p><code>-t [ --ecscore-cutoff ] &lt;a positive number in [0, 1]&gt;</code></p>
+      <p>Set the ECScore cutoff value for proteoform features. Default value is 0.5.
       </p>
 
-      <p><code>-o [ --missing-level-one ]</code></p>
-      <p>Specify that the input file does not contain MS1 spectra.</p>
+      <p><code>-b [ --min-scan-number ] &lt;1|2|3&gt;</code></p>
+      <p>The minimum number of MS1 scans in which a proteoform feature is detected.
+        The default value is 3. 
+      </p>
+
+      <p><code>-i [ --single-scan-noise ]</code></p>
+      <p>Use the peak intensity noise levels in single MS1 scans to filter out low 
+        intensity peaks in proteoform feature detection. The default method is to use 
+        the peak intensity noise level of the whole LC-MS map to filter out low 
+        intensity peaks.  
+      </p>
+
+      <p><code>-f [ --additional-feature-search ]</code></p>
+      <p>Perform additional feature search for MS/MS scans that do not have
+      detected proteoform features in their precursor isolation windows. In
+      additional search, the signal noise ratio is set to 0, the mininum scan
+      number is set to 1, and the ecscore cutoff is set to 0.  
+      </p>
+
+	    <p><code>-d [ --disable-final-filtering ] </code></p>
+      <p>Skip the final filtering of isotopic envelopes in MS/MS spectra.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p>
       <p>Number of CPU threads used in spectral deconvolution. Default value: 1.</p>
 
       <p><code>-g [ --skip-html-folder ] </code></p>
-      <p>Skip generation of HTML files for visualization.</p>
-	  
-	  <p><code>-d [ --disable-final-filtering ] </code></p>
-      <p>Skip final filtering of envelopes.</p>
+      <p>Skip the generation of HTML files for visualization.</p>
 
       <h4>Examples</h4>
       <p>
-      Deconvolute a centroid data file spectra.mzML and output four files:
-      spectra_ms2.msalign, spectra_ms1.feature, spectra_ms2.feature, spectra_feature.xml.
+      Deconvolute a centroid data file spectra.mzML and output five files:
+      spectra_ms1.feature, spectra_ms2.feature, spectra_feature.xml,
+      spectra_ms1.msalign, and spectra_ms2.msalign.
       </p>
       <p><code> topfd spectra.mzML </code></p>
 
       <p>
       Deconvolute two centroid data files spectra1.mzML and spectra2.mzML and 
-      output four files for each input data file.
+      output five files for each input data file.
       </p>
       <p><code> topfd spectra1.mzML spectra2.mzML </code></p>
 
@@ -177,10 +204,12 @@
       <p><code> topfd -o spectra.mzML </code></p>
 
       <p>
-      Deconvolute a centroid data file spectra.mzML with a precursor isolation
-      window size of 2 m/z.  
+      Deconvolute a centroid data file spectra.mzML. In proteoform feature
+      identification, each proteoform feature is required to be detected in at
+      least one MS1 scan and the ECScore cutoff is set to 0.2. 
+      This settings will increase the number of reported proteoform features.   
       </p>
-      <p><code> topfd -w 2 spectra.mzML </code></p>
+      <p><code> topfd -t 0.2 -b 1 spectra.mzML </code></p>
 
       <p>
       Deconvolute a centroid data file spectra.mzML with a signal/noise ratio 2 for MS1 spectra. 
@@ -426,12 +455,11 @@
       proteoform-level FDRs.
       When -d is chosen, a shuffled decoy database is automatically
       generated and appended to the target database before database search, and
-      FDR rates are estimated using the target-decoy approach.</p>
+      FDRs are estimated using the target-decoy approach.</p>
 
       <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p>
       <p>Set the error tolerance for precursor and fragment masses in part-per-million
-      (ppm). Default value: 10. When the lookup table approach (<code>-l</code>) is used
-      for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm.</p>
+      (ppm). Default value: 10.</p>
 
 	    <p><code>-p [ --proteoform-error-tolerance ]  &lt;a positive number&gt;</code></p>
       <p>Set the error tolerance for identifying PrSM clusters (in Dalton). Default value: 1.2 Dalton.</p>
@@ -470,14 +498,12 @@
       <a target="_blank" href="example_files/common_mods.txt">example file</a>.</p>
 
       <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
-      <p>Set the score threshold (MIScore) for filtering results of PTM
+      <p>Set the MIScore threshold (see <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5359983/">paper</a>)
+      for filtering results of PTM
       characterization. Default value: 0.15.</p>
 
       <p><code>-u [ --thread-number ] &lt;a positive number&gt;</code></p>
       <p>Set the number of threads used in the computation. Default value: 1.</p>
-
-      <p><code>-x [ --no-topfd-feature ]</code></p>
-      <p>Specify that there are no TopFD feature files for proteoform identification.</p>
 
       <p><code>-r [ --num-combined-spectra ] &lt;a positive integer&gt;</code></p>
       <p>Set the number of combined spectra. The parameter is set to 2 (or 3)
@@ -487,6 +513,9 @@
       <p><code>-c [ --combined-file-name ] &lt;a filename&gt;</code></p>
       <p>Specify an output file name for combined identifications when the input
       consists of multiple data files.</p>
+
+      <p><code>-x [ --no-topfd-feature ]</code></p>
+      <p>Specify that there are no TopFD feature files for proteoform identification.</p>
 
       <p><code>-k [ --keep-temp-files ]</code></p>  
       <p>Keep intermediate files. 
@@ -867,7 +896,7 @@
 
       <h4>6.1 Input</h4>
       <ul>
-        <li>Proteoform identification files of the mass spectrum data files 
+        <li>Proteoform identification files  
         in the XML format, e.g., spectra_ms2_toppic_proteoform.xml </li>
       </ul>
 
@@ -910,116 +939,6 @@
       </p>
       <p><code> topdiff -t topmg spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
 
-      <!--
-      <h3>7 TopMerge</h3>
-
-      <h4>7.1 Input</h4>
-      <ul>
-        <li>A protein database file in the FASTA format</li>
-        <li>Several mass spectrum data files in the msalign format</li>
-        <li>Proteoform identification files of the mass spectrum data files 
-          in the XML format, e.g., spectra_ms2_toppic_proteoform.xml </li>
-        <li>Feature files containing LC-MS features, and MS/MS scan IDs and their
-          corresponding LC-MS feature IDs. format, e.g., spectra_ms1.feature, spectra_ms2.feature </li>
-      </ul>
-
-      <h4>7.2 Output</h4>
-      <p>TopMerge combines proteoform identifications and features from all input files to
-        create a single output file for each file type (tsv, xml, feature).
-      
-      <h4>6.3 Command line usage</h4>
-      <p>To run TopMerge, open a terminal window and run the following command.</p>
-      <p><code>topmerge [options] database-file-name spectrum-file-name-1 spectrum-file-name-2 spectrum-file-name-3-or-more</code></p>
-
-      <h4>Options</h4>
-      <p><code>-h [ --help ]</code></p>
-      <p>Print the help message.</p>
-
-      <p><code>-d [ --decoy ]</code></p>
-      <p>Use a shuffled decoy protein database to estimate spectrum and
-      proteoform level FDRs.</p>
-
-      <p><code>-e [ --mass-error-tolerance ] &lt;a positive integer&gt;</code></p>
-      <p>Set the error tolerance for precursor and fragment masses in part-per-million
-      (ppm). Default value: 15. When the lookup table approach (<code>-l</code>) is used
-      for E-value estimation, valid error tolerance values are 5, 10, and 15 ppm.</p>
-
-	    <p><code>-p [ --proteoform-error-tolerance ]  &lt;a positive number&gt;</code></p>
-      <p>Set the error tolerance for identifying PrSM clusters (in Dalton). Default value: 1.2 Dalton.</p>
-
-      <p><code>-M [ --max-shift ]  &lt;a number&gt;</code></p>
-      <p>Set the maximum value for unexpected mass shifts (in Dalton).
-      Default value: 500 Dalton.</p>
-
-      <p><code>-m [ --min-shift ]  &lt;a number&gt;</code></p>
-      <p>Se the minimum value for unexpected mass shifts (in Dalton). 
-      Default value: -500 Dalton.</p>
-
-      <p><code>-t [ --spectrum-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
-      <p>Set the spectrum-level cutoff type for filtering PrSMs. Default value: EVALUE.</p>
-
-      <p><code>-v [ --spectrum-cutoff-value ] &lt;a positive number&gt;</code></p>
-      <p>Set the spectrum-level cutoff value for filtering PrSMs. Default value: 0.01.</p>
-
-      <p><code>-T [ --proteoform-cutoff-type ] &lt;EVALUE|FDR&gt;</code></p>
-      <p>Set the proteoform-level cutoff type for filtering proteoforms and
-      PrSMs. Default value: EVALUE.</p>
-
-      <p><code>-V [ --proteoform-cutoff-value ] &lt;a positive number&gt;</code></p>
-      <p>Set the proteoform-level cutoff value for filtering proteoforms and
-      PrSMs. Default value: 0.01.</p>
-
-      <p><code>-i [ --mod-file-name ] &lt;a common modification file&gt; </code></p>
-      <p>Specify a text file containing a list of common PTMs for proteoform
-      characterization. The PTMs are used to identify and localize PTMs in
-      reported PrSMs with unknown mass shifts. See an 
-      <a target="_blank" href="example_files/common_mods.txt">example file</a>.</p>
-
-      <p><code>-H [ --miscore-threshold ] &lt;a number between 0 and 1&gt;</code></p>
-      <p>Set the score threshold (MIScore) for filtering results of PTM
-      characterization. Default value: 0.45.</p>
-
-      <p><code>-x [ --no-topfd-feature ]</code></p>
-      <p>Specify that there are no TopFD feature files for proteoform identification.</p>
-
-      <p><code>-c [ --combined-file-name ] &lt;a filename&gt;</code></p>
-      <p>Specify an output file name for combined identifications when the input
-      consists of multiple data files.</p>
-
-      <p><code>-k [ --keep ]</code></p>  
-      <p>Keep intermediate files. 
-      </p> 
-
-      <p><code>-K [ --keep-decoy-ids ]</code></p>  
-      <p>Keep decoy identifications.
-      </p> 
-
-      <p><code>-g [ --skip-html-folder ] </code></p>
-      <p>Skip generating the folder for spectral visualization.</p>
-
-
-      <h4>Examples</h4>
-      <p> Merge identification results from two spectrum files spectra1_ms2.msalign and spectra2_ms2.msalign. 
-      The protein sequence database file name is proteins.fasta.  
-      </p>
-      <p><code> topmerge proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
-
-      <p> Merge identification results from two spectrum files
-      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
-      database file name is proteins.fasta. Use the target decoy approach to compute spectrum level
-      and proteoform-level FDRs, filter identified proteoform
-      spectrum-matches by a 5% spectrum level FDR, and filter identified
-      proteoforms by a 5% proteoform-level FDR.</p>
-      </p>
-      <p><code> topmerge -d -t FDR -v 0.05 -T FDR -V 0.05 proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
-
-      <p> Merge identification results from two spectrum files
-      spectra1_ms2.msalign and spectra2_ms2.msalign. The protein sequence
-      database file name is proteins.fasta. Set the output file name as "merged." Skip generation of html folders . </p>
-      </p>
-      <p><code> topmerge -c merged -k proteins.fasta spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
-      -->
-      
     </div>
   </div>
 </div>
