@@ -22,8 +22,9 @@
 # UnimodID: unmimod id of the modification
 #   - Please use -1, if not in unimod
 #
-# Phosphorylation on Serine (S), Threonine (T), and Tyrosine (Y)
-# Phospho,79.966331,STY,any,21
+#
+#Example PTM: Phosphorylation on Serine (S), Threonine (T), and Tyrosine (Y)
+#Phospho,79.966331,STY,any,21
 
 # Oxidation on Methionine (M)
 Oxidation,15.994915,M,any,35
