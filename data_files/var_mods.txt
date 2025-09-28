@@ -26,7 +26,7 @@
 #Example PTM: Phosphorylation on Serine (S), Threonine (T), and Tyrosine (Y)
 #Phospho,79.966331,STY,any,21
 #
-#Example PMM: Acetylation on Lysine (K) and Arginine (R)
+#Example PTM: Acetylation on Lysine (K) and Arginine (R)
 #Acetyl,42.010565,KR,any,1
 
 # Oxidation on Methionine (M)
