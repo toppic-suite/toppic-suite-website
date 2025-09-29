@@ -14,7 +14,6 @@
 # 	- E.g. 15.994915 
 #
 # Residues: amino acids that can be modified
-# 	- Use * if this modification is applicable to all the 20 amino acids. 
 #
 # Position: positions in the protein where the modification can be attached. 
 # 	- Only one value can be used: 

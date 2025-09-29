@@ -106,7 +106,7 @@
 
         <p><code>-m [ --max-mass ] &lt;a positive number&gt;</code></p>
         <p>Set the maximum monoisotopic mass of precursor and fragment ions. The
-          default value is 70,000 Dalton.</p>
+          default value is 50,000 Dalton.</p>
 
         <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
         <p>Set the error tolerance of m/z values of spectral peaks. The default
@@ -164,15 +164,17 @@
           intensity peaks.
         </p>
 
-        <p><code>-f [ --additional-feature-search ]</code></p>
-        <p>Perform additional feature search for MS/MS scans that do not have
+        <p><code>-f [ --disable-additional-feature-search ]</code></p>
+        <p>Disable additional feature search for MS/MS scans that do not have
           detected proteoform features in their precursor isolation windows. In
           additional search, the signal noise ratio is set to 0, the mininum scan
           number is set to 1, and the ecscore cutoff is set to 0.
         </p>
 
-        <p><code>-d [ --disable-final-filtering ] </code></p>
-        <p>Skip the final filtering of isotopic envelopes in MS/MS spectra.</p>
+        <p><code>-l [ --split-intensity-ratio ] &lt;a positive number&gt;</code></p>  
+        <p>Set the intensity ratio required to split one feature
+          from another. The default value is 2.5.
+        </p>
 
         <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p>
         <p>Number of CPU threads used in spectral deconvolution. Default value: 1.</p>
@@ -444,6 +446,17 @@
           are allowed, they are separated by commas. Default value:
           NONE,M_ACETYLATION,NME,NME_ACETYLATION.</p>
 
+        <p><code>-R [ --proteoform-type ] &lt;a list of allowed types of proteoforms&gt;</code></p>
+        <p>Set the allowed types of proteoforms. Four types of proteoforms
+          can be selected: COMPLETE, PREFIX, SUFFIX, and INTERNAL. COMPLETE stands
+          for proteoforms that cover the complete sequence of a protein (NME is allowed),
+          PREFIX for proteoforms that cover the N-terminal part of a protein, SUFFIX
+          for proteoforms that cover the C-terminal part of a protein, and
+          INTERNAL for proteoforms that cover an internal part of a protein. When
+          multiple types are allowed, they are separated by commas. Default value:
+          COMPLETE,PREFIX,SUFFIX,INTERNAL.</p>
+
+
         <p><code>-s [ --num-shift ] &lt;0|1|2&gt;</code></p>
         <p>The maximum number of unexpected mass shifts in a PrSM. Default value: 1.</p>
 
@@ -499,12 +512,6 @@
           (see this <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5825287/">paper</a> for
           details).
         </p>
-
-        <p><code>-l [ --lookup-table ]</code></p>
-        <p>Use a lookup table method for computing E-values.
-          It is faster than the default generating function approach, but it
-          may reduce the number of identifications.</p>
-
 
         <p><code>-B [ --local-ptm-file-name ] &lt;a common modification file&gt; </code></p>
         <p>Specify a text file containing a list of common PTMs for proteoform
@@ -571,6 +578,12 @@
           protein database file proteins.fasta with a feature file
           and a fixed modification: carbamidomethylation on cysteine. </p>
         <p><code> toppic -f C57 proteins.fasta spectra_ms2.msalign </code></p>
+
+        <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against a
+          protein database file proteins.fasta with a feature file
+          spectra_ms2.feature. Only complete and prefix proteoforms are considered in the search.
+        </p>
+        <p><code> toppic proteins.fasta -R COMPLETE,PREFIX spectra_ms2.msalign </code></p>
 
         <p> Search a deconvoluted MS/MS spectrum file spectra_ms2.msalign against
           a protein database file proteins.fasta with a feature file.
@@ -811,7 +824,7 @@
           for more details.
         </p>
 
-        <p><code>-P [ --var-ptm ] &lt;a positive number&gt;</code></p>
+        <p><code>-P [ --var-ptm ] &lt;a positive integer&gt;</code></p>
         <p>Set the maximum number of variable PTM sites in a proteoform. Default value: 5.</p>
 
         <p><code>-s [ --num-shift  &lt;0|1|2&gt;</code></p>
@@ -837,7 +850,7 @@
         <p>Skip the generation of HTML files for visualization.</p>
 
         <h4>Advanced options</h4>
-        <p><code>-j [ --proteo-graph-dis ] &lt;a positive number&gt;</code></p>
+        <p><code>-j [ --proteo-graph-dis ] &lt;a positive integer&gt;</code></p>
         <p>Set the length of the largest gap in constructing proteoform graphs. Default value: 40.
           See
           <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/28453668">this paper</a>
@@ -845,7 +858,7 @@
         </p>
         </p>
 
-        <p><code>-G [ --var-ptm-in-gap ] &lt;a positive number&gt;</code></p>
+        <p><code>-G [ --var-ptm-in-gap ] &lt;a positive integer&gt;</code></p>
         <p>Set the maximum number of variable PTM sites in a gap in a proteoform graph. Default value: 5.
           See
           <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/28453668">this paper</a>
@@ -964,7 +977,7 @@
         <p><code> topdiff -t topmg spectra1_ms2.msalign spectra2_ms2.msalign </code></p>
 
 
-        <h3>7. TopDIA Manual</h3>
+        <h3>7 TopDIA</h3>
         <h4>7.1 Input</h4>
         <p>The input of TopDIA is mass spectrometry data files in the mzML format.
           Raw mass spectral data generated from various mass spectrometers
@@ -1008,7 +1021,7 @@
         <p>Set the maximum charge state of precursor and fragment ions. The default value is 30.</p>
         <p><code>-m [ --max-mass ] &lt;a positive number&gt;</code></p>
         <p>Set the maximum monoisotopic mass of precursor and fragment ions. The
-          default value is 70,000 Dalton.
+          default value is 50,000 Dalton.
         </p>
         <p><code>-e [ --mz-error ] &lt;a positive number&gt;</code></p>
         <p>Set the error tolerance of m/z values of spectral peaks. The default
@@ -1065,8 +1078,9 @@
         <p><code>-V [ --pseudo-peak-number ] </code></p>
         <p>The minimum number of peaks in pseudo-MS/MS spectrum. The default value is 25.
         </p>
-        <p><code>-d [ --disable-final-filtering ] </code></p>
-        <p>Skip the final filtering of isotopic envelopes in MS/MS spectra.</p>
+        <p><code>-d [ --disable-frag-num-filtering ]</code></p>
+        <p>Skip the filtering of fragment ion envelopes in MS/MS scans that is based on the estimated number of fragment ions.
+        </p>
         <p><code>-u [ --thread-number ] &lt;a positive integer&gt;</code></p>
         <p>Number of CPU threads used in spectral deconvolution. Default value: 1.</p>
         <p><code>-g [ --skip-html-folder ] </code></p>
@@ -1083,30 +1097,6 @@
           least one MS1 scan and the ECScore cutoff for proteoform features is set to 0.2.
         </p>
         <p><code> topdia -t 0.2 -b 1 spectra.mzML </code></p>
-        <br />
-        <hr>
-        <h3>Use TopDIA to analyze <i> E. coli</i> data</h3>
-        <p>
-          For example, to analyze DIA-MS data file covering m/z range [720, 800] for DIA-Test-Replicate-1, process mzML
-          file with the following settings:
-          the maximum charge state: 60, and use single scan noise intensity during proteoform and fragment feature
-          extraction
-        </p>
-        <p><code> topdia -c 60 -i 20231117_DIA_720_800_rep2.mzML </code>
-        </p>
-        <br />
-        <p>
-          This will generate <b>20231117_DIA_720_800_rep2_pseudo_ms2.msalign</b> file which will be used by <a
-            href="https://www.toppic.org/software/toppic/manual.html">TopPIC</a> for proteoform identification using the
-          following parameters:
-          no TopFD feature files, use a shuffled decoy protein database to estimate spectrum and proteoform level FDRs,
-          a text file containing the information of varaible PTMs and an <i>E. coli</i> protein database.
-        </p>
-        <p>
-          <code> toppic -x -d -t FDR -T FDR -b <a href="https://wavetulane-my.sharepoint.com/:t:/g/personal/xwliu_tulane_edu/EWR61o1ZBr5DlFV1fv2_504BfGdgFxFhPpoFbPubuqvZNg?e=F5fZeB">var_mods.txt</a> <a href="https://wavetulane-my.sharepoint.com/:u:/g/personal/xwliu_tulane_edu/EU7TSO4bmv9EkpMAlFF3hZIB3Y4pSd3__pVumB8n72peAg?e=DkeFdB">Ecoli.fasta</a> <a href="https://wavetulane-my.sharepoint.com/:u:/g/personal/xwliu_tulane_edu/Ec72gwEuUvRKu6TN_uHKew4BKdd5VQznyV6S0QxToA4mNg?e=G3MEQp">20231117_DIA_720_800_rep2_pseudo_ms2.msalign</a> </code>
-        </p>
-
-
       </div>
     </div>
   </div>
