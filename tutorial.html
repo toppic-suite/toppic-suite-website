@@ -1028,31 +1028,66 @@
           <p><img src="./images/topdia_1.png" height="400" width="600" style="border: #00008B 1px solid;" />
           </p>
 
-          <p>TopDIA reports ??? text files.</p>
+          <p>TopDIA reports 2 output files for each isolation
+            window. In the data file, a total of 20
+            isolation windows are used: [800, 804], [804, 808], ..., [876, 880]. 
+            For example, the output files for the isolation window [800, 804]
+            are:
+          <ol class="textList">
+            <li>A tsv file containing MS/MS features:
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_800.000000_ms2.csv</pre>
+            </li>
+            <li>A csv file containing MS/MS features in the BatMass feature
+              format:
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_800.000000_frac_ms2.mzrt.csv</pre>
+            </li>
+          </ol>
+            
+          </p>
+
+          <p>In addition, TopDIA reports the following output files for the MS data file.</p>
 
           <ol class="textList">
             <li>A msalign file containing deconvoluted MS1 spectra:
-              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_1_ms1.msalign</pre>
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms1.msalign</pre>
             </li>
-            <li>A msalign file containing deconvoluted MS/MS spectra:
+            <li>A msalign file containing pseudo MS/MS spectra:
               <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms2.msalign</pre>
             </li>
-            <li>Two text files containing LC-MS features:
-              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms1.feature</pre>
-              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms2.feature</pre>
+            <li>A tsv file containing LC-MS features:
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms1.csv</pre>
             </li>
-            <li>An XML files containing LC-MS features:
+            <li>A csv file containing LC-MS features in the BatMass feature
+              format:
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_frac_ms1.mzrt.feature</pre>
+            </li>
+            <li>A file containing LC-MS features in the xml format:
               <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_feature.xml</pre>
             </li>
-            <p>
+            <li>A text file containg LC-MS features: 
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms1.feature</pre>
+            </li>
+            <li>A text file containg MS/MS features: 
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms2.feature</pre>
+            </li>
+            <li>A msalign file containg spectral deconvolution results of MS/MS
+              spectra: 
+              <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms2_raw.msalign</pre>
+            </li>
+            <li>A folder containing deconvoluted spectra in the JavaScript format
+              <pre>C:\toppic_tutorial\tutorial_1\ecoli_800_880_html</pre>
+            </li>
+
+          </ol>
+          <p>
+          <p>
               The output files and folders can be downloaded
               <a href="./data_files/tutorial-4-msalign.zip">here</a>.
-            </p>
-          </ol>
+          </p>
 
           <h4 class="sectionTitle">7.4 Proteoform identification using TopPIC</h4>
           <p>We use <b>toppic_gui</b> to search the MS/MS spectra in
-            <code>ecoli_800_880_pseudo_ms2.msalign</code>
+            <code>ecoli_800_880_ms2.msalign</code>
             against the protein database <code>uniprot-ecoli.fasta</code> to
             identify PrSMs.
           </p>
@@ -1064,8 +1099,8 @@
               database file.</li>
             <li> Add <code>C:\toppic_tutorial\tutorial_4\ecoli_800_880_pseudo_ms2.msalign</code>
               as the mass spectrum data file. </li>
-            <li> Check the checkbox <code>MS1 feature is missing</code>. </li>
             <li> Check the checkbox <code>Decoy database</code>. </li>
+            <li> Check the checkbox <code>MS1 feature is missing</code>. </li>
             <li> Select <code>FDR</code> as the spectrum level cutoff type. </li>
             <li> Select <code>FDR</code> as the proteoform level cutoff type. </li>
             <li> Click to the button "Start"</li>
@@ -1074,15 +1109,21 @@
             The screenshots of <code>toppic_gui</code> are shown below.
           </p>
 
-          <p><img src="./images/toppic_topdia_1.png" height="400" width="600" style="border: #00008B 1px solid;" />
+          <p><img src="./images/tutorial_4_toppic_1.png" height="400" width="600" style="border: #00008B 1px solid;" />
           </p>
 
-          <p><img src="./images/toppic_topdia_2.png" height="400" width="600" style="border: #00008B 1px solid;" />
+          <p><img src="./images/tutorial_4_toppic_2.png" height="400" width="600" style="border: #00008B 1px solid;" />
           </p>
-          <p>The prsm identifications are stored in the file <code>ecoli_800_880_pseudo_prsm_single.tsv</code>, and
+          <p>The prsm identifications are stored in the file
+          <code>ecoli_800_880_ms2_prsm_single.tsv</code>, and
             the proteoform identifications are stored in the file
-            <code>ecoli_800_880_pseudo_protoeform_single.tsv</code>.
-            Detailed information of the output files of TopPIC can be found in Section 4.4.
+            <code>ecoli_800_880_ms2_protoeform_single.tsv</code>.
+            Detailed information of the output files of TopPIC can be found in
+            Section 4.5.
+          </p>
+          <p>
+              The output files and folders can be downloaded
+              <a href="./data_files/tutorial-4-id.zip">here</a>.
           </p>
 
           <h4 class="sectionTitle">7.5 Data analysis using the command line interface</h4>
@@ -1111,7 +1152,7 @@
             </div>
             <h3>7.5.3 Mass spectral identification using TopPIC</h4>
 
-              <p>We use <b>toppic</b> to search the MS/MS spectra in <code>ecoli_800_880_pseudo_ms2.msalign</code>
+              <p>We use <b>toppic</b> to search the MS/MS spectra in <code>ecoli_800_880_ms2.msalign</code>
                 against the protein database <code>uniprot-ecoli.fasta</code> to identify PrSMs.
               </p>
               <h4>File locations</h4>
@@ -1123,7 +1164,7 @@
                   <pre>C:\toppic_tutorial\tutorial_4\uniprot-ecoli.fasta</pre>
                 </li>
                 <li>Input MS/MS msalign files:
-                  <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_pseudo_ms2.msalign</pre>
+                  <pre>C:\toppic_tutorial\tutorial_4\ecoli_800_880_ms2.msalign</pre>
                 </li>
               </ol>
               <h4>Commands</h4>
@@ -1133,7 +1174,7 @@
               </div>
               <div class="command-container" id="cmd4Container">
                 <pre
-                  id="cmd4">..\toppic\toppic -d -t FDR -T FDR -x uniprot-ecoli.fasta ecoli_800_880_pseudo_ms2.msalign</pre>
+                  id="cmd4">..\toppic\toppic -x -d -t FDR -T FDR -x uniprot-ecoli.fasta ecoli_800_880_pseudo_ms2.msalign</pre>
                 <button class="copyBtn" onclick="copyToClipboard('cmd4')">Copy</button>
               </div>
             </div>
