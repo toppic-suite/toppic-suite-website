@@ -371,8 +371,7 @@
           TopPIC outputs four TSV files, two XML files, and a collection of HTML files for each input file.
           When a file name is specified for combined identifications, it combines
           spectra and proteoforms identified from all the input files, removes redundant proteoform
-          identifications, and reports
-          four TSV files, two XML files, and a collection of HTML files for the combined results.
+          identifications, and reports four TSV files and two XML files.
           For example, when the input is spectra1_ms2.msalign and spectra2_ms2.msalign and the combined
           output file name is "combined," the output files are:
 
@@ -406,6 +405,7 @@
             proteoform-level FDR cutoff.</li>
           <li><b>combined_ms2_toppic_prsm.xml</b>: an XML file containing
             all identified PrSMs without clustering and filtering.</li>
+	  <!---
           <li><b>combined_html/toppic_prsm_cutoff</b>: a folder containing
             JavaScript files of PrSMs identified from all the input files using
             the E-value or spectrum-level FDR cutoff.</li>
@@ -414,6 +414,7 @@
             E-value or proteoform-level FDR cutoff.</li>
           <li><b>combined_html/topmsv</b>: a folder containing
             HTML files for the visualization of identified PrSMs.</li>
+	    --->
         </ul>
 
         </p>
@@ -649,7 +650,7 @@
 
 
         <h4>5.2 Output</h4>
-        <p>TopMG outputs two TSV files, an XML file, and a collection of HTML files for identified
+        <p>TopMG outputs four TSV files, two XML files, and a collection of HTML files for identified
           proteoforms. For example, when the input mass spectrum data file is
           spectra_ms2.msalign, the output includes:
         <ul>
@@ -694,12 +695,11 @@
         <b>Google Chrome</b> is recommended (Firefox and Edge are not recommended).
         </p>
 
-        <p>When the input contains two or more spectrum files, TopMG outputs two
-          TSV files, an XML file, and a collection of HTML files for each input file.
+        <p>When the input contains two or more spectrum files, TopMG outputs four
+          TSV files, two XML files, and a collection of HTML files for each input file.
           When a file name is specified for combined identifications, it combines
           spectra and proteoforms identified from all the input files, removes redundant proteoform
-          identifications, and reports
-          two TSV files, an XML file, and a collection of HTML files for the combined results.
+          identifications, and reports four TSV files and two XML files.
 
           For example, when the input is spectra1_ms2.msalign and spectra2_ms2.msalign and the combined
           output file name is "combined," the output files are:
@@ -734,6 +734,7 @@
             proteoform-level FDR cutoff.</li>
           <li><b>combined_ms2_topmg_prsm.xml</b>: an XML file containing all identified PrSMs without clustering and
             filtering.</li>
+	  <!---
           <li><b>combined_html/topmg_prsm_cutoff</b>: a folder containing
             JavaScript files of PrSMs identified from all the input files using
             the E-value or spectrum-level FDR cutoff.</li>
@@ -742,6 +743,7 @@
             E-value or proteoform-level cutoff.</li>
           <li><b>combined_html/topmsv</b>: a folder containing
             HTML files for the visualization of identified PrSMs.</li>
+	    --->
         </ul>
 
         <h4>5.3 Command line usage</h4>
