@@ -991,10 +991,12 @@
             href="https://proteowizard.sourceforge.io/tools/msconvert.html">msconvert</a>.
         <h4>7.2 Output</h4>
         <p>TopDIA outputs LC-MS feature files for MS1 and MS/MS data with a file extension "<b>csv</b>",
-          and two deconvoluted mass spectral data files in the msalign
-          format with a file extension "<b>msalign</b>", which is similar to the MGF file format.
+          and a deconvoluted MS1 spectral data file in the msalign
+          format with a file name suffix <b>ms1.msalign</b>, which is similar to the MGF file format, 
+	  and a deconvoluted MS/MS spectral data file in the msalign format with a file 
+	  name suffix <b>ms2_raw.msalign</b>.
           In addition, TopDIA outputs pseudo-MS/MS spectral data in the msalign
-          format with a file extension "<b>pseudo_ms2.msalign</b>"
+          format with a file name suffix <b>ms2.msalign</b>.
         </p>
         <p>
           For example, when the input file name is <b>spectra.mzML</b>, the output includes:
@@ -1007,8 +1009,8 @@
           <li><b>spectra_<i>isolationWindow</i>_frac_ms2.mzrt.csv</b>: a feature file containing time and
             <i>m</i>/<i>z</i> coordinates of LC-MS/MS features from an isolation window.</li>
           <li><b>spectra_ms1.msalign</b>: a list of deconvoluted MS1 spectra.</li>
-          <li><b>spectra_ms2.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
-          <li><b>spectra_pseudo_ms2.msalign</b>: a list of deconvoluted non-multiplexed pseudo-MS/MS spectra.</li>
+          <li><b>spectra_ms2_raw.msalign</b>: a list of deconvoluted MS/MS spectra.</li>
+	  <li><b>spectra_ms2.msalign</b>: <b> a list of deconvoluted non-multiplexed pseudo-MS/MS spectra.</b></li>
           <li><b>spectra_html</b>: a folder containing JavaScript files for MS1 and MS/MS spectral visualization.</li>
         </ul>
         </p>
